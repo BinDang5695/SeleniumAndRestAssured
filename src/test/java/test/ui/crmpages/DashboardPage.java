@@ -19,10 +19,8 @@ public class DashboardPage extends BasePage {
         private By dashboardOptions = By.xpath("//div[@class='screen-options-btn']");
         private By allCheckboxDashboardOptions = By.xpath("//div[@id='dashboard-options']/div[contains(@class,'checkbox')]");
 
-        //span[normalize-space()='Not Started']/preceding-sibling::span
         public void verifyDashboardPage(String text1, String text2)
         {
-            WebUI.waitForPageLoaded();
             AssertHelper.assertTrue(WebUI.checkElementDisplayed(invoicesAwaitingPayment), "invoicesAwaitingPayment not display");
             AssertHelper.assertEquals(WebUI.getTextElement(invoicesAwaitingPayment), text1, "invoicesAwaitingPayment text not match");
             AssertHelper.assertTrue(WebUI.checkElementDisplayed(totalInvoicesAwaitingPayment), "totalInvoicesAwaitingPayment not display");

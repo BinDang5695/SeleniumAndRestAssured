@@ -1,8 +1,12 @@
 package test.ui.crmtestcases;
 
+import constants.CRM.*;
 import io.qameta.allure.*;
+import models.ui.Item;
 import org.testng.annotations.Test;
 import test.ui.common.BaseTest;
+import test.ui.testdata.ItemData;
+import static settings.keywords.WebUI.*;
 
 public class ItemsTest extends BaseTest {
 
@@ -16,17 +20,19 @@ public class ItemsTest extends BaseTest {
     @Description("Add new Item, verify and delete Item")
     @Test(priority = 0)
     public void manageItems() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuSales();
-        basePage().clickMenuItemsPage();
+        Item item = ItemData.getItem();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        clickMenuSales();
+        clickByMenuName(Menu.ITEMS);
         itemsPage().clickButtonImportItems();
-        itemsPage().importCSVFile();
+        itemsPage().importCSVFile(item);
         itemsPage().clickToImportCSVFile();
-        basePage().clickMenuSales();
-        basePage().clickMenuItemsPage();
-        itemsPage().searchAndVerifyItems();
-        itemsPage().deleteImportedItem();
-        headerPage().logout();
+        clickMenuSales();
+        clickByMenuName(Menu.ITEMS);
+        itemsPage().searchAndVerifyItems(item);
+        itemsPage().moveToTableDescription(item);
+        clickButtonDelete();
+        acceptAlert();
+        clickButtonX();
     }
 }

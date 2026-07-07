@@ -1,9 +1,16 @@
 package test.ui.crmtestcases;
 
+import constants.CRM.Menu;
+import models.ui.Contact;
+import models.ui.Customer;
 import test.ui.common.BaseTest;
 import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import test.ui.testdata.ContactData;
+import test.ui.testdata.CustomerData;
+
+import static settings.keywords.WebUI.acceptAlert;
 
 public class CustomerTest extends BaseTest {
 
@@ -17,27 +24,30 @@ public class CustomerTest extends BaseTest {
     @Description("Add new Customer, verify and delete Customer")
     @Test(priority = 0)
     public void manageCustomer() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuCustomers();
+        Customer customer = CustomerData.getCustomer();
+        Contact contact = ContactData.getContact();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        clickByMenuName(Menu.CUSTOMERS);
         int beforeTotal = customerPage().getTotalCustomers();
         customerPage().clickbuttonAddNewCustomer();
-        customerPage().addNewCustomer();
-        customerPage().verifyCustomerAdded();
-        basePage().clickTabContacts();
+        customerPage().addNewCustomer(customer);
+        customerPage().verifyCustomerAdded(customer);
+        clickByLinkText(Menu.CONTACTS);
         contactsPage().clickButtonNewContact();
-        contactsPage().addNewContact("Bin", "Dang");
-        contactsPage().verifyCreatedContact("Bin", "Dang");
-        customerPage().searchCustomer();
+        contactsPage().addNewContact(contact);
+        contactsPage().verifyCreatedContact();
+        contactsPage().clickCreatedContact(contact);
+        contactsPage().verifyCreatedContact(contact);
+        contactsPage().clickButtonClosePopup();
+        clickByMenuText(Menu.CUSTOMERS);
+        customerPage().searchCustomer(customer);
         int afterTotal = customerPage().getTotalCustomers();
         Assert.assertEquals(afterTotal, beforeTotal + 1, "Total customers should be increased by 1 after adding a new customer.");
-        customerPage().deleteCustomer();
-        customerPage().verifyCustomerDeleted();
-        headerPage().logout();
+        customerPage().moveToCompanyName(customer);
+        clickButtonDelete();
+        acceptAlert();
+        clickButtonX();
+        customerPage().verifyCustomerDeleted(customer);
     }
-
-
-
-
 
 }

@@ -1,8 +1,12 @@
 package test.ui.crmtestcases;
 
 import io.qameta.allure.*;
+import models.ui.Contract;
 import org.testng.annotations.Test;
 import test.ui.common.BaseTest;
+import test.ui.testdata.ContractData;
+import constants.CRM.Menu;
+import static settings.keywords.WebUI.*;
 
 public class ContractsTest extends BaseTest {
 
@@ -16,17 +20,20 @@ public class ContractsTest extends BaseTest {
     @Description("Add new Contract, verify and delete Contract")
     @Test(priority = 0)
     public void manageContract() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuContracts();
+        Contract contract = ContractData.getContract();
+        Contract updatedContract = ContractData.getUpdatedContract();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        clickByMenuName(Menu.CONTRACTS);
         contractsPage().clickButtonNewContract();
-        contractsPage().addNewContract();
-        contractsPage().verifyCreatedContract();
-        contractsPage().updateContract();
-        contractsPage().verifyUpdatedContract();
-        contractsPage().deleteContract();
-        basePage().clickMenuContracts();
-        contractsPage().verifyDeletedContract();
-        headerPage().logout();
+        contractsPage().addNewContract(contract);
+        contractsPage().verifyCreatedContract(contract);
+        contractsPage().updateContract(updatedContract);
+        contractsPage().verifyUpdatedContract(updatedContract);
+        clickDropdownMore();
+        clickButtonDelete();
+        acceptAlert();
+        clickButtonX();
+        clickByMenuName(Menu.CONTRACTS);
+        contractsPage().verifyDeletedContract(updatedContract);
     }
 }

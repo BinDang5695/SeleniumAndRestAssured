@@ -1,0 +1,59 @@
+{
+  "cookies" : [ {
+    "name" : "autologin",
+    "value" : "a%3A2%3A%7Bs%3A7%3A%22user_id%22%3Bs%3A1%3A%222%22%3Bs%3A3%3A%22key%22%3Bs%3A16%3A%226b1039af78843d2c%22%3B%7D",
+    "domain" : ".crm.anhtester.com",
+    "path" : "/",
+    "secure" : true,
+    "httpOnly" : false,
+    "expiry" : null,
+    "sameSite" : "Lax"
+  }, {
+    "name" : "autologin",
+    "value" : "a%3A2%3A%7Bs%3A7%3A%22user_id%22%3Bs%3A1%3A%222%22%3Bs%3A3%3A%22key%22%3Bs%3A16%3A%22c1a8e44f757a2c3f%22%3B%7D",
+    "domain" : "crm.anhtester.com",
+    "path" : "/",
+    "secure" : true,
+    "httpOnly" : false,
+    "expiry" : 1788690622000,
+    "sameSite" : "Lax"
+  }, {
+    "name" : "sp_session",
+    "value" : "c42fc732225ececa4f84960d6f61401bdb48649f",
+    "domain" : ".crm.anhtester.com",
+    "path" : "/",
+    "secure" : true,
+    "httpOnly" : true,
+    "expiry" : null,
+    "sameSite" : "Lax"
+  }, {
+    "name" : "sp_session",
+    "value" : "d7c646c40e9ed0a153ffd2f56986994a4940fe2e",
+    "domain" : "crm.anhtester.com",
+    "path" : "/",
+    "secure" : true,
+    "httpOnly" : true,
+    "expiry" : 1783362623000,
+    "sameSite" : "Lax"
+  }, {
+    "name" : "csrf_cookie_name",
+    "value" : "1ac7dbe1dac4fa41290c7f998ba25a91",
+    "domain" : "crm.anhtester.com",
+    "path" : "/",
+    "secure" : true,
+    "httpOnly" : true,
+    "expiry" : 1783337483000,
+    "sameSite" : "Lax"
+  }, {
+    "name" : "csrf_cookie_name",
+    "value" : "f7627bd1fa0647fbfdefaff765900f72",
+    "domain" : ".crm.anhtester.com",
+    "path" : "/",
+    "secure" : true,
+    "httpOnly" : true,
+    "expiry" : null,
+    "sameSite" : "Lax"
+  } ],
+  "localStorage" : { },
+  "sessionStorage" : { }
+}

@@ -46,6 +46,11 @@ public class ExtentTestManager {
     }
 
     public static void logMessage(Status status, String message) {
+
+        if (getTest() == null) {
+            return;
+        }
+
         getTest().log(status, message);
     }
 }

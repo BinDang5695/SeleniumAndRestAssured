@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import settings.helpers.PropertiesHelper;
+import settings.utils.LogUtils;
 
 import java.io.File;
 import java.util.HashMap;
@@ -72,7 +73,7 @@ public class DriverFactory {
                 return new FirefoxDriver(firefoxOptions);
 
             default:
-                System.out.println("❗ Unsupported browser: " + browserName + ", using Chrome by default.");
+                LogUtils.info("❗ Unsupported browser: " + browserName + ", using Chrome by default.");
                 return new ChromeDriver();
         }
     }

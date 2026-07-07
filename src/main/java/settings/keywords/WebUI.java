@@ -2,8 +2,6 @@ package settings.keywords;
 
 import settings.drivers.DriverManager;
 import settings.helpers.PropertiesHelper;
-import settings.helpers.SystemHelper;
-import settings.helpers.WaitHelper;
 import settings.reports.AllureManager;
 import settings.reports.ExtentTestManager;
 import settings.utils.LogUtils;
@@ -275,7 +273,6 @@ public class WebUI {
     public static String getTextElement(String locator) {
         By by;
 
-        // Tự detect dạng locator
         if (locator.startsWith("//") || locator.startsWith("(//")) {
             by = By.xpath(locator);
         } else {
@@ -283,6 +280,12 @@ public class WebUI {
         }
 
         return getTextElement(by);
+    }
+
+    public static boolean waitForText(By by, String expectedText) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+
+        return wait.until(ExpectedConditions.textToBe(by, expectedText));
     }
 
     @Step("Get attribute: {1} on element {0}")
@@ -379,17 +382,14 @@ public class WebUI {
         LogUtils.info("👉 File to upload: " + filePath);
 
         try {
-            // Step 1: Click vào input form
             LogUtils.info("🔘 Clicking on file upload element: " + elementFileForm);
             WebUI.clickElement(elementFileForm);
-            WaitHelper.sleep(10);
+            WebUI.sleep(5);
 
-            // Step 2: Copy file path vào clipboard
             LogUtils.info("📋 Copying file path to clipboard...");
             StringSelection str = new StringSelection(filePath);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
 
-            // Step 3: Dán vào hộp thoại chọn file
             LogUtils.info("⌨️  Pasting file path (CTRL + V)...");
             Robot rb = new Robot();
             rb.keyPress(KeyEvent.VK_CONTROL);
@@ -397,16 +397,14 @@ public class WebUI {
             rb.keyRelease(KeyEvent.VK_CONTROL);
             rb.keyRelease(KeyEvent.VK_V);
 
-            WaitHelper.sleep(10);
+            WebUI.sleep(5);
 
-            // Step 4: Nhấn Enter để xác nhận chọn file
             LogUtils.info("⏎ Pressing ENTER to confirm upload...");
             rb.keyPress(KeyEvent.VK_ENTER);
             rb.keyRelease(KeyEvent.VK_ENTER);
 
-            WaitHelper.sleep(10);
+            WebUI.sleep(5);
 
-            // Step 5: Kết thúc
             LogUtils.info("✅ File uploaded successfully.");
 
         } catch (AWTException e) {
@@ -460,6 +458,7 @@ public class WebUI {
 
     @Step("Move to element {0}")
     public static void moveToElement(By by) {
+        sleep(3);
         waitForElementVisible(by);
         Actions actions = new Actions(getDriver());
         actions.moveToElement(getDriver().findElement(by)).perform();
@@ -477,7 +476,7 @@ public class WebUI {
 
     public static String getElementInfo(WebElement element, By by) {
         try {
-            if (by != null) return by.toString(); // vẫn hiển thị locator khi có
+            if (by != null) return by.toString();
             String text = element.getText();
             String id = element.getAttribute("id");
             String cls = element.getAttribute("class");
@@ -551,6 +550,39 @@ public class WebUI {
         waitForElementVisible(element);
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    @Step("Scroll element into view if needed {0}")
+    public static void scrollIntoViewIfNeeded(By by) {
+        waitForElementVisible(by);
+
+        WebElement element = getWebElement(by);
+
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+        Boolean isInViewport = (Boolean) js.executeScript(
+                """
+                var elem = arguments[0];
+                var rect = elem.getBoundingClientRect();
+    
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+                """,
+                element
+        );
+
+        if (!Boolean.TRUE.equals(isInViewport)) {
+            js.executeScript(
+                    "arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
+                    element
+            );
+        }
+
+        LogUtils.info("Scroll into view if needed: " + by);
     }
 
     @Step("Scroll to element {0}")

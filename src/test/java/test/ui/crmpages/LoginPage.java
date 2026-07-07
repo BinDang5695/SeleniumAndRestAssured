@@ -5,22 +5,19 @@ import settings.helpers.PropertiesHelper;
 import settings.keywords.WebUI;
 import settings.reports.AllureManager;
 import org.openqa.selenium.By;
+import test.ui.common.BasePage;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
-        private By headerLogin = By.xpath("//h1[normalize-space()='Login']");
         private By inputEmail = By.xpath("//input[@id='email']");
         private By inputPassword = By.xpath("//input[@id='password']");
-        private By checkboxRememberme = By.xpath("//input[@id='remember']");
+        private By checkboxRememberme = By.xpath("//label[normalize-space()='Remember me']");
         private By buttonLogin = By.xpath("//button[normalize-space()='Login']");
-        private By linkForgotPassword = By.xpath("//a[normalize-space()='Forgot Password?']");
         private By alertErrorMessage = By.xpath("//div[contains(@class,'alert alert-danger')]");
-        private By menuDashboard = By.xpath("//span[normalize-space()='Dashboard']");
 
         public DashboardPage loginCRM(String email, String password)
         {
             WebUI.openURL(PropertiesHelper.getValue("URL"));
-            WebUI.waitForPageLoaded();
             WebUI.setTextElement(inputEmail, email);
             WebUI.setTextElement(inputPassword, password);
             WebUI.clickElement(buttonLogin);
@@ -30,16 +27,16 @@ public class LoginPage {
         public DashboardPage loginCRM()
         {
             WebUI.openURL(PropertiesHelper.getValue("URL"));
-            WebUI.waitForPageLoaded();
             WebUI.setTextElement(inputEmail, PropertiesHelper.getValue("EMAIL"));
             WebUI.setTextElement(inputPassword, PropertiesHelper.getValue("PASSWORD"));
+            WebUI.clickElement(checkboxRememberme);
             WebUI.clickElement(buttonLogin);
             return new DashboardPage();
         }
 
         public void verifyLoginSuccess()
         {
-            WebUI.waitForElementVisible(menuDashboard);
+            waitMenuDashboard();
             AssertHelper.assertNotContains(WebUI.getCurrentURL(), "authentication", "Still in Login page, but expected to be in Dashboard page");
         }
 

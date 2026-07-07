@@ -1,8 +1,14 @@
 package test.ui.crmtestcases;
 
+import constants.CRM.*;
 import io.qameta.allure.*;
+import models.ui.ExportFileType;
+import models.ui.Proposal;
 import org.testng.annotations.Test;
 import test.ui.common.BaseTest;
+import test.ui.dataproviders.DataProviderFactory;
+import test.ui.testdata.ProposalData;
+import static settings.keywords.WebUI.*;
 
 public class ProposalsTest extends BaseTest {
 
@@ -14,70 +20,21 @@ public class ProposalsTest extends BaseTest {
     @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-12")
     @Issue("CRM-12")
     @Description("Add new Proposal, verify and delete Proposal")
-    @Test(priority = 0)
-    public void manageProposalsPDFFile() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuSales();
-        basePage().clickMenuProposalsPage();
+    @Test(priority = 0, dataProvider = "exportTypes", dataProviderClass = DataProviderFactory.class)
+    public void manageProposalsPDFFile(ExportFileType type) {
+        Proposal proposal = ProposalData.getProposal();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        clickMenuSales();
+        clickByMenuName(Menu.PROPOSALS);
         proposalsPage().clickButtonNewProposal();
-        proposalsPage().addNewProposal();
-        proposalsPage().verifyTooltip();
-        proposalsPage().searchCreatedProposal();
-        proposalsPage().captureUITableData();
-        proposalsPage().exportPDFFile();
-        proposalsPage().verifyDownloadPDFFile("Proposals.pdf");
-        proposalsPage().deleteCreatedProposal();
-        headerPage().logout();
-    }
-
-    @Epic("Regression Test")
-    @Feature("Add New Proposal")
-    @Story("Proposal")
-    @Owner("Bin Tester")
-    @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-13")
-    @Issue("CRM-13")
-    @Description("Add new Proposal, verify and delete Proposal")
-    @Test(priority = 1)
-    public void manageProposalExcelFile() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuSales();
-        basePage().clickMenuProposalsPage();
-        proposalsPage().clickButtonNewProposal();
-        proposalsPage().addNewProposal();
-        proposalsPage().verifyTooltip();
-        proposalsPage().searchCreatedProposal();
-        proposalsPage().captureUITableData();
-        proposalsPage().exportExcelFile();
-        proposalsPage().verifyDownloadExcelFile("Proposals.xlsx");
-        proposalsPage().deleteCreatedProposal();
-        headerPage().logout();
-    }
-
-    @Epic("Regression Test")
-    @Feature("Add New Proposal")
-    @Story("Proposal")
-    @Owner("Bin Tester")
-    @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-14")
-    @Issue("CRM-14")
-    @Description("Add new Proposal, verify and delete Proposal")
-    @Test(priority = 2)
-    public void manageProposalCSVFile() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuSales();
-        basePage().clickMenuProposalsPage();
-        proposalsPage().clickButtonNewProposal();
-        proposalsPage().addNewProposal();
-        proposalsPage().verifyTooltip();
-        proposalsPage().searchCreatedProposal();
-        proposalsPage().captureUITableData();
-        proposalsPage().exportCSVFile();
-        proposalsPage().verifyDownloadCSVFile("Proposals.csv");
-        proposalsPage().deleteCreatedProposal();
-        headerPage().logout();
+        proposalsPage().addNewProposal(proposal);
+        proposalsPage().verifyContentToggle();
+        proposalsPage().searchCreatedProposal(proposal);
+        proposalsPage().exportAndVerifyContentFile(type, proposal);
+        proposalsPage().waitProposal(proposal);
+        clickDropdownMore();
+        clickButtonDelete();
+        acceptAlert();
+        clickButtonX();
     }
 }

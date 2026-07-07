@@ -8,19 +8,20 @@ import org.monte.screenrecorder.ScreenRecorder;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.FileHandler;
+import settings.utils.LogUtils;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import static org.monte.media.FormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
 
 public class CaptureHelper extends ScreenRecorder {
 
     public static ScreenRecorder screenRecorder;
+    private static File currentVideoFile;
     public String name;
 
     public CaptureHelper(GraphicsConfiguration cfg, Rectangle captureArea, Format fileFormat, Format screenFormat, Format mouseFormat, Format audioFormat, File movieFolder, String name) throws IOException, AWTException {
@@ -37,7 +38,12 @@ public class CaptureHelper extends ScreenRecorder {
             throw new IOException("\"" + movieFolder + "\" is not a directory.");
         }
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
-        return new File(movieFolder, name + "-" + dateFormat.format(new Date()) + "." + Registry.getInstance().getExtension(fileFormat));
+        currentVideoFile = new File(
+                movieFolder,
+                name + "-" + dateFormat.format(new Date()) + "."
+                        + Registry.getInstance().getExtension(fileFormat));
+
+        return currentVideoFile;
     }
 
     public static void startRecord(String methodName) {
@@ -80,43 +86,41 @@ public class CaptureHelper extends ScreenRecorder {
             System.out.println("🎥 Start recording: " + methodName);
 
         } catch (Exception e) {
-            System.out.println("❌ Can not start record video for test: " + methodName);
+            LogUtils.error("❌ Can not start record video for test: " + methodName);
             e.printStackTrace();
             screenRecorder = null;
         }
     }
 
 
-    public static void stopRecord() {
+    public static void stopRecord(boolean keepVideo, int delayInSeconds) {
         try {
-            if (screenRecorder != null) {
-                screenRecorder.stop();
-                System.out.println("🛑 Stop recording video.");
-                screenRecorder = null;
-            } else {
-                System.out.println("⚠️ ScreenRecorder is null, skip stop.");
+
+            if (screenRecorder == null) {
+                return;
             }
+
+            Thread.sleep(delayInSeconds * 1000L);
+
+            screenRecorder.stop();
+
+            if (!keepVideo && currentVideoFile != null && currentVideoFile.exists()) {
+                if (currentVideoFile.delete()) {
+                    System.out.println("🗑 Deleted video: " + currentVideoFile.getName());
+                } else {
+                    System.out.println("⚠ Cannot delete video.");
+                }
+            } else if (keepVideo) {
+                System.out.println("💾 Saved video: " + currentVideoFile.getAbsolutePath());
+            }
+
+            screenRecorder = null;
+            currentVideoFile = null;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    public static void stopRecord(int delayInSeconds) {
-        try {
-            if (screenRecorder != null) {
-                Thread.sleep(delayInSeconds * 1000L);
-                screenRecorder.stop();
-                System.out.println("🛑 Stop recording video (delay " + delayInSeconds + "s).");
-                screenRecorder = null;
-            } else {
-                System.out.println("⚠️ ScreenRecorder is null, skip stop.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
 
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 

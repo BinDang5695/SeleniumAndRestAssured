@@ -55,7 +55,7 @@ public class TestListener implements ITestListener {
         ExtentTestManager.logMessage(Status.PASS, "✅ Test case " + result.getName() + " is passed");
         AllureManager.saveTextLog("✅ Test case " + result.getName() + " is passed.");
         test_passed_total++;
-        CaptureHelper.stopRecord(1);
+        CaptureHelper.stopRecord(false,1);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class TestListener implements ITestListener {
         AllureManager.saveScreenshotPNG();
         test_failed_total++;
         CaptureHelper.captureScreenshot(result.getName());
-        CaptureHelper.stopRecord(1);
+        CaptureHelper.stopRecord(true,1);
     }
 
     @Override
@@ -82,6 +82,6 @@ public class TestListener implements ITestListener {
         //ExtentTestManager.logMessage(Status.SKIP, result.getName() + "is skipped");
         AllureManager.saveTextLog("⚠️ Test case " + result.getName() + " is skipped.");
         test_skipped_total++;
-        CaptureHelper.stopRecord(1);
+        CaptureHelper.stopRecord(false,1);
     }
 }

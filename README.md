@@ -32,7 +32,7 @@ FinalProject
 │   │   ├── common/                       # Base test class and verify methods
 │   │   ├── crud/                         # Test scripts for Api automation
 │   │   ├── listeners/                    # TestNG listeners
-│   │   └── model/data                    # Request model
+│   │   └── ui/data                    # Request ui
 │
 │   ├── test/java/finalProject/ui
 │   │   ├── common/                       # Base test and Base page class

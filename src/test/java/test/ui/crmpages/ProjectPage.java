@@ -1,5 +1,7 @@
 package test.ui.crmpages;
 
+import constants.CRM.*;
+import models.ui.Project;
 import settings.drivers.DriverManager;
 import settings.helpers.AssertHelper;
 import settings.keywords.WebUI;
@@ -13,29 +15,28 @@ public class ProjectPage extends BasePage {
 
     private By titleProjectPage = By.xpath("//span[normalize-space()='Projects Summary']");
     private By inputSearchProject = By.xpath("//input[@aria-controls='projects']");
-    private By itemCustomerFirst = By.xpath("//a[normalize-space()='Bin Project']");
+    private By getProjectName (String projectName) {
+        return By.xpath("//a[normalize-space()='" + projectName + "']");
+    }
     private By buttonNewProject = By.xpath("//a[normalize-space()='New Project']");
     private By inputProjectName = By.xpath("//input[@id='name']");
     private By inputCustomer = By.xpath("//button[@data-id='clientid']");
     private By searchCustomer = By.xpath("//input[@placeholder='Type to search...']");
-    private By selectCustomer = By.xpath("//span[normalize-space()='Bin Customer']");
+    private By getCustomerName (String customerName) {
+        return By.xpath("//span[normalize-space()='" + customerName + "']");
+    }
     private By checkBoxCalculate = By.xpath("//label[normalize-space()='Calculate progress through tasks']");
     private By saveProject = By.xpath("//button[normalize-space()='Save']");
-    private By projectNameCustomer = By.xpath("//button[@title='Bin Project - Bin Customer']");
+    private By getProjectNameCustomer(String projectName, String customerName) {
+        return By.xpath("//button[@title='" + projectName + " - " + customerName + "']");
+    }
     private By projectProgress = By.xpath("//p[contains(@class,'project-info')]");
     private By customer = By.xpath("//dt[normalize-space()='Customer']");
-    private By projectNameCreated = By.xpath("//a[normalize-space()='Bin Customer']");
     private By status = By.xpath("//dt[normalize-space()='Status']");
     private By statusProject = By.xpath("//dd[normalize-space()='In Progress']");
-    private By alertSuccess = By.xpath("//span[@class='alert-title']");
-    private By projectNameOnProjectTab = By.xpath("//a[normalize-space()='Bin Project']");
-    private By deleteProject = By.xpath("//a[@class='text-danger _delete']");
-    private By buttonX = By.xpath("//button[@data-dismiss='alert']");
-    private By noData = By.xpath("//td[@class='dataTables_empty']");
 
     public void verifyNavigateToProjectPage()
     {
-        AssertHelper.assertTrue(WebUI.checkElementExist(titleProjectPage), "The ProjectPage title not display.");
         AssertHelper.assertEquals(WebUI.getTextElement(titleProjectPage), "Projects Summary", "The ProjectPage title not match.");
     }
 
@@ -58,63 +59,47 @@ public class ProjectPage extends BasePage {
                 .perform();
     }
 
-    public void submitDataForNewCustomer()
+    public void submitDataForNewCustomer(Project project)
     {
-        WebUI.setTextElement(inputProjectName, "Bin Project");
+        WebUI.setTextElement(inputProjectName, project.getName());
         WebUI.clickElement(inputCustomer);
-        WebUI.setTextElement(searchCustomer, "Bin Customer");
-        WebUI.clickElement(selectCustomer);
+        WebUI.setTextElement(searchCustomer, project.getCustomer());
+        WebUI.clickElement(getCustomerName(project.getCustomer()));
         WebUI.clickElement(checkBoxCalculate);
         moveSliderToMiddle();
         WebUI.clickElement(saveProject);
     }
 
-    public void verifyProjectCreated()
+    public void verifyProjectCreated(Project project)
     {
-        AssertHelper.assertTrue(WebUI.checkElementExist(alertSuccess), "The alertsuccess title not display.");
-        AssertHelper.assertEquals(WebUI.getTextElement(alertSuccess), "Project added successfully.", "The alertsuccess title not match.");
-        AssertHelper.assertTrue(WebUI.checkElementExist(projectNameCustomer), "The project customer header page not display.");
-        AssertHelper.assertEquals(WebUI.getTextElement(projectNameCustomer), "Bin Project - Bin Customer", "The project customer header page not match.");
-        AssertHelper.assertTrue(WebUI.checkElementExist(projectProgress), "The project progress not display.");
-        AssertHelper.assertEquals(WebUI.getTextElement(projectProgress), "Project Progress 50%", "The project progress not match.");
-        AssertHelper.assertTrue(WebUI.checkElementExist(customer), "The customer title not display.");
+        AssertHelper.assertEquals(getSuccessMessage(), Message.CREATED_PROJECT,"Project creation failed");
+        AssertHelper.assertEquals(WebUI.getTextElement(getProjectNameCustomer(project.getName(), project.getCustomer())), project.getVerifyProjectNameCustomer(), "The project customer header page not match.");
+        AssertHelper.assertEquals(WebUI.getTextElement(projectProgress), project.getVerifyProjectProgress(), "The project progress not match.");
         AssertHelper.assertEquals(WebUI.getTextElement(customer), "Customer", "The customer title not match.");
-        AssertHelper.assertTrue(WebUI.checkElementExist(projectNameCreated), "The project name not display.");
-        AssertHelper.assertEquals(WebUI.getTextElement(projectNameCreated), "Bin Customer", "The project progress not match.");
-        AssertHelper.assertTrue(WebUI.checkElementExist(status), "The status title not display.");
+        AssertHelper.assertEquals(WebUI.getTextElement(getProjectName(project.getCustomer())), project.getCustomer(), "The customer name not match.");
         AssertHelper.assertEquals(WebUI.getTextElement(status), "Status", "The status title not match.");
-        AssertHelper.assertTrue(WebUI.checkElementExist(statusProject), "The statusProject title not display.");
         AssertHelper.assertEquals(WebUI.getTextElement(statusProject), "In Progress", "The statusProject title not match.");
     }
 
-    public void searchAndCheckCustomerInTable()
+    public void searchAndCheckCustomerInTable(Project project)
     {
-        WebUI.setTextElement(inputSearchProject, "Bin Project");
-        AssertHelper.assertTrue(WebUI.checkElementExist(itemCustomerFirst), "Bin Project", "The customer name in table not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(itemCustomerFirst), "Bin Project", "The customer name in table not match");
+        WebUI.setTextElement(inputSearchProject, project.getName());
+        AssertHelper.assertEquals(WebUI.getTextElement(getProjectName(project.getName())), project.getName(), "The customer name in table not match");
     }
 
-    public void moveToProjectName()
+    public void moveToProjectName(Project project)
     {
-        WebUI.moveToElement(projectNameOnProjectTab);
+        WebUI.moveToElement(getProjectName(project.getName()));
     }
 
-    public void clickAndDeleteProject()
+    public void searchProjectInTable(Project project)
     {
-        WebUI.clickElement(deleteProject);
-        WebUI.acceptAlert();
-        WebUI.clickElement(buttonX);
-    }
-
-    public void searchAndCheckProjectInTable()
-    {
-        WebUI.setTextElement(inputSearchProject, "Bin Project");
+        WebUI.setTextElement(inputSearchProject, project.getCustomer());
     }
 
     public void verifyNoDataAfterDeletedProject()
     {
-        AssertHelper.assertTrue(WebUI.checkElementExist(noData), "The nodata text not display.");
-        AssertHelper.assertEquals(WebUI.getTextElement(noData), "No matching records found", "The nodata text not match.");
+        verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
     }
 
 }

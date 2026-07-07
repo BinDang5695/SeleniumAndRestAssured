@@ -1,31 +1,32 @@
 package test.ui.crmpages;
 
+import models.ui.ExportFileType;
+import models.ui.Proposal;
 import org.openqa.selenium.By;
-import settings.drivers.DriverManager;
 import settings.helpers.AssertHelper;
-import settings.helpers.ExcelHelper;
-import settings.helpers.FileHelper;
 import settings.keywords.WebUI;
 import settings.utils.LogUtils;
 import test.ui.common.BasePage;
-
-import java.io.File;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ProposalsPage extends BasePage {
 
     private By buttonNewProposals = By.xpath("//a[normalize-space()='New Proposal']");
     private By inputSubject = By.xpath("//input[@id='subject']");
     private By dropdownRelated = By.xpath("//button[@data-id='rel_type']");
-    private By optionCustomer = By.xpath("//a[@role='option']//span[normalize-space()='Customer']");
+    private By getRelated (String related) {
+        return By.xpath("//a[@role='option']//span[normalize-space()='" + related + "']");
+    }
     private By dropdownCustomer = By.xpath("//div[contains(text(),'Select and begin typing')]");
     private By inputCustomer = By.xpath("//input[@placeholder='Type to search...']");
-    private By option1stBinCustomer = By.xpath("(//span[normalize-space()='Bin Customer'])[1]");
+    private By getCustomer (String customer) {
+        return By.xpath("//span[normalize-space()='" + customer + "']");
+    }
     private By inputDate = By.xpath("//input[@id='date']");
-    private By date20 = By.xpath("//div[normalize-space()='20']");
+    private By getDay (String day) {
+        return By.xpath("//div[normalize-space()='" + day + "']");
+    }
     private By toogleAllowComments = By.xpath("//label[@for='allow_comments']");
     private By inputEmail = By.xpath("//input[@id='email']");
     private By buttonAdd = By.xpath("//div[@class='input-group-btn']");
@@ -36,311 +37,109 @@ public class ProposalsPage extends BasePage {
     private By buttonSelect = By.xpath("//button[@class='btn pull-right btn-primary']");
     private By buttonSaveAddNewProposal = By.xpath("//button[@type='button'][normalize-space()='Save']");
     private By iconToggleFullView = By.xpath("//li[@data-title='Toggle full view']");
-    private By tooltipContent = By.cssSelector(".tooltip-inner");
     private By buttonToogleTableRight = By.xpath("//i[@class='fa fa-angle-double-right']");
     private By inputSearchProposals = By.xpath("//input[@aria-controls='proposals']");
     private By contentProposals_info = By.xpath("//div[@id='proposals_info' and contains(., 'Showing 1 to 1 of 1 entries')]");
-    private By searchProposals = By.xpath("//input[@class='form-control input-sm']");
-    private By dropdownMore = By.xpath("//button[normalize-space()='More']");
-    private By optionDelete = By.xpath("//a[normalize-space()='Delete']");
-    private By buttonX = By.xpath("//button[@data-dismiss='alert']//span[@aria-hidden='true'][normalize-space()='×']");
-    private By buttonExport = By.xpath("//span[normalize-space()='Export']");
-    private By optionPDF = By.xpath("//a[normalize-space()='PDF']");
-    private By optionExcel = By.xpath("//a[normalize-space()='Excel']");
-    private By optionCSV = By.xpath("//a[normalize-space()='CSV']");
-    private By optionPrint = By.xpath("//a[normalize-space()='Print']");
-    private By tableBinSubject = By.xpath("//tr[@class='has-row-options odd']//a[contains(text(),'Bin Subject')]");
+    private By getCreatedProposal (String createdProposal) {
+        return By.xpath("//td/a[normalize-space()='" + createdProposal + "']");
+    }
 
     //Compare file PDF with data on UI table
     private By tableProposal = By.xpath("//tr[1]//td[1]//a[contains(@href,'list_proposals')]");
-    private By tableSubject = By.xpath("//tr[1]//td[2]//a[normalize-space()='Bin Subject']");
-    private By tableTo = By.xpath("//a[contains(text(),'Bin Customer')]");
-    private By tableTotal = By.xpath("//td[contains(text(),'€1.000,00')]");
-    private By tableDate = By.xpath("//td[normalize-space()='20-12-2028']");
-    private By tableOpenTill = By.xpath("//td[normalize-space()='27-12-2028']");
+    private By getCaptureSubject (String captureSubject) {
+        return By.xpath("//tr[1]//td[2]//a[normalize-space()='" + captureSubject + "']");
+    }
+    private By getCaptureCustomer (String captureCustomer) {
+        return By.xpath("//a[contains(text(),'" + captureCustomer + "')]");
+    }
+    private By getCaptureTotal (String captureTotal) {
+        return By.xpath("//td[contains(text(),'" + captureTotal + "')]");
+    }
+    private By getCaptureDate (String captureDate) {
+        return By.xpath("//td[normalize-space()='" + captureDate + "']");
+    }
+    private By getCaptureOpenTill (String captureOpenTill) {
+        return By.xpath("//td[normalize-space()='" + captureOpenTill + "']");
+    }
     private By tableCreated = By.xpath("//td[@class='sorting_1']");
     private By tableStatus = By.xpath("//td//span[contains(@class,'proposal-status')]");
-    String uiProposalNumber;
-    String uiSubject;
-    String uiTo;
-    String uiTotal;
-    String uiDate;
-    String uiOpenTill;
-    String uiCreated;
-    String uiProject;
-    String uiTags;
-    String uiStatus;
 
-    private String normalizeText(String text) {
-        if (text == null) return "";
-        return text
-                .replaceAll("\\s+", " ")
-                .replaceAll("[\\u00A0]", " ")
-                .trim();
+    public Map<String, String> captureUITableData(Proposal proposal) {
+
+        Map<String, String> uiData = new LinkedHashMap<>();
+
+        uiData.put("Proposal#", WebUI.getTextElement(tableProposal));
+        uiData.put("Subject", WebUI.getTextElement(getCaptureSubject(proposal.getSubject())));
+        uiData.put("To", WebUI.getTextElement(getCaptureCustomer(proposal.getCustomer())));
+        uiData.put("Total", WebUI.getTextElement(getCaptureTotal(proposal.getTotal())));
+        uiData.put("Date", WebUI.getTextElement(getCaptureDate(proposal.getDate())));
+        uiData.put("Open Till", WebUI.getTextElement(getCaptureOpenTill(proposal.getOpenTill())));
+        uiData.put("Project", "");
+        uiData.put("Tags", "");
+        uiData.put("Created", WebUI.getTextElement(tableCreated));
+        uiData.put("Status", WebUI.getTextElement(tableStatus));
+        LogUtils.info("📋 UI Data:");
+        uiData.forEach((key, value) ->
+                LogUtils.info(key + " : " + value));
+        return uiData;
     }
 
-    public void captureUITableData() {
-        uiProposalNumber = WebUI.getTextElement(tableProposal);
-        uiSubject = WebUI.getTextElement(tableSubject);
-        uiTo = WebUI.getTextElement(tableTo);
-        uiTotal = WebUI.getTextElement(tableTotal);
-        uiDate = WebUI.getTextElement(tableDate);
-        uiOpenTill = WebUI.getTextElement(tableOpenTill);
-        uiProject = "";
-        uiTags = "";
-        uiCreated = WebUI.getTextElement(tableCreated);
-        uiStatus = WebUI.getTextElement(tableStatus);
+    public void exportAndVerifyContentFile(
+            ExportFileType type,
+            Proposal proposal){
+
+        Map<String,String> uiData = captureUITableData(proposal);
+
+        String fileName = switch(type){
+
+            case PDF -> "Proposals.pdf";
+            case EXCEL -> "Proposals.xlsx";
+            case CSV -> "Proposals.csv";
+        };
+
+        super.exportAndVerifyContentFile(type, fileName, uiData);
     }
 
     public void clickButtonNewProposal() {
-        WebUI.waitForElementVisible(buttonNewProposals);
         WebUI.clickElement(buttonNewProposals);
     }
 
-    public void addNewProposal() {
-        WebUI.setTextElement(inputSubject, "Bin Subject");
+    public void addNewProposal(Proposal proposal) {
+        WebUI.setTextElement(inputSubject, proposal.getSubject());
         WebUI.clickElement(dropdownRelated);
-        WebUI.clickElement(optionCustomer);
+        WebUI.clickElement(getRelated(proposal.getRelated()));
         WebUI.clickElement(dropdownCustomer);
-        WebUI.setTextElement(inputCustomer, "Bin Customer");
-        WebUI.clickElement(option1stBinCustomer);
-        WebUI.setTextElement(inputDate, "20-12-2028");
-        WebUI.clickElement(date20);
+        WebUI.setTextElement(inputCustomer, proposal.getCustomer());
+        WebUI.clickElement(getCustomer(proposal.getCustomer()));
+        WebUI.setTextElement(inputDate, proposal.getDate());
+        WebUI.clickElement(getDay(proposal.getDay()));
         WebUI.clickElement(toogleAllowComments);
-        WebUI.setTextElement(inputEmail, "vbin@gmail.com");
+        WebUI.setTextElement(inputEmail, proposal.getEmail());
         WebUI.clickElement(buttonAdd);
-        WebUI.setTextElement(inputDescription, "Bin description");
-        WebUI.setTextElement(inputRate, "1000");
+        WebUI.setTextElement(inputDescription, proposal.getDescription());
+        WebUI.setTextElement(inputRate, proposal.getRate());
         WebUI.clickElement(buttonSaveAddNewItem);
         WebUI.clickElement(radioHours);
         WebUI.scrollToBottom();
-        WebUI.waitForElementVisible(buttonSelect);
         WebUI.clickElement(buttonSelect);
-        WebUI.waitForElementVisible(buttonSaveAddNewProposal);
+        WebUI.scrollIntoViewIfNeeded(buttonSaveAddNewProposal);
         WebUI.clickElement(buttonSaveAddNewProposal);
-        WebUI.waitForElementVisible(buttonX);
-        WebUI.clickElement(buttonX);
+        clickButtonX();
     }
 
-    public void verifyTooltip() {
+    public void verifyContentToggle() {
         WebUI.moveToElement(iconToggleFullView);
-        WebUI.waitForElementVisible(tooltipContent);
-        AssertHelper.assertEquals(WebUI.getTextElement(tooltipContent), "Toggle full view", "The content Toggle does not match.");
+        AssertHelper.assertEquals(WebUI.getAttributeElement(iconToggleFullView, "data-title"), "Toggle full view", "Tooltip content incorrect");
     }
 
-    public void searchCreatedProposal() {
+    public void searchCreatedProposal(Proposal proposal) {
         WebUI.clickElement(buttonToogleTableRight);
-        WebUI.setTextElement(inputSearchProposals, "Bin Subject");
+        WebUI.setTextElement(inputSearchProposals, proposal.getSubject());
         WebUI.waitForElementVisible(contentProposals_info);
     }
 
-    public void exportPDFFile() {
-        WebUI.waitForElementVisible(buttonExport);
-        WebUI.clickElement(buttonExport);
-        WebUI.waitForElementVisible(optionPDF);
-        WebUI.clickElement(optionPDF);
-    }
-
-    public void verifyDownloadPDFFile(String expectedFileName) {
-
-        String fileName = (expectedFileName != null && !expectedFileName.isEmpty())
-                ? expectedFileName : "Proposals.pdf";
-
-        String fullPath = DriverManager.getDownloadPath() + File.separator + fileName;
-
-        LogUtils.info("🔍 Waiting for downloaded PDF file: " + fileName);
-
-        FileHelper.waitForFileExists(fullPath, 10);
-
-        String pdfText = FileHelper.readPdfText(fullPath);
-
-        LogUtils.info("📄 PDF Content (raw):\n" + pdfText);
-
-        String pdfNorm = normalizeText(pdfText);
-        String uiProposalNorm = normalizeText(uiProposalNumber);
-        String uiSubjectNorm = normalizeText(uiSubject);
-        String uiToNorm = normalizeText(uiTo);
-        String uiTotalNorm = normalizeText(uiTotal);
-        String uiDateNorm = normalizeText(uiDate);
-        String uiOpenTillNorm = normalizeText(uiOpenTill);
-        String uiProjectNorm = normalizeText(uiProject);
-        String uiTagsNorm = normalizeText(uiTags);
-        String uiCreatedNorm = normalizeText(uiCreated);
-        String uiStatusNorm = normalizeText(uiStatus);
-
-        //LogUtils.info("📄 Normalized PDF Content: " + pdfNorm);
-        LogUtils.info("🔢 UI Data to verify: Proposal#: " + uiProposalNorm
-                + ", Subject: " + uiSubjectNorm
-                + ", To: " + uiToNorm
-                + ", Total: " + uiTotalNorm
-                + ", Date: " + uiDateNorm
-                + ", Open Till: " + uiOpenTillNorm
-                + ", Project: " + uiProjectNorm
-                + ", Tags: " + uiTagsNorm
-                + ", Date Created: " + uiCreatedNorm
-                + ", Status: " + uiStatusNorm);
-
-        AssertHelper.assertTrue(pdfNorm.contains(uiProposalNorm), "❌ Proposal # not found in PDF");
-        AssertHelper.assertTrue(pdfNorm.contains(uiSubjectNorm), "❌ Subject not found in PDF");
-        AssertHelper.assertTrue(pdfNorm.contains(uiToNorm), "❌ To not found in PDF");
-        AssertHelper.assertTrue(pdfNorm.contains(uiTotalNorm), "❌ Total amount missing");
-        AssertHelper.assertTrue(pdfNorm.contains(uiDateNorm), "❌ Date missing");
-        AssertHelper.assertTrue(pdfNorm.contains(uiOpenTillNorm), "❌ Open Till missing");
-        AssertHelper.assertTrue(pdfNorm.contains("Project"), "❌ Project not empty in PDF");
-        AssertHelper.assertTrue(pdfNorm.contains("Tags"), "❌ Tags not empty in PDF");
-        AssertHelper.assertTrue(pdfNorm.contains(uiCreatedNorm), "❌ Date Created missing");
-        AssertHelper.assertTrue(pdfNorm.contains(uiStatusNorm), "❌ Status missing");
-
-        LogUtils.info("✅ PDF content verified!");
-
-        FileHelper.deleteFile(fullPath);
-    }
-
-    public void deleteCreatedProposal() {
-        WebUI.waitForPageRefresh(tableBinSubject);
-        WebUI.clickElement(tableBinSubject);
-        WebUI.waitForElementVisible(dropdownMore);
-        WebUI.clickElement(dropdownMore);
-        WebUI.clickElement(optionDelete);
-        WebUI.acceptAlert();
-        WebUI.clickElement(buttonX);
-    }
-
-    public void exportExcelFile() {
-        WebUI.waitForElementVisible(buttonExport);
-        WebUI.clickElement(buttonExport);
-        WebUI.waitForElementVisible(optionExcel);
-        WebUI.clickElement(optionExcel);
-    }
-
-    public void exportCSVFile() {
-        WebUI.waitForElementVisible(buttonExport);
-        WebUI.clickElement(buttonExport);
-        WebUI.waitForElementVisible(optionCSV);
-        WebUI.clickElement(optionCSV);
-    }
-
-    public void verifyDownloadExcelFile(String expectedFileName) {
-
-        String fileName = (expectedFileName != null && !expectedFileName.isEmpty())
-                ? expectedFileName : "Proposals.xlsx";
-
-        String fullPath = DriverManager.getDownloadPath() + File.separator + fileName;
-
-        LogUtils.info("🔍 Waiting for downloaded Excel file: " + fileName);
-
-        FileHelper.waitForFileExists(fullPath, 10);
-
-        String excelText = ExcelHelper.readExcelAsText(fullPath);
-        LogUtils.info("📘 Excel Content (raw):\n" + excelText);
-
-        String excelNorm = normalizeText(excelText);
-
-        String uiProposalNorm = normalizeText(uiProposalNumber);
-        String uiSubjectNorm = normalizeText(uiSubject);
-        String uiToNorm = normalizeText(uiTo);
-        //String uiTotalNorm = normalizeText(uiTotal);
-        String uiDateNorm = normalizeText(uiDate);
-        String uiOpenTillNorm = normalizeText(uiOpenTill);
-        String uiProjectNorm = normalizeText(uiProject);
-        String uiTagsNorm = normalizeText(uiTags);
-        String uiCreatedNorm = normalizeText(uiCreated);
-        String uiStatusNorm = normalizeText(uiStatus);
-
-        LogUtils.info("🔢 UI Data to verify inside Excel: " +
-                "\nProposal#: " + uiProposalNorm +
-                "\nSubject: " + uiSubjectNorm +
-                "\nTo: " + uiToNorm +
-                //"\nTotal: " + uiTotalNorm +
-                "\nDate: " + uiDateNorm +
-                "\nOpen Till: " + uiOpenTillNorm +
-                "\nProject: " + uiProjectNorm +
-                "\nTags: " + uiTagsNorm +
-                "\nDate Created: " + uiCreatedNorm +
-                "\nStatus: " + uiStatusNorm
-        );
-
-        AssertHelper.assertTrue(excelNorm.contains(uiProposalNorm), "❌ Proposal # not found");
-        AssertHelper.assertTrue(excelNorm.contains(uiSubjectNorm), "❌ Subject not found");
-        AssertHelper.assertTrue(excelNorm.contains(uiToNorm), "❌ To not found");
-        //AssertHelper.assertTrue(excelNorm.contains(uiTotalNorm), "❌ Total missing");
-        AssertHelper.assertTrue(excelNorm.contains(uiDateNorm), "❌ Date missing");
-        AssertHelper.assertTrue(excelNorm.contains(uiOpenTillNorm), "❌ Open Till missing");
-        AssertHelper.assertTrue(excelNorm.contains("Project"), "❌ Project column not found");
-        AssertHelper.assertTrue(excelNorm.contains("Tags"), "❌ Tags column not found");
-
-        AssertHelper.assertTrue(excelNorm.contains(uiCreatedNorm), "❌ Date Created missing");
-        AssertHelper.assertTrue(excelNorm.contains(uiStatusNorm), "❌ Status missing");
-
-        LogUtils.info("✅ Excel content verified successfully!");
-
-        FileHelper.deleteFile(fullPath);
-    }
-
-    public void verifyDownloadCSVFile(String expectedFileName) {
-
-        String fileName = (expectedFileName != null && !expectedFileName.isEmpty())
-                ? expectedFileName : "Proposals.csv";
-
-        String fullPath = DriverManager.getDownloadPath() + File.separator + fileName;
-
-        LogUtils.info("🔍 Waiting for downloaded CSV file: " + fileName);
-
-        FileHelper.waitForFileExists(fullPath, 10);
-
-        StringBuilder csvTextBuilder = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(fullPath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                csvTextBuilder.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            throw new RuntimeException("❌ Failed to read CSV file: " + fullPath, e);
-        }
-
-        String csvText = csvTextBuilder.toString();
-        LogUtils.info("📄 CSV Content (raw):\n" + csvText);
-
-        String csvNorm = normalizeText(csvText);
-
-        String uiProposalNorm = normalizeText(uiProposalNumber);
-        String uiSubjectNorm = normalizeText(uiSubject);
-        String uiToNorm = normalizeText(uiTo);
-        String uiTotalNorm = normalizeText(uiTotal);
-        String uiDateNorm = normalizeText(uiDate);
-        String uiOpenTillNorm = normalizeText(uiOpenTill);
-        String uiProjectNorm = normalizeText(uiProject);
-        String uiTagsNorm = normalizeText(uiTags);
-        String uiCreatedNorm = normalizeText(uiCreated);
-        String uiStatusNorm = normalizeText(uiStatus);
-
-        LogUtils.info("🔢 UI Data to verify inside CSV: " +
-                "\nProposal#: " + uiProposalNorm +
-                "\nSubject: " + uiSubjectNorm +
-                "\nTo: " + uiToNorm +
-                "\nTotal: " + uiTotalNorm +
-                "\nDate: " + uiDateNorm +
-                "\nOpen Till: " + uiOpenTillNorm +
-                "\nProject: " + uiProjectNorm +
-                "\nTags: " + uiTagsNorm +
-                "\nDate Created: " + uiCreatedNorm +
-                "\nStatus: " + uiStatusNorm
-        );
-
-        AssertHelper.assertTrue(csvNorm.contains(uiProposalNorm), "❌ Proposal # not found");
-        AssertHelper.assertTrue(csvNorm.contains(uiSubjectNorm), "❌ Subject not found");
-        AssertHelper.assertTrue(csvNorm.contains(uiToNorm), "❌ To not found");
-        AssertHelper.assertTrue(csvNorm.contains(uiTotalNorm), "❌ Total missing");
-        AssertHelper.assertTrue(csvNorm.contains(uiDateNorm), "❌ Date missing");
-        AssertHelper.assertTrue(csvNorm.contains(uiOpenTillNorm), "❌ Open Till missing");
-        AssertHelper.assertTrue(csvNorm.contains("Project"), "❌ Project column not found");
-        AssertHelper.assertTrue(csvNorm.contains("Tags"), "❌ Tags column not found");
-        AssertHelper.assertTrue(csvNorm.contains(uiCreatedNorm), "❌ Date Created missing");
-        AssertHelper.assertTrue(csvNorm.contains(uiStatusNorm), "❌ Status missing");
-
-        LogUtils.info("✅ CSV content verified successfully!");
-
-        FileHelper.deleteFile(fullPath);
+    public void waitProposal(Proposal proposal) {
+        WebUI.waitForPageRefresh(getCreatedProposal(proposal.getSubject()));
     }
 
 }

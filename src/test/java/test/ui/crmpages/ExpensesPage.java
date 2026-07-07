@@ -1,130 +1,153 @@
 package test.ui.crmpages;
 
+import constants.CRM.*;
+import models.ui.Expenses;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import settings.helpers.AssertHelper;
-import settings.helpers.SystemHelper;
 import settings.keywords.WebUI;
 import test.ui.common.BasePage;
-
-import java.sql.Driver;
-import java.sql.DriverManager;
 
 public class ExpensesPage extends BasePage {
 
     private By buttonRecordExpense = By.xpath("//a[normalize-space()='Record Expense']");
     private By buttonAttachReceipt = By.xpath("//span[normalize-space()='Attach Receipt']");
-    String filePath = SystemHelper.getCurrentDir() + "src\\test\\resources\\testdata\\UK.jpg";
     private By inputName = By.xpath("//input[@id='expense_name']");
     private By inputNote = By.xpath("//textarea[@id='note']");
     private By dropdownExpenseCategory = By.xpath("//div[contains(text(),'Nothing selected')]");
     private By inputExpenseCategory = By.xpath("//input[@aria-controls='bs-select-2']");
-    private By optionBinCategory = By.xpath("//span[normalize-space()='Bin Category']");
+    private By getCategory(String category) {
+        return By.xpath("//span[normalize-space()='" + category + "']");
+    }
     private By inputExpenseDate = By.xpath("//input[@id='date']");
     private By inputAmount = By.xpath("//input[@id='amount']");
     private By dropdownPaymentMode = By.xpath("//button[@data-id='paymentmode']");
     private By inputPaymentMode = By.xpath("//input[@aria-controls='bs-select-6']");
-    private By optionBank = By.xpath("//a[normalize-space()='Bank']");
+    private By getPaymentMode(String paymentMode) {
+        return By.xpath("//a[normalize-space()='" + paymentMode + "']");
+    }
     private By inputReference = By.xpath("//input[@id='reference_no']");
     private By dropdownRepeatEvery = By.xpath("//button[@data-id='repeat_every']");
-    private By optionWeek = By.xpath("//span[normalize-space()='Week']");
+    private By getRepeatEvery (String repeatEvery) {
+        return By.xpath("//span[normalize-space()='" + repeatEvery + "']");
+    }
     private By checkboxInfinity = By.xpath("//label[normalize-space()='Infinity']");
     private By inputTotalCycles = By.xpath("//input[@id='cycles']");
     private By buttonSave = By.xpath("//div[@class='btn-bottom-toolbar text-right']//button[@type='submit'][normalize-space()='Save']");
-    private By menuSales = By.xpath("//span[@class='menu-text'][normalize-space()='Sales']");
-    private By menuInvoices = By.xpath("//span[normalize-space()='Invoices']");
     private By buttonCreateNewInvoice = By.xpath("//a[normalize-space()='Create New Invoice']");
-    private By toogleItem = By.xpath("//i[@data-title='New lines are not supported for item description. Use the item long description instead.']");
-    private By tooltipContent = By.cssSelector(".tooltip-inner");
-    private By alertSuccess = By.xpath("//span[@class='alert-title']");
+    private By toggleItem = By.xpath("//i[@data-title='New lines are not supported for item description. Use the item long description instead.']");
     private By expenseName = By.xpath("//h4[@id='expenseName']");
-    private By expenseNote = By.xpath("//div[normalize-space()='Bin Note']");
+    private By getexpenseNote (String expenseNote) {
+        return By.xpath("//div[normalize-space()='" + expenseNote + "']");
+    }
     private By expenseCategory = By.xpath("//h3[@id='expenseCategory']");
-    private By expenseDate = By.xpath("//span[normalize-space()='18-11-2026']");
-    private By expenseAmount = By.xpath("//span[contains(normalize-space(),'$1,000.00')]");
-    private By expensePaymentMode = By.xpath("//span[contains(normalize-space(),'Paid Via Bank')]");
-    private By expenseRef = By.xpath("//span[normalize-space()='#1000']");
-    private By expenseRepeat = By.xpath("//b[normalize-space()='25-11-2026']");
-    private By expenseCyclesRemaining= By.xpath("//b[normalize-space()='10']");
-    private By attachedReceipt = By.xpath("//a[normalize-space()='UK.jpg']");
+    private By getexpenseDate (String expenseDate) {
+        return By.xpath("//span[normalize-space()='" + expenseDate + "']");
+    }
+    private By getexpenseAmount (String expenseAmount) {
+        return By.xpath("//span[contains(normalize-space(),'" + expenseAmount + "')]");
+    }
+
+    private By getexpensePaymentMode (String expensePaymentMode) {
+        return By.xpath("//span[contains(normalize-space(),'" + expensePaymentMode + "')]");
+    }
+
+    private By getexpenseRef (String expenseRef) {
+        return By.xpath("//span[normalize-space()='" + expenseRef + "']");
+    }
+
+    private By getexpenseRepeat (String expenseRepeat) {
+        return By.xpath("//b[normalize-space()='" + expenseRepeat + "']");
+    }
+
+    private By getexpenseCyclesRemaining (String expenseCyclesRemaining) {
+        return By.xpath("//b[normalize-space()='" + expenseCyclesRemaining + "']");
+    }
+
+    private By getAttachedReceipt (String attachedReceipt) {
+        return By.xpath("//a[normalize-space()='" + attachedReceipt + "']");
+    }
     private By buttonEditExpense = By.xpath("//i[contains(@class,'pen')]");
-    private By updatedExpenseAmount = By.xpath("//span[contains(normalize-space(),'$2,000.00')]");
+    private By getUpdatedExpenseAmount (String updatedExpenseAmount) {
+        return By.xpath("//span[contains(normalize-space(),'" + updatedExpenseAmount + "')]");
+    }
     private By buttonDeleteExpense = By.xpath("//a[contains(@class,'delete')]//i[contains(@class,'remove')]");
     private By inputSearchExpenses = By.xpath("//input[@aria-controls='expenses']");
-    private By noDataAfterDelete = By.xpath("//td[@class='dataTables_empty']");
-    private By buttonX = By.xpath("//button[@data-dismiss='alert']//span[@aria-hidden='true'][normalize-space()='×']");
 
     public void clickButtonRecordExpense() {
-        WebUI.waitForElementVisible(buttonRecordExpense);
         WebUI.clickElement(buttonRecordExpense);
     }
 
-    public void addNewExpense() {
-        WebUI.uploadFileWithRobotClass(buttonAttachReceipt, filePath);
-        WebUI.setTextElement(inputName, "Bin Name");
-        WebUI.setTextElement(inputNote, "Bin Note");
+    public void addNewExpense(Expenses expenses) {
+        WebUI.uploadFileWithRobotClass(buttonAttachReceipt, expenses.getFileName());
+        WebUI.setTextElement(inputName, expenses.getName());
+        WebUI.setTextElement(inputNote, expenses.getNote());
         WebUI.clickElement(dropdownExpenseCategory);
-        WebUI.setTextElement(inputExpenseCategory, "Bin Category");
-        WebUI.clickElement(optionBinCategory);
-        WebUI.setTextElement(inputExpenseDate, "18-11-2026");
-        WebUI.setTextElement(inputAmount, "1000");
+        WebUI.setTextElement(inputExpenseCategory, expenses.getCategory());
+        WebUI.clickElement(getCategory(expenses.getCategory()));
+        WebUI.setTextElement(inputExpenseDate, expenses.getDate());
+        WebUI.setTextElement(inputAmount, expenses.getAmount());
         WebUI.clickElement(dropdownPaymentMode);
-        WebUI.setTextElement(inputPaymentMode, "Bank");
-        WebUI.clickElement(optionBank);
-        WebUI.setTextElement(inputReference, "#1000");
+        WebUI.setTextElement(inputPaymentMode, expenses.getPaymentMode());
+        WebUI.clickElement(getPaymentMode(expenses.getPaymentMode()));
+        WebUI.setTextElement(inputReference, expenses.getReference());
         WebUI.clickElement(dropdownRepeatEvery);
-        WebUI.clickElement(optionWeek);
+        WebUI.clickElement(getRepeatEvery(expenses.getRepeatEvery()));
         WebUI.clickElement(checkboxInfinity);
-        WebUI.setTextElement(inputTotalCycles, "10");
+        WebUI.setTextElement(inputTotalCycles, expenses.getCycles());
         WebUI.clickElement(buttonSave);
     }
 
-    public void verifyCreatedExpense() {
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseName), "Bin Name", "Expense Name does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseNote), "Bin Note", "Expense Note does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseCategory), "Bin Category", "Expense Category does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseDate), "18-11-2026", "Expense Date does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseAmount), "$1,000.00", "Expense Amount does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expensePaymentMode), "Paid Via Bank", "Expense Payment Mode does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseRef), "#1000", "Expense Ref does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseRepeat), "25-11-2026", "Expense Repeat does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseCyclesRemaining), "10", "Expense Cycles Remaining does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(attachedReceipt), "UK.jpg", "Expense attached Receipt does not match");
+    public void verifyCreatedExpense(Expenses expenses) {
+        AssertHelper.assertEquals(WebUI.getTextElement(expenseName), expenses.getName(), "Expense Name does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getexpenseNote(expenses.getNote())), expenses.getNote(), "Expense Note does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(expenseCategory), expenses.getCategory(), "Expense Category does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getexpenseDate(expenses.getDate())), expenses.getDate(), "Expense Date does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getexpenseAmount(expenses.getVerifyAmount())), expenses.getVerifyAmount(), "Expense Amount does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getexpensePaymentMode(expenses.getVerifyPaymentMode())), expenses.getVerifyPaymentMode(), "Expense Payment Mode does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getexpenseRef(expenses.getReference())), expenses.getReference(), "Expense Ref does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getexpenseRepeat(expenses.getRepeatDate())), expenses.getRepeatDate(), "Expense Repeat does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getexpenseCyclesRemaining(expenses.getCycles())), expenses.getCycles(), "Expense Cycles Remaining does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getAttachedReceipt(expenses.getVerifyReceipt())), expenses.getVerifyReceipt(), "Expense attached Receipt does not match");
     }
 
-    public void updateExpense() {
+    public void clickButtonEditExpense() {
         WebUI.clickElement(buttonEditExpense);
-        WebUI.setTextElement(inputName, "Bin Name Updated");
-        WebUI.setTextElement(inputNote, "Bin Note Updated");
-        WebUI.setTextElement(inputAmount, "2000");
+    }
+
+    public void updateExpense(Expenses getUpdatedExpense) {
+        WebUI.setTextElement(inputName, getUpdatedExpense.getName());
+        WebUI.setTextElement(inputNote, getUpdatedExpense.getNote());
+        WebUI.setTextElement(inputAmount, getUpdatedExpense.getAmount());
         WebUI.clickElement(buttonSave);
     }
 
-    public void verifyUpdatedExpense() {
-        AssertHelper.assertEquals(WebUI.getTextElement(alertSuccess), "Expense updated successfully.", "Alert Success after updated does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(expenseName), "Bin Name Updated", "Expense Name after updated does not match");
-        AssertHelper.assertEquals(WebUI.getTextElement(updatedExpenseAmount), "$2,000.00", "Expense Amount after updated does not match");
+    public void verifyUpdatedExpense(Expenses getUpdatedExpense) {
+        AssertHelper.assertEquals(getSuccessMessage(), Message.UPDATED_EXPENSE,"Expense update failed");
+        AssertHelper.assertEquals(WebUI.getTextElement(expenseName), getUpdatedExpense.getName(), "Expense Name after updated does not match");
+        AssertHelper.assertEquals(WebUI.getTextElement(getUpdatedExpenseAmount(getUpdatedExpense.getVerifyAmount())), getUpdatedExpense.getVerifyAmount(), "Expense Amount after updated does not match");
     }
 
-    public void deleteExpense() {
+    public void clickButtonDeleteExpense() {
         WebUI.clickElement(buttonDeleteExpense);
-        WebUI.acceptAlert();
     }
 
-    public void verifyDeletedExpense() {
-        WebUI.waitForElementVisible(alertSuccess);
-        AssertHelper.assertEquals(WebUI.getTextElement(alertSuccess), "Expense deleted", "Alert Success after deleted does not match");
-        WebUI.waitForElementVisible(buttonX);
-        WebUI.clickElement(buttonX);
-        WebUI.setTextElement(inputSearchExpenses, "Bin Category");
-        AssertHelper.assertEquals(WebUI.getTextElement(noDataAfterDelete), "No entries found", "Deleted Contract still shown");
-        WebUI.clickElement(menuSales);
-        WebUI.clickElement(menuInvoices);
+    public void verifyAlertDeletedExpense() {
+        AssertHelper.assertEquals(getSuccessMessage(), Message.DELETED_EXPENSE,"Expense delete failed");
+        clickButtonX();
+    }
+
+    public void verifyDeletedExpense(Expenses getUpdatedExpense) {
+        WebUI.waitForPageRefresh(inputSearchExpenses);
+        WebUI.setTextElement(inputSearchExpenses, getUpdatedExpense.getCategory());
+        verifyNoItems(Message.NO_ENTRIES_FOUND);
+    }
+
+    public void clickButtonCreateNewInvoice() {
         WebUI.clickElement(buttonCreateNewInvoice);
     }
 
-    public void verifyTooltipContent() {
-        WebUI.moveToElement(toogleItem);
-        AssertHelper.assertEquals(WebUI.getTextElement(tooltipContent), "New lines are not supported for item description. Use the item long description instead.", "Tooltip content incorrect");
+    public void verifyExpenseTooltipContent() {
+        WebUI.moveToElement(toggleItem);
+        verifyTooltipContent("New lines are not supported for item description. Use the item long description instead.");
     }
 }

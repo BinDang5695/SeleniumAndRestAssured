@@ -1,8 +1,12 @@
 package test.ui.crmtestcases;
 
+import constants.CRM.*;
 import io.qameta.allure.*;
+import models.ui.Expenses;
 import org.testng.annotations.Test;
 import test.ui.common.BaseTest;
+import test.ui.testdata.ExpensesData;
+import static settings.keywords.WebUI.*;
 
 public class ExpensesTest extends BaseTest {
 
@@ -16,17 +20,23 @@ public class ExpensesTest extends BaseTest {
     @Description("Add new Expense, verify and delete Expense")
     @Test(priority = 0)
     public void manageExpense() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuExpenses();
+        Expenses expenses = ExpensesData.getExpense();
+        Expenses updatedExpenses = ExpensesData.getUpdatedExpense();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        clickByMenuText(Menu.EXPENSES);
         expensesPage().clickButtonRecordExpense();
-        expensesPage().addNewExpense();
-        expensesPage().verifyCreatedExpense();
-        expensesPage().updateExpense();
-        expensesPage().verifyUpdatedExpense();
-        expensesPage().deleteExpense();
-        expensesPage().verifyDeletedExpense();
-        expensesPage().verifyTooltipContent();
-        headerPage().logout();
+        expensesPage().addNewExpense(expenses);
+        expensesPage().verifyCreatedExpense(expenses);
+        expensesPage().clickButtonEditExpense();
+        expensesPage().updateExpense(updatedExpenses);
+        expensesPage().verifyUpdatedExpense(updatedExpenses);
+        expensesPage().clickButtonDeleteExpense();
+        acceptAlert();
+        expensesPage().verifyAlertDeletedExpense();
+        expensesPage().verifyDeletedExpense(updatedExpenses);
+        clickMenuSales();
+        clickByMenuName(Menu.INVOICES);
+        expensesPage().clickButtonCreateNewInvoice();
+        expensesPage().verifyExpenseTooltipContent();
     }
 }

@@ -1,5 +1,6 @@
 package test.ui.dataproviders;
 
+import models.ui.ExportFileType;
 import org.testng.annotations.DataProvider;
 
 public class DataProviderFactory {
@@ -24,6 +25,15 @@ public class DataProviderFactory {
     public Object[][] dataProviderLoginFailWithInvalidPassword() {
         return new Object[][]{
                 {"admin@example.com", "123456789"},
+        };
+    }
+
+    @DataProvider(name = "exportTypes")
+    public Object[][] exportTypes() {
+        return new Object[][]{
+                {ExportFileType.PDF},
+                {ExportFileType.EXCEL},
+                {ExportFileType.CSV}
         };
     }
 

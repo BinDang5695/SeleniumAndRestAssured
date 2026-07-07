@@ -1,5 +1,6 @@
 package test.ui.common;
 
+import test.ui.auth.AuthManager;
 import settings.drivers.DriverFactory;
 import settings.drivers.DriverManager;
 import settings.helpers.PropertiesHelper;
@@ -32,9 +33,10 @@ public class BaseTest extends BasePage {
                 browser = configBrowser;
             }
 
-            DriverManager.setDriver(driver); // Set the driver in ThreadLocal
+            DriverManager.setDriver(driver);
             DriverManager.getDriver().manage().window().maximize();
             DriverManager.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+            AuthManager.ensureLogin();
             LogUtils.info("✅ Browser launched: " + browser);
         }
 

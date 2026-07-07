@@ -17,9 +17,9 @@ public class PropertiesHelper {
 
     public static Properties loadAllFiles() {
         LinkedList<String> files = new LinkedList<>();
-        files.add("src" + File.separator + "test" + File.separator + "resources" + File.separator + "configs" + File.separator + "crm.properties");
-//        files.add("src" + File.separator + "test" + File.separator + "resources" + File.separator + "configs" + File.separator + "pixabay.properties");
-//        files.add("src/test/resources/configs/production.properties");
+        files.add("src" + File.separator + "test" + File.separator + "resources" + File.separator + "configs" + File.separator + "ui.properties");
+        //files.add("src" + File.separator + "test" + File.separator + "resources" + File.separator + "configs" + File.separator + "api.properties");
+        //files.add("src/test/resources/configs/production.properties");
 
         try {
             properties = new Properties();

@@ -2,10 +2,16 @@ package settings.helpers;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.poi.ss.usermodel.*;
 import org.testng.Assert;
 import settings.utils.LogUtils;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class FileHelper {
 
@@ -46,6 +52,39 @@ public class FileHelper {
         }
     }
 
+    public static String readCsvText(String filePath) {
+        try {
+            return Files.readString(Path.of(filePath));
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading CSV file: " + filePath, e);
+        }
+    }
+
+    public static String readExcelAsText(String filePath) {
+
+        StringBuilder builder = new StringBuilder();
+
+        try (FileInputStream fis = new FileInputStream(filePath);
+             Workbook workbook = WorkbookFactory.create(fis)) {
+
+            DataFormatter formatter = new DataFormatter();
+
+            for (Sheet sheet : workbook) {
+                for (Row row : sheet) {
+                    for (Cell cell : row) {
+                        builder.append(formatter.formatCellValue(cell)).append(" ");
+                    }
+                    builder.append(System.lineSeparator());
+                }
+            }
+
+            return builder.toString();
+
+        } catch (Exception e) {
+            throw new RuntimeException("Error reading Excel file: " + filePath, e);
+        }
+    }
+
     public static void waitForFileExists(String fullPath, int timeout) {
         File file = new File(fullPath);
 
@@ -67,6 +106,17 @@ public class FileHelper {
             f.delete();
             LogUtils.info("🧹 Deleted file: " + fullPath);
         }
+    }
+
+    public static String getTestDataFile(String fileName) {
+        return Paths.get(
+                System.getProperty("user.dir"),
+                "src",
+                "test",
+                "resources",
+                "testdata",
+                fileName
+        ).toString();
     }
 
 

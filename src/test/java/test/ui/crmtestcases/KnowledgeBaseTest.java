@@ -1,8 +1,12 @@
 package test.ui.crmtestcases;
 
+import constants.CRM.*;
 import io.qameta.allure.*;
+import models.ui.KnowledgeBase;
 import org.testng.annotations.Test;
 import test.ui.common.BaseTest;
+import test.ui.testdata.KnowledgeBaseData;
+import static settings.keywords.WebUI.*;
 
 public class KnowledgeBaseTest extends BaseTest {
 
@@ -16,14 +20,16 @@ public class KnowledgeBaseTest extends BaseTest {
     @Description("Add new Knowledge Base, verify and delete Knowledge Base")
     @Test(priority = 0)
     public void manageKnowledgeBase() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuKnowledgeBase();
+        KnowledgeBase knowledgeBase = KnowledgeBaseData.getKnowledgeBase();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        clickByMenuName(Menu.KNOWLEDGE_BASE);
         knowledgeBase().clickButtonNewArticle();
-        knowledgeBase().addNewArticle();
-        basePage().clickMenuKnowledgeBase();
-        knowledgeBase().switchBetweenTabTest();
-        knowledgeBase().deleteCreatedArticle();
-        headerPage().logout();
+        knowledgeBase().addNewArticle(knowledgeBase);
+        clickByMenuName(Menu.KNOWLEDGE_BASE);
+        knowledgeBase().switchBetweenTabTest(knowledgeBase);
+        knowledgeBase().moveToCreatedArticle(knowledgeBase);
+        clickButtonDelete();
+        acceptAlert();
+        clickButtonX();
     }
 }

@@ -1,8 +1,11 @@
 package test.ui.crmtestcases;
 
 import io.qameta.allure.*;
+import models.ui.Lead;
 import org.testng.annotations.Test;
 import test.ui.common.BaseTest;
+import test.ui.testdata.LeadData;
+import static settings.keywords.WebUI.*;
 
 public class LeadsTest extends BaseTest {
 
@@ -16,12 +19,15 @@ public class LeadsTest extends BaseTest {
     @Description("Add new Lead, verify and delete Lead")
     @Test(priority = 0)
     public void manageLead() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        leadsPage().createMultipleLeads(11);
-        leadsPage().searchAndCheckDataInTable(3, "Bin Lead", "Name");
-        leadsPage().deleteDataAfterSearched();
-        leadsPage().verifyDeletedLeads();
-        headerPage().logout();
+        Lead lead = LeadData.getLead();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        leadsPage().createMultipleLeads(lead, 11);
+        leadsPage().searchAndCheckDataInTable(lead,3, lead.getName(), "Name");
+        leadsPage().searchAndSelectAllLeads();
+        clickButtonBulkActions();
+        clickCheckboxMassDelete();
+        clickButtonConfirm();
+        acceptAlert();
+        leadsPage().verifyDeletedLeads(lead);
     }
 }

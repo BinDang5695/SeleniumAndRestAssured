@@ -1,11 +1,21 @@
 package test.ui.common;
 
+import models.ui.ExportFileType;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import settings.drivers.DriverManager;
+import settings.helpers.AssertHelper;
 import settings.helpers.ExcelHelper;
+import settings.helpers.FileHelper;
 import settings.keywords.WebUI;
 import org.openqa.selenium.By;
+import settings.utils.LogUtils;
 import test.ui.crmpages.*;
-import test.ui.pexelspages.*;
-import test.ui.pixabaypages.*;
+import java.io.File;
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 public class BasePage {
 
@@ -19,28 +29,55 @@ public class BasePage {
     private HeaderPage headerPage;
     private ContractsPage contractsPage;
     private ExpensesPage expensesPage;
-    private SalesPage salesPage;
-    private EstimatesPage estimatesPage;
     private LeadsPage leadsPage;
     private KnowledgeBasePage knowledgeBase;
     private ProposalsPage proposalsPage;
     private ItemsPage itemsPage;
     private ExcelHelper excelHelper;
 
-    private By menuDashboard = By.xpath("//span[normalize-space()='Dashboard']");
-    private By menuCustomers = By.xpath("//span[normalize-space()='Customers']");
-    private By menuProjects = By.xpath("//span[normalize-space()='Projects']");
-    private By menuTasks = By.xpath("//span[normalize-space()='Tasks']");
-    private By menuContracts = By.xpath("//span[normalize-space()='Contracts']");
-    private By menuExpenses = By.xpath("//span[@class='menu-text'][normalize-space()='Expenses']");
-    private By menuLeads = By.xpath("//span[@class='menu-text'][normalize-space()='Leads']");
-    private By menuKnowledgeBase = By.xpath("//span[normalize-space()='Knowledge Base']");
     private By menuSales = By.xpath("//span[@class='menu-text'][normalize-space()='Sales']");
-    private By menuEstimates= By.xpath("//span[normalize-space()='Estimates']");
-    private By menuProposals = By.xpath("//span[normalize-space()='Proposals']");
-    private By menuItems = By.xpath("//span[normalize-space()='Items']");
-    private By tabProjects = By.xpath("//a[@data-group='projects']");
-    private By tabContacts = By.xpath("//a[normalize-space()='Contacts']");
+    private By menuDashboard = By.xpath("//span[@class='menu-text'][normalize-space()='Dashboard']");
+    private By alertSuccess = By.xpath("//span[@class='alert-title']");
+    private By buttonView = By.xpath("//a[normalize-space()='View']");
+    private By buttonDelete = By.xpath("//a[normalize-space()='Delete']");
+    private By buttonX = By.xpath("//button[@data-dismiss='alert']");
+    private By buttonClosePopup = By.xpath("//form[@id='contact-form']//span[@aria-hidden='true'][normalize-space()='×']");
+    private By noDataAfterDelete = By.xpath("//td[@class='dataTables_empty']");
+    private By checkboxSelectAllLead = By.xpath("//div[@class='checkbox mass_select_all_wrap']");
+    private By allBinLeadcheckbox = By.xpath("//div[@class='checkbox']");
+    private By buttonBulkActions = By.xpath("//span[normalize-space()='Bulk Actions']");
+    private By checkboxMassDelete = By.xpath("//label[normalize-space()='Mass Delete']");
+    private By buttonConfirm = By.xpath("//a[normalize-space()='Confirm']");
+    private By tooltipContent = By.cssSelector(".tooltip-inner");
+    private By dropdownMore = By.xpath("//button[normalize-space()='More']");
+    private By buttonExport = By.xpath("//span[normalize-space()='Export']");
+    private By optionPDF = By.xpath("//a[normalize-space()='PDF']");
+    private By optionExcel = By.xpath("//a[normalize-space()='Excel']");
+    private By optionCSV = By.xpath("//a[normalize-space()='CSV']");
+    private By optionPrint = By.xpath("//a[normalize-space()='Print']");
+
+    public By getByMenuText(String text) {
+        return By.xpath("//span[@class='menu-text'][normalize-space()='" + text + "']");
+    }
+    public By getLinkByText(String text) {
+        return By.xpath("//a[normalize-space()='" + text + "']");
+    }
+
+    public By getBySpanText(String text) {
+        return By.xpath("//span[normalize-space()='" + text + "']");
+    }
+
+    public void clickByMenuText(String text) {
+        WebUI.clickElement(getByMenuText(text));
+    }
+
+    public void clickByLinkText(String text) {
+        WebUI.clickElement(getLinkByText(text));
+    }
+
+    public void clickByMenuName(String text) {
+        WebUI.clickElement(getBySpanText(text));
+    }
 
     public BasePage basePage() {
         if (basePage == null) {
@@ -147,157 +184,214 @@ public class BasePage {
         return itemsPage;
     }
 
-    public DashboardPage clickMenuDashboard() {
-        WebUI.clickElement(menuDashboard);
-        return new DashboardPage();
-    }
-
-    public CustomerPage clickMenuCustomers() {
-        WebUI.clickElement(menuCustomers);
-        return new CustomerPage();
-    }
-
-    public ProjectPage clickMenuProjects() {
-        WebUI.clickElement(menuProjects);
-        return new ProjectPage();
-    }
-
-    public ProjectPage clickTabProjects() {
-        WebUI.clickElement(tabProjects);
-        return new ProjectPage();
-    }
-
-    public ContactsPage clickTabContacts() {
-        WebUI.clickElement(tabContacts);
-        return new ContactsPage();
-    }
-
-    public ContractsPage clickMenuContracts() {
-        WebUI.clickElement(menuContracts);
-        return new ContractsPage();
-    }
-
-    public TaskPage clickMenuTasks() {
-        WebUI.clickElement(menuTasks);
-        return new TaskPage();
-    }
-
-    public ExpensesPage clickMenuExpenses() {
-        WebUI.clickElement(menuExpenses);
-        return new ExpensesPage();
-    }
-
-    public LeadsPage clickMenuLeads() {
-        WebUI.clickElement(menuLeads);
-        return new LeadsPage();
-    }
-
-    public KnowledgeBasePage clickMenuKnowledgeBase() {
-        WebUI.clickElement(menuKnowledgeBase);
-        return new KnowledgeBasePage();
-    }
-
-    public SalesPage clickMenuSales() {
+    public void clickMenuSales() {
         WebUI.clickElement(menuSales);
-        return new SalesPage();
     }
 
-    public EstimatesPage clickMenuEstimates() {
-        WebUI.clickElement(menuEstimates);
-        return new EstimatesPage();
+    public void clickButtonX() {
+        WebUI.clickElement(buttonX);
     }
 
-    public ProposalsPage clickMenuProposalsPage() {
-        WebUI.clickElement(menuProposals);
-        return new ProposalsPage();
+    public void clickButtonClosePopup() {
+        WebUI.clickElement(buttonClosePopup);
     }
 
-    public ItemsPage clickMenuItemsPage() {
-        WebUI.clickElement(menuItems);
-        return new ItemsPage();
+    public void clickButtonDelete() {
+        WebUI.clickElement(buttonDelete);
     }
 
-    // Pixabay
+    public void clickButtonView() {
+        WebUI.clickElement(buttonView);
+    }
 
-    private LoginPixabay loginPixabay;
-    private HomePage homePage;
-    private ImageDetailsPage imageDetailsPage;
-    private SettingsPage settingsPage;
-    private LibraryPage libraryPage;
+    public void clickDropdownMore() {
+        WebUI.clickElement(dropdownMore);
+    }
 
-    public LoginPixabay loginPixabay() {
-        if (loginPixabay == null) {
-            loginPixabay = new LoginPixabay();
+    public void verifyNoItems(String expectedMessage) {
+        AssertHelper.assertEquals(WebUI.getTextElement(noDataAfterDelete), expectedMessage, "Still not delete yet");
+    }
+
+    public String getSuccessMessage() {
+        return WebUI.getTextElement(alertSuccess);
+    }
+
+    public boolean verifyAllCheckboxIsSelected() {
+        List<WebElement> elements = DriverManager.getDriver().findElements(allBinLeadcheckbox);
+        int total = elements.size();
+
+        for (int i = 1; i <= total; i++) {
+            By indexedCheckbox = By.xpath("(//div[@class='checkbox'])[" + i + "]/input");
+            WebElement cb = DriverManager.getDriver().findElement(indexedCheckbox);
+
+            if (!cb.isSelected()) {
+                Assert.fail("❌ Checkbox at index " + i + " does not tick!");
+            }
         }
-        return loginPixabay;
+
+        LogUtils.info("✅ All the checkbox ticked.");
+        return true;
     }
 
-    public HomePage homePage() {
-        if (homePage == null) {
-            homePage = new HomePage();
+    public void waitUntilCheckboxSelected(By indexedCheckbox) {
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(3));
+
+        wait.until(driver -> {
+            WebElement cb = driver.findElement(indexedCheckbox);
+            return cb.isSelected();
+        });
+    }
+
+    public void waitMenuDashboard() {
+        WebUI.waitForElementVisible(menuDashboard);
+    }
+
+    public void clickSelectAllAndEnsureChecked() {
+        int retry = 0;
+        int maxRetry = 3;
+
+        while (retry < maxRetry) {
+
+            WebUI.waitForElementVisible(checkboxSelectAllLead);
+            WebUI.clickElement(checkboxSelectAllLead);
+
+            List<WebElement> elements = DriverManager.getDriver().findElements(allBinLeadcheckbox);
+            int total = elements.size();
+
+            for (int i = 1; i <= total; i++) {
+                By indexedCheckbox = By.xpath("(//div[@class='checkbox'])[" + i + "]/input");
+
+                try {
+                    waitUntilCheckboxSelected(indexedCheckbox);
+                } catch (Exception e) {
+                    LogUtils.warn("⏳ Checkbox " + i + " does not tick, retry...");
+                }
+            }
+
+            if (verifyAllCheckboxIsSelected()) {
+                LogUtils.info("✅ All checkbox ticked after retry number: " + retry);
+                return;
+            }
+
+            LogUtils.warn("⚠️ Not ticked all yet, retry number: " + (retry + 1));
+            retry++;
         }
-        return homePage;
+        Assert.fail("❌ After clicked Select All many times but still has checkbox does not tick yet.");
     }
 
-    public ImageDetailsPage imageDetailsPage() {
-        if (imageDetailsPage == null) {
-            imageDetailsPage = new ImageDetailsPage();
+    public void clickButtonBulkActions() {
+        WebUI.clickElement(buttonBulkActions);
+    }
+
+    public void clickCheckboxMassDelete() {
+        WebUI.clickElement(checkboxMassDelete);
+    }
+
+    public void clickButtonConfirm() {
+        WebUI.clickElement(buttonConfirm);
+    }
+
+    public void verifyTooltipContent(String expectedContent) {
+        AssertHelper.assertEquals(WebUI.getTextElement(tooltipContent), expectedContent, "Tooltip content incorrect");
+    }
+
+    public void clickButtonExport() {
+        WebUI.clickElement(buttonExport);
+    }
+
+    public void exportFileType(String fileType) {
+
+        switch (fileType.toUpperCase()) {
+            case "PDF":
+                WebUI.clickElement(optionPDF);
+                break;
+            case "EXCEL":
+                WebUI.clickElement(optionExcel);
+                break;
+            case "CSV":
+                WebUI.clickElement(optionCSV);
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported file type: " + fileType);
         }
-        return imageDetailsPage;
     }
 
-    public SettingsPage settingsPage() {
-        if (settingsPage == null) {
-            settingsPage = new SettingsPage();
+    public String exportFile(ExportFileType type, String expectedFileName) {
+
+        clickButtonExport();
+        exportFileType(type.name());
+
+        String filePath = DriverManager.getDownloadPath()
+                + File.separator
+                + expectedFileName;
+
+        FileHelper.waitForFileExists(filePath, 10);
+
+        return filePath;
+    }
+
+    public void exportAndVerifyContentFile(ExportFileType type, String expectedFileName, Map<String, String> uiData) {
+
+        String filePath = exportFile(type, expectedFileName);
+
+        try {
+
+            String fileText;
+
+            switch (type) {
+                case PDF:
+                    fileText = FileHelper.readPdfText(filePath);
+                    break;
+
+                case EXCEL:
+                    fileText = FileHelper.readExcelAsText(filePath);
+                    break;
+
+                case CSV:
+                    fileText = FileHelper.readCsvText(filePath);
+                    break;
+
+                default:
+                    throw new IllegalArgumentException("Unsupported export type: " + type);
+            }
+
+            verifyExportContent(normalizeText(fileText), uiData);
+
+        } finally {
+
+            FileHelper.deleteFile(filePath);
+
         }
-        return settingsPage;
     }
 
-    public LibraryPage libraryPage() {
-        if (libraryPage == null) {
-            libraryPage = new LibraryPage();
+    private void verifyExportContent(String fileNorm, Map<String, String> uiData) {
+
+        LogUtils.info("📋 Verify exported data:");
+
+        for (Map.Entry<String, String> entry : uiData.entrySet()) {
+
+            String field = entry.getKey();
+            String value = entry.getValue();
+
+            LogUtils.info(field + " : " + value);
+
+            if (value == null || value.trim().isEmpty()) {
+                continue;
+            }
+
+            AssertHelper.assertTrue(
+                    fileNorm.contains(normalizeText(value)),
+                    field + " not found in exported file"
+            );
         }
-        return libraryPage;
     }
 
-    // CMS
-
-    private LoginPexelsPage loginPexelsPage;
-    private ImagePage imagePage;
-    private ProfilePage profilePage;
-    private CollectionsPage collectionsPage;
-
-    public LoginPexelsPage loginPexelsPage() {
-        if (loginPexelsPage == null) {
-            loginPexelsPage = new LoginPexelsPage();
-        }
-        return loginPexelsPage;
+    private String normalizeText(String text) {
+        if (text == null) return "";
+        return text
+                .replaceAll("\\s+", " ")
+                .replaceAll("[\\u00A0]", " ")
+                .trim();
     }
-
-    public ImagePage imagePage() {
-        if (imagePage == null) {
-            imagePage = new ImagePage();
-        }
-        return imagePage;
-    }
-
-    public ProfilePage profilePage() {
-        if (profilePage == null) {
-            profilePage = new ProfilePage();
-        }
-        return profilePage;
-    }
-
-    public CollectionsPage collectionsPage() {
-        if (collectionsPage == null) {
-            collectionsPage = new CollectionsPage();
-        }
-        return collectionsPage;
-    }
-
-
-
-
-
 
 }

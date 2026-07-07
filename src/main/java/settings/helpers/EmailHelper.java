@@ -20,7 +20,6 @@ public class EmailHelper {
         ApiClient client = new ApiClient();
         client.setApiKey(apiKey);
 
-        // tăng timeout HTTP client để tránh SocketTimeoutException
         client.setHttpClient(
                 client.getHttpClient().newBuilder()
                         .connectTimeout(60, TimeUnit.SECONDS)
@@ -33,20 +32,17 @@ public class EmailHelper {
         emailApi = new EmailControllerApi(client);
     }
 
-    /** Tạo inbox test */
     public InboxDto createTestInbox() throws Exception {
         return inboxApi.createInboxWithDefaults();
     }
 
-    /** Xóa inbox test (tuỳ chọn cleanup) */
     public void deleteInbox(UUID inboxId) throws Exception {
         inboxApi.deleteInbox(inboxId);
     }
 
-    /** Chờ email tới inbox, lấy Email đầy đủ */
     public Email waitForLatestFullEmail(UUID inboxId, long timeoutMillis, boolean unreadOnly) throws Exception {
         long waited = 0;
-        long interval = 5000; // poll mỗi 5 giây
+        long interval = 5000;
         Long unreadFlag = unreadOnly ? 1L : 0L;
 
         while (waited < timeoutMillis) {

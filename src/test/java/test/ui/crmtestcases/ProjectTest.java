@@ -1,8 +1,12 @@
 package test.ui.crmtestcases;
 
+import constants.CRM.*;
+import models.ui.Project;
 import test.ui.common.BaseTest;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
+import test.ui.testdata.ProjectData;
+import static settings.keywords.WebUI.*;
 
 public class ProjectTest extends BaseTest {
 
@@ -16,20 +20,21 @@ public class ProjectTest extends BaseTest {
     @Test(description = "Verify Project of Customer before and after delete")
     public void verifyProjectOfCustomer()
     {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuProjects();
+        Project project = ProjectData.getProject();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        clickByMenuName(Menu.PROJECTS);
         projectPage().verifyNavigateToProjectPage();
         projectPage().clickButtonAddNewCustomer();
-        projectPage().submitDataForNewCustomer();
-        projectPage().verifyProjectCreated();
-        basePage().clickMenuProjects();
-        projectPage().searchAndCheckCustomerInTable();
-        projectPage().moveToProjectName();
-        projectPage().clickAndDeleteProject();
-        basePage().clickMenuProjects();
-        projectPage().searchAndCheckProjectInTable();
+        projectPage().submitDataForNewCustomer(project);
+        projectPage().verifyProjectCreated(project);
+        clickByMenuName(Menu.PROJECTS);
+        projectPage().searchAndCheckCustomerInTable(project);
+        projectPage().moveToProjectName(project);
+        clickButtonDelete();
+        acceptAlert();
+        clickButtonX();
+        clickByMenuName(Menu.PROJECTS);
+        projectPage().searchProjectInTable(project);
         projectPage().verifyNoDataAfterDeletedProject();
-        headerPage().logout();
     }
 }

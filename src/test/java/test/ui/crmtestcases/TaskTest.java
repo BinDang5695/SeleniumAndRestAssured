@@ -1,8 +1,11 @@
 package test.ui.crmtestcases;
 
+import constants.CRM.*;
+import models.ui.Task;
 import test.ui.common.BaseTest;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
+import test.ui.testdata.TaskData;
 
 public class TaskTest extends BaseTest {
 
@@ -15,26 +18,25 @@ public class TaskTest extends BaseTest {
     @Issue("https://nashtech-global.atlassian.net/")
     @Test(description = "Verify can create, update & delete Task")
     public void verifyTask() {
-        loginPage().loginCRM();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "1 / 3");
-        basePage().clickMenuTasks();
+        Task task = TaskData.getTask();
+        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
+        clickByMenuName(Menu.TASKS);
         taskPage().verifyNavigateToTasksPage();
         taskPage().clickButtonSwitchToKanBan();
         taskPage().verifyNavigateToKanbanPage();
         taskPage().clickButtonAddNewTask();
         taskPage().verifyAddNewTaskPopUp();
-        taskPage().submitDataForNewTask();
-        taskPage().verifyNewTaskAfterCreated();
+        taskPage().submitDataForNewTask(task);
+        taskPage().verifyNewTaskAfterCreated(task);
         taskPage().markCompletedAndRefreshPage();
         taskPage().verifyCompleteTasksAfterRefreshed();
-        taskPage().editTask();
-        taskPage().searchAndVerifyAfterSearch();
+        taskPage().editTask(task);
+        taskPage().searchAndVerifyAfterSearch(task);
         taskPage().dragAndDrop();
         taskPage().verifyTotalTasksAfterDragDrop();
-        taskPage().searchAndDeleteTask();
-        taskPage().searchAfterDeleted();
+        taskPage().searchAndDeleteTask(task);
+        taskPage().searchAfterDeleted(task);
         taskPage().verifyNoDataAfterDeleted();
-        taskPage().clickDismissAlert();
-        headerPage().logout();
+        clickButtonX();
     }
 }

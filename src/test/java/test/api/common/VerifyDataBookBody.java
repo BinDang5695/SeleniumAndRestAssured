@@ -1,7 +1,7 @@
 package test.api.common;
 
-import test.api.model.BookPOJO_Lombok;
-import test.api.model.ImagePOJO_Response_Lombok;
+import models.BookPOJO_Lombok;
+import models.ImagePOJO_Response_Lombok;
 import settings.utils.LogUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

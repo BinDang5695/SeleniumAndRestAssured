@@ -1,6 +1,6 @@
 package test.api.common;
 
-import test.api.model.RegisterUserPOJO_Lombok;
+import models.RegisterUserPOJO_Lombok;
 import settings.utils.LogUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

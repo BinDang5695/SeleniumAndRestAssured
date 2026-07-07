@@ -1,5 +1,7 @@
 package test.ui.crmpages;
 
+import constants.CRM.*;
+import models.ui.KnowledgeBase;
 import org.openqa.selenium.By;
 import settings.drivers.DriverManager;
 import settings.helpers.AssertHelper;
@@ -14,50 +16,52 @@ public class KnowledgeBasePage extends BasePage {
     private By inputSubject = By.xpath("//input[@id='subject']");
     private By dropdownGroup = By.xpath("//button[@data-id='articlegroup']");
     private By searchGroup = By.xpath("//input[@aria-label='Search']");
-    private By optionJava = By.xpath("//span[normalize-space()='java']");
+    private By getGroup (String group) {
+        return By.xpath("//span[normalize-space()='" + group + "']");
+    }
     private By checkboxInternalArticle = By.xpath("//label[normalize-space()='Internal Article']");
     private By checkboxDisabled = By.xpath("//div[@class='panel-body']//label[@for='disabled'][normalize-space()='Disabled']");
     private By iframeDescription = By.id("description_ifr");
     private By editorBody = By.id("tinymce");
     private By buttonSave = By.xpath("//div[@class='panel-footer text-right']//button[@type='submit'][normalize-space()='Save']");
-    private By createdArticle = By.xpath("//tr[@class='has-row-options odd']//a[contains(text(),'Bin Article')]");
-    private By buttonView = By.xpath("//a[normalize-space()='View']");
-    private By buttonDelete= By.xpath("//a[normalize-space()='Delete']");
-    private By nameArticle = By.xpath("//h4[normalize-space()='Bin Article']");
-    private By descriptionArticle = By.xpath("//p[normalize-space()='Bin article description']");
+    private By getCreatedArticle (String createdArticle) {
+        return By.xpath("//tr[@class='has-row-options odd']//a[contains(text(),'" + createdArticle + "')]");
+    }
+    private By getNameArticle (String nameArticle) {
+        return By.xpath("//h4[normalize-space()='" + nameArticle + "']");
+    }
+    private By getDescriptionArticle (String descriptionArticle) {
+        return By.xpath("//p[normalize-space()='" + descriptionArticle + "']");
+    }
     private By buttonYes = By.xpath("//button[normalize-space()='Yes']");
-    private By messageNotification = By.xpath("//div[@class='answer_response']");
-    private By buttonX = By.xpath("//button[@data-dismiss='alert']//span[@aria-hidden='true'][normalize-space()='×']");
+    private By messageNotification = By.xpath("//div[contains(@class,'answer_response')]");
 
     public void clickButtonNewArticle() {
-        WebUI.waitForElementVisible(buttonNewArticle);
         WebUI.clickElement(buttonNewArticle);
     }
 
     public void enterDescription(String content) {
-        WebUI.waitForElementVisible(iframeDescription);
         WebUI.switchToIframe(iframeDescription);
-        WebUI.waitForElementVisible(editorBody);
+        WebUI.clickElement(editorBody);
         WebUI.setTextElement(editorBody, content);
         WebUI.switchToDefaultContent();
     }
 
-    public void addNewArticle() {
-        WebUI.setTextElement(inputSubject, "Bin Article");
+    public void addNewArticle(KnowledgeBase getArticle) {
+        WebUI.setTextElement(inputSubject, getArticle.getSubject());
         WebUI.clickElement(dropdownGroup);
-        WebUI.setTextElement(searchGroup, "java");
-        WebUI.clickElement(optionJava);
+        WebUI.setTextElement(searchGroup, getArticle.getGroup());
+        WebUI.clickElement(getGroup(getArticle.getGroup()));
         WebUI.clickElement(checkboxInternalArticle);
         WebUI.clickElement(checkboxDisabled);
-        enterDescription("Bin article description");
+        enterDescription(getArticle.getDescription());
         WebUI.clickElement(buttonSave);
     }
 
-    public void switchBetweenTabTest() {
+    public void switchBetweenTabTest(KnowledgeBase getArticle) {
         String tab1 = DriverManager.getDriver().getWindowHandle();
-        WebUI.moveToElement(createdArticle);
-        WebUI.waitForElementVisible(buttonView);
-        WebUI.clickElement(buttonView);
+        WebUI.moveToElement(getCreatedArticle(getArticle.getSubject()));
+        clickButtonView();
 
         Set<String> allTabs = DriverManager.getDriver().getWindowHandles();
         String tab2 = null;
@@ -72,30 +76,21 @@ public class KnowledgeBasePage extends BasePage {
         if (tab2 != null) {
             DriverManager.getDriver().switchTo().window(tab2);
 
-            AssertHelper.assertEquals(WebUI.getTextElement(nameArticle), "Bin Article", "The project progress not match.");
-            AssertHelper.assertEquals(WebUI.getTextElement(descriptionArticle), "Bin article description", "The description Article does not match.");
-            WebUI.waitForElementVisible(buttonYes);
+            AssertHelper.assertEquals(WebUI.getTextElement(getNameArticle(getArticle.getSubject())), getArticle.getSubject(), "The project progress not match.");
+            AssertHelper.assertEquals(WebUI.getTextElement(getDescriptionArticle(getArticle.getDescription())), getArticle.getDescription(), "The description Article does not match.");
             WebUI.clickElement(buttonYes);
-            AssertHelper.assertEquals(WebUI.getTextElement(messageNotification), "Thanks for your feedback", "The 1st message Notification does not match.");
-            WebUI.waitForElementVisible(buttonYes);
+            AssertHelper.assertEquals(WebUI.getTextElement(messageNotification), Message.THANKS_FOR_YOUR_FEEDBACK, "The 1st message Notification does not match.");
+            WebUI.waitForPageRefresh(buttonYes);
             WebUI.clickElement(buttonYes);
-            WebUI.waitForElementVisible(messageNotification);
-            AssertHelper.assertEquals(WebUI.getTextElement(messageNotification), "You can vote once in 24 hours", "The 2nd message Notification does not match.");
+            AssertHelper.assertEquals(WebUI.getTextElement(messageNotification), Message.YOU_CAN_VOTE_ONCE_IN_24_HOURS, "The 2nd message Notification does not match.");
         }
 
         DriverManager.getDriver().switchTo().window(tab1);
 
     }
 
-    public void deleteCreatedArticle() {
-        WebUI.moveToElement(createdArticle);
-        WebUI.clickElement(buttonDelete);
-        WebUI.acceptAlert();
-        WebUI.clickElement(buttonX);
+    public void moveToCreatedArticle(KnowledgeBase getArticle) {
+        WebUI.moveToElement(getCreatedArticle(getArticle.getSubject()));
     }
-
-
-
-
 
 }

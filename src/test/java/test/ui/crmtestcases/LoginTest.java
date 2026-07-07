@@ -1,11 +1,11 @@
 package test.ui.crmtestcases;
 
-import test.ui.common.BaseTest;
+import test.ui.common.BaseTestNotLogin;
 import test.ui.dataproviders.DataProviderFactory;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest {
+public class LoginTest extends BaseTestNotLogin {
 
     @Epic("Regression Test")
     @Feature("DMS")
