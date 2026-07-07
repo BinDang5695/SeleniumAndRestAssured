@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>SeleniumJavaBin</artifactId>
+    <artifactId>SeleniumAndRestAssured</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -177,7 +177,7 @@
                         </argLine>
                         <testFailureIgnore>true</testFailureIgnore>
                         <systemPropertyVariables>
-                            <allure.results.directory>target/allure-results</allure.results.directory>
+                            <allure.results.directory>reports/allure</allure.results.directory>
                         </systemPropertyVariables>
                     </configuration>
                 </plugin>

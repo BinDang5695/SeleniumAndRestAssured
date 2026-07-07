@@ -1,6 +1,5 @@
 package models.api;
 
-import models.BookPOJO_Lombok;
 import net.datafaker.Faker;
 
 import java.util.Collections;

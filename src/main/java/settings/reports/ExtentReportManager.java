@@ -9,7 +9,7 @@ public class ExtentReportManager {
     private static final ExtentReports extentReports = new ExtentReports();
 
     public synchronized static ExtentReports getExtentReports() {
-        ExtentSparkReporter reporter = new ExtentSparkReporter("reports/extentreport/extentreport.html");
+        ExtentSparkReporter reporter = new ExtentSparkReporter("reports/extent/extent-report.html");
         reporter.config().setReportName("Extent Report | Bin Tester");
         reporter.config().setTheme(Theme.DARK);
         extentReports.attachReporter(reporter);
