@@ -245,29 +245,6 @@ mvn clean test -DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTest.x
 
 ---
 
-## Run a specific test class
-
-```bash
-mvn clean test -Dtest=LoginTest
-```
-
-Example
-
-```bash
-mvn clean test -Dtest=CustomerTest
-mvn clean test -Dtest=ProjectTest
-```
-
----
-
-## Run a specific test method
-
-```bash
-mvn clean test -Dtest=LoginTest#loginSuccessfully
-```
-
----
-
 ## Run tests on different browsers
 
 Chrome
@@ -290,16 +267,6 @@ mvn clean test -Dbrowser=firefox
 
 ---
 
-## Run tests on different environments
-
-Example
-
-```bash
-mvn clean test -Denvironment=dev
-mvn clean test -Denvironment=staging
-mvn clean test -Denvironment=production
-```
-
 Framework configuration is located in:
 
 ```text
@@ -319,7 +286,7 @@ Example:
 ```xml
 <suite name="Regression Suite"
        parallel="methods"
-       thread-count="4">
+       thread-count="2">
 ```
 
 Or configure parallel execution directly in your TestNG XML file.
@@ -376,7 +343,7 @@ exports/screenshots/
 
 ## Videos
 
-Recorded execution videos (if enabled) are saved to:
+Failed test videos are automatically saved to:
 
 ```text
 exports/videos/
