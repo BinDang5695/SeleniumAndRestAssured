@@ -2,8 +2,9 @@
 
 Selenium WebDriver | RestAssured | TestNG | Java | Maven
 
-This project contains automated test scripts for the CRM website using Selenium, TestNG and RestAssured for Api automation.
-The framework follows a simple Page Object Model structure and supports reporting, screenshots, and data-driven testing.
+This is an automation framework using Selenium WebDriver and RestAssured written in Java.
+
+The framework follows Page Object Model (POM) design pattern and supports UI automation, API automation, test reporting, screenshot capture, and data-driven testing.
 
 ## Project Folder Structure
 ```
