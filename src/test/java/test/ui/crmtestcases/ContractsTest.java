@@ -33,7 +33,7 @@ public class ContractsTest extends BaseTest {
         clickButtonDelete();
         acceptAlert();
         clickButtonX();
-        clickByMenuName(Menu.CONTRACTS);
+        clickByMenuName(Menu.CUSTOMERS);
         contractsPage().verifyDeletedContract(updatedContract);
     }
 }

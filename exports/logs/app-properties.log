@@ -1,0 +1,180 @@
+[INFO] 07-07-2026 10:12:19 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 10:12:17 ICT 2026
+[INFO] 07-07-2026 10:12:30 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 10:12:30 [main] LogUtils - ▶️ Start run test case: manageContract
+[INFO] 07-07-2026 10:12:32 [main] LogUtils - Element By.xpath: //span[normalize-space()='Invoices Awaiting Payment'] is displayed: true
+[INFO] 07-07-2026 10:12:32 [main] LogUtils - Assert true: true
+[INFO] 07-07-2026 10:12:32 [main] LogUtils - Get text of element By.xpath: //span[normalize-space()='Invoices Awaiting Payment']: Invoices Awaiting Payment
+[INFO] 07-07-2026 10:12:32 [main] LogUtils - Assert equals: Invoices Awaiting Payment 🟰 Invoices Awaiting Payment
+[INFO] 07-07-2026 10:12:32 [main] LogUtils - Element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span is displayed: true
+[INFO] 07-07-2026 10:12:32 [main] LogUtils - Assert true: true
+[INFO] 07-07-2026 10:12:32 [main] LogUtils - Get text of element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span: 3 / 5
+[INFO] 07-07-2026 10:12:32 [main] LogUtils - Assert equals: 3 / 5 🟰 3 / 5
+[INFO] 07-07-2026 10:12:33 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
+[INFO] 07-07-2026 10:12:34 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Contract']
+[INFO] 07-07-2026 10:12:35 [main] LogUtils - Click element By.xpath: //button[@data-id='clientid']
+[INFO] 07-07-2026 10:12:36 [main] LogUtils - Clear text of element By.xpath: //input[@placeholder='Type to search...']
+[INFO] 07-07-2026 10:12:36 [main] LogUtils - Set text: Bin Customer on element By.xpath: //input[@placeholder='Type to search...']
+[INFO] 07-07-2026 10:12:37 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Bin Customer']
+[INFO] 07-07-2026 10:12:37 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
+[INFO] 07-07-2026 10:12:37 [main] LogUtils - Set text: Bin Subject on element By.xpath: //input[@id='subject']
+[INFO] 07-07-2026 10:12:38 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
+[INFO] 07-07-2026 10:12:38 [main] LogUtils - Set text: 1000 on element By.xpath: //input[@name='contract_value']
+[INFO] 07-07-2026 10:12:38 [main] LogUtils - Click element By.xpath: //button[@data-id='contract_type']
+[INFO] 07-07-2026 10:12:38 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
+[INFO] 07-07-2026 10:12:38 [main] LogUtils - Set text: 1 on element By.xpath: //input[@aria-controls='bs-select-1']
+[INFO] 07-07-2026 10:12:39 [main] LogUtils - Click element By.xpath: //span[normalize-space()='1']
+[INFO] 07-07-2026 10:12:39 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 10:12:39 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 10:12:39 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
+[INFO] 07-07-2026 10:12:39 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='dateend']
+[INFO] 07-07-2026 10:12:40 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
+[INFO] 07-07-2026 10:12:40 [main] LogUtils - Set text: Bin Description on element By.xpath: //textarea[@id='description']
+[INFO] 07-07-2026 10:12:40 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
+[INFO] 07-07-2026 10:12:41 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract added successfully.
+[INFO] 07-07-2026 10:12:41 [main] LogUtils - Assert equals: Contract added successfully. 🟰 Contract added successfully.
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: Bin Subject 🟰 Bin Subject
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 1000.00
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: 1000.0 🟰 1000.0
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: 1 🟰 1
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2040
+[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
+[INFO] 07-07-2026 10:12:43 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2040
+[INFO] 07-07-2026 10:12:43 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
+[INFO] 07-07-2026 10:12:43 [main] LogUtils - Get attribute value of element By.xpath: //form[@id='contract-form']//textarea[@id='description']: Bin Description
+[INFO] 07-07-2026 10:12:43 [main] LogUtils - Assert equals: Bin Description 🟰 Bin Description
+[INFO] 07-07-2026 10:12:43 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
+[INFO] 07-07-2026 10:12:43 [main] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@id='subject']
+[INFO] 07-07-2026 10:12:43 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
+[INFO] 07-07-2026 10:12:43 [main] LogUtils - Set text: 2000 on element By.xpath: //input[@name='contract_value']
+[INFO] 07-07-2026 10:12:44 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 10:12:44 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 10:12:44 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
+[INFO] 07-07-2026 10:12:44 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='dateend']
+[INFO] 07-07-2026 10:12:44 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
+[INFO] 07-07-2026 10:12:44 [main] LogUtils - Set text: Bin Description Updated on element By.xpath: //textarea[@id='description']
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract updated successfully.
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: Contract updated successfully. 🟰 Contract updated successfully.
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject Updated
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: Bin Subject Updated 🟰 Bin Subject Updated
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 2000.00
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: 2000.0 🟰 2000.0
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: 1 🟰 1
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2045
+[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
+[INFO] 07-07-2026 10:12:47 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2045
+[INFO] 07-07-2026 10:12:47 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
+[INFO] 07-07-2026 10:12:47 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='description']: Bin Description Updated
+[INFO] 07-07-2026 10:12:47 [main] LogUtils - Assert equals: Bin Description Updated 🟰 Bin Description Updated
+[INFO] 07-07-2026 10:12:47 [main] LogUtils - Click element By.xpath: //button[normalize-space()='More']
+[INFO] 07-07-2026 10:12:47 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 10:12:47 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 10:12:49 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 10:12:49 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
+[INFO] 07-07-2026 10:12:50 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='contracts']
+[INFO] 07-07-2026 10:12:50 [main] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@aria-controls='contracts']
+[INFO] 07-07-2026 10:12:51 [main] LogUtils - Get text of element By.xpath: //td[@class='dataTables_empty']: No matching records found
+[INFO] 07-07-2026 10:12:51 [main] LogUtils - Assert equals: No matching records found 🟰 No matching records found
+[INFO] 07-07-2026 10:12:51 [main] LogUtils - ✅ Test case manageContract is passed.
+[INFO] 07-07-2026 10:12:53 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 10:12:53 [main] LogUtils - End test: Tue Jul 07 10:12:53 ICT 2026
+[INFO] 07-07-2026 10:12:53 [main] LogUtils - ⭐ Test Total: 1
+[INFO] 07-07-2026 10:12:53 [main] LogUtils - ⭐ Test Passed Total: 1
+[INFO] 07-07-2026 10:12:53 [main] LogUtils - ⭐ Test Failed Total: 0
+[INFO] 07-07-2026 10:12:53 [main] LogUtils - ⭐ Test Skipped Total: 0
+[INFO] 07-07-2026 10:17:32 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 10:17:30 ICT 2026
+[INFO] 07-07-2026 10:17:38 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 10:17:38 [main] LogUtils - ▶️ Start run test case: manageContract
+[INFO] 07-07-2026 10:17:40 [main] LogUtils - Element By.xpath: //span[normalize-space()='Invoices Awaiting Payment'] is displayed: true
+[INFO] 07-07-2026 10:17:40 [main] LogUtils - Assert true: true
+[INFO] 07-07-2026 10:17:40 [main] LogUtils - Get text of element By.xpath: //span[normalize-space()='Invoices Awaiting Payment']: Invoices Awaiting Payment
+[INFO] 07-07-2026 10:17:40 [main] LogUtils - Assert equals: Invoices Awaiting Payment 🟰 Invoices Awaiting Payment
+[INFO] 07-07-2026 10:17:40 [main] LogUtils - Element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span is displayed: true
+[INFO] 07-07-2026 10:17:40 [main] LogUtils - Assert true: true
+[INFO] 07-07-2026 10:17:40 [main] LogUtils - Get text of element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span: 3 / 5
+[INFO] 07-07-2026 10:17:40 [main] LogUtils - Assert equals: 3 / 5 🟰 3 / 5
+[INFO] 07-07-2026 10:17:41 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
+[INFO] 07-07-2026 10:17:41 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Contract']
+[INFO] 07-07-2026 10:17:42 [main] LogUtils - Click element By.xpath: //button[@data-id='clientid']
+[INFO] 07-07-2026 10:17:42 [main] LogUtils - Clear text of element By.xpath: //input[@placeholder='Type to search...']
+[INFO] 07-07-2026 10:17:42 [main] LogUtils - Set text: Bin Customer on element By.xpath: //input[@placeholder='Type to search...']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Bin Customer']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Set text: Bin Subject on element By.xpath: //input[@id='subject']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Set text: 1000 on element By.xpath: //input[@name='contract_value']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Click element By.xpath: //button[@data-id='contract_type']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Set text: 1 on element By.xpath: //input[@aria-controls='bs-select-1']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Click element By.xpath: //span[normalize-space()='1']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 10:17:44 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 10:17:45 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
+[INFO] 07-07-2026 10:17:45 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='dateend']
+[INFO] 07-07-2026 10:17:45 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
+[INFO] 07-07-2026 10:17:45 [main] LogUtils - Set text: Bin Description on element By.xpath: //textarea[@id='description']
+[INFO] 07-07-2026 10:17:45 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract added successfully.
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: Contract added successfully. 🟰 Contract added successfully.
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: Bin Subject 🟰 Bin Subject
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 1000.00
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: 1000.0 🟰 1000.0
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: 1 🟰 1
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2040
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2040
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //form[@id='contract-form']//textarea[@id='description']: Bin Description
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: Bin Description 🟰 Bin Description
+[INFO] 07-07-2026 10:17:46 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@id='subject']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: 2000 on element By.xpath: //input[@name='contract_value']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='dateend']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
+[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: Bin Description Updated on element By.xpath: //textarea[@id='description']
+[INFO] 07-07-2026 10:17:48 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
+[INFO] 07-07-2026 10:17:48 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract updated successfully.
+[INFO] 07-07-2026 10:17:48 [main] LogUtils - Assert equals: Contract updated successfully. 🟰 Contract updated successfully.
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject Updated
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: Bin Subject Updated 🟰 Bin Subject Updated
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 2000.00
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: 2000.0 🟰 2000.0
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: 1 🟰 1
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2045
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2045
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='description']: Bin Description Updated
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: Bin Description Updated 🟰 Bin Description Updated
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Click element By.xpath: //button[normalize-space()='More']
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 10:17:49 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 10:17:50 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 10:17:51 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 10:18:21 [main] LogUtils - ❌ Element By.xpath: //input[@aria-controls='contracts'] not found after waiting for 10 seconds.
+[ERROR] 07-07-2026 10:18:21 [main] LogUtils - ❌ Test case manageContract is failed.
+[ERROR] 07-07-2026 10:18:21 [main] LogUtils - java.lang.AssertionError: ❌ Element By.xpath: //input[@aria-controls='contracts'] not found after waiting for 10 seconds.
+[INFO] 07-07-2026 10:18:23 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 10:18:23 [main] LogUtils - End test: Tue Jul 07 10:18:23 ICT 2026
+[INFO] 07-07-2026 10:18:23 [main] LogUtils - ⭐ Test Total: 1
+[INFO] 07-07-2026 10:18:23 [main] LogUtils - ⭐ Test Passed Total: 0
+[INFO] 07-07-2026 10:18:23 [main] LogUtils - ⭐ Test Failed Total: 1
+[INFO] 07-07-2026 10:18:23 [main] LogUtils - ⭐ Test Skipped Total: 0
