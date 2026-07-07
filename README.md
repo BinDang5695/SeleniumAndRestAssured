@@ -8,7 +8,7 @@ The framework follows a simple Page Object Model structure and supports reportin
 ## Project Folder Structure
 ```
 FinalProject
-│── downloads/
+│── downloads/                            # File to download and read csv,pdf,excel
 ├── exports/
 │   ├── logs/                             # Log files
 │   ├── reports/                          # Extent HTML reports
