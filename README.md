@@ -1,4 +1,4 @@
-# SeleniumAndRestAssured2025
+# SeleniumAndRestAssured
 
 Selenium WebDriver | RestAssured | TestNG | Java | Maven
 
