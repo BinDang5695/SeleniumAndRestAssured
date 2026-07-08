@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite Regression Test">
+<suite name="Suite Regression Test" verbose="1" parallel="methods" thread-count="2">
 
     <test name="Regression Test with Chrome">
         <parameter name="browser" value="chrome"/>
@@ -24,12 +24,6 @@
             <class name="ui.testcases.ProposalsTest">
             </class>
             <class name="ui.testcases.DashboardTest">
-            </class>
-            <class name="ui.testcases.AddCustomerByJsonFile">
-            </class>
-            <class name="ui.testcases.ItemsTest">
-            </class>
-            <class name="ui.testcases.LeadsTest">
             </class>
         </classes>
     </test>

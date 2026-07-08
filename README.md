@@ -41,6 +41,8 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 │   │       │   │   ├── Contact                                   # Contact test data model
 │   │       │   │   ├── Contract                                  # Contract test data model
 │   │       │   │   ├── Customer                                  # Customer test data model
+│   │       │   │   ├── CustomerCase                              # Customer test case JSON model
+│   │       │   │   ├── CustomerDataDriven                        # Customer test data JSON model
 │   │       │   │   ├── Expenses                                  # Expenses test data model
 │   │       │   │   ├── ExportFileType                            # Export file type constants
 │   │       │   │   ├── Item                                      # Item test data model
@@ -127,6 +129,7 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 │           │   ├── ProposalsPage.java                            # Proposals page actions
 │           │   └── TaskPage.java                                 # Task page actions
 │           ├── testcases/
+│           │   ├── AddCustomerByJsonFile.java                    # Add Customer test by Json file
 │           │   ├── ContractsTest.java                            # Contracts test scenarios
 │           │   ├── CustomerTest.java                             # Customer test scenarios
 │           │   ├── DashboardTest.java                            # Dashboard test scenarios
@@ -135,7 +138,7 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 │           │   ├── KnowledgeBaseTest.java                        # Knowledge Base test scenarios
 │           │   ├── LeadsTest.java                                # Leads test scenarios
 │           │   ├── LoginTest.java                                # Login test scenarios
-│           │   ├── LoginTestByExcelFile.java                     # Data-driven login tests
+│           │   ├── LoginTestByExcelFile.java                     # Data-driven login tests by Excel file
 │           │   ├── ProjectTest.java                              # Project test scenarios
 │           │   ├── ProposalsTest.java                            # Proposals test scenarios
 │           │   └── TaskTest.java                                 # Task test scenarios
@@ -158,6 +161,7 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 │           ├── suites/
 │           │   ├── API_SuiteRegressionTest.xml                   # API regression suite
 │           │   └── UI_SuiteRegressionTest.xml                    # UI regression suite
+│           │   └── UI_SuiteRegressionTestParallel.xml            # UI regression suite parallel
 ├── target/                                                       # Maven build output directory
 ├── .gitignore                                                    # Git ignored files and folders
 ├── LICENSE                                                       # Project license
@@ -219,6 +223,14 @@ This command will download all required Maven dependencies defined in the `pom.x
 
 ```bash
 mvn clean test -DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTest.xml
+```
+
+---
+
+## Run parallel for all UI test suites
+
+```bash
+mvn clean test -DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTestParallel.xml
 ```
 
 ---

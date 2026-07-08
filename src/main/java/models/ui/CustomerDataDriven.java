@@ -1,4 +1,4 @@
-package ui.testdata;
+package models.ui;
 
 import lombok.Data;
 

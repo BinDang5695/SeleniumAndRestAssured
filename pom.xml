@@ -12,6 +12,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <suiteXmlFile>src/test/resources/suites/UI_SuiteRegressionTest.xml</suiteXmlFile>
     </properties>
 
     <dependencies>
@@ -168,9 +169,7 @@
                     <version>3.5.2</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>src/test/resources/suites/UI_SuiteRegressionTest.xml</suiteXmlFile>
-                            <!--<suiteXmlFile>src/test/resources/suites/API_SuiteExecution.xml</suiteXmlFile>-->
-                            <!--suiteXmlFile>src/test/resources/suites/UI_ATEPractice.xml</suiteXmlFile/>-->
+                            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                         </suiteXmlFiles>
                         <argLine>
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar"

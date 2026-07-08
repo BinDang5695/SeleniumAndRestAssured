@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import models.ui.Customer;
 import settings.utils.LogUtils;
 import ui.common.BasePage;
-import ui.testdata.CustomerDataDriven;
+import models.ui.CustomerDataDriven;
 
 public class CustomerPage extends BasePage {
 

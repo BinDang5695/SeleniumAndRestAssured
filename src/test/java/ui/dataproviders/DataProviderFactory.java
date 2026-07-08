@@ -4,7 +4,7 @@ import io.qameta.allure.internal.shadowed.jackson.core.type.TypeReference;
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
 import models.ui.ExportFileType;
 import org.testng.annotations.DataProvider;
-import ui.testdata.CustomerCase;
+import models.ui.CustomerCase;
 
 import java.io.File;
 import java.util.List;

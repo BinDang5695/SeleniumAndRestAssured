@@ -1,13 +1,12 @@
 package ui.testcases;
 
-import constants.CRM.Menu;
+import constants.CRM.*;
 import ui.common.BaseTest;
-import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import ui.dataproviders.DataProviderFactory;
-import ui.testdata.CustomerCase;
+import models.ui.CustomerCase;
 
-public class addCustomer extends BaseTest {
+public class AddCustomerByJsonFile extends BaseTest {
 
     @Test(dataProvider = "customerData", dataProviderClass = DataProviderFactory.class)
     public void manageCustomer(CustomerCase customerCase) {
