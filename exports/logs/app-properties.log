@@ -1,496 +1,405 @@
-[INFO] 07-07-2026 10:12:19 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 10:12:17 ICT 2026
-[INFO] 07-07-2026 10:12:30 [main] LogUtils - ✅ Browser launched: chrome
-[INFO] 07-07-2026 10:12:30 [main] LogUtils - ▶️ Start run test case: manageContract
-[INFO] 07-07-2026 10:12:32 [main] LogUtils - Element By.xpath: //span[normalize-space()='Invoices Awaiting Payment'] is displayed: true
-[INFO] 07-07-2026 10:12:32 [main] LogUtils - Assert true: true
-[INFO] 07-07-2026 10:12:32 [main] LogUtils - Get text of element By.xpath: //span[normalize-space()='Invoices Awaiting Payment']: Invoices Awaiting Payment
-[INFO] 07-07-2026 10:12:32 [main] LogUtils - Assert equals: Invoices Awaiting Payment 🟰 Invoices Awaiting Payment
-[INFO] 07-07-2026 10:12:32 [main] LogUtils - Element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span is displayed: true
-[INFO] 07-07-2026 10:12:32 [main] LogUtils - Assert true: true
-[INFO] 07-07-2026 10:12:32 [main] LogUtils - Get text of element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span: 3 / 5
-[INFO] 07-07-2026 10:12:32 [main] LogUtils - Assert equals: 3 / 5 🟰 3 / 5
-[INFO] 07-07-2026 10:12:33 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
-[INFO] 07-07-2026 10:12:34 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Contract']
-[INFO] 07-07-2026 10:12:35 [main] LogUtils - Click element By.xpath: //button[@data-id='clientid']
-[INFO] 07-07-2026 10:12:36 [main] LogUtils - Clear text of element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 10:12:36 [main] LogUtils - Set text: Bin Customer on element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 10:12:37 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Bin Customer']
-[INFO] 07-07-2026 10:12:37 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:12:37 [main] LogUtils - Set text: Bin Subject on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:12:38 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:12:38 [main] LogUtils - Set text: 1000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:12:38 [main] LogUtils - Click element By.xpath: //button[@data-id='contract_type']
-[INFO] 07-07-2026 10:12:38 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 10:12:38 [main] LogUtils - Set text: 1 on element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 10:12:39 [main] LogUtils - Click element By.xpath: //span[normalize-space()='1']
-[INFO] 07-07-2026 10:12:39 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:12:39 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:12:39 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:12:39 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:12:40 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:12:40 [main] LogUtils - Set text: Bin Description on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:12:40 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 10:12:41 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract added successfully.
-[INFO] 07-07-2026 10:12:41 [main] LogUtils - Assert equals: Contract added successfully. 🟰 Contract added successfully.
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: Bin Subject 🟰 Bin Subject
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 1000.00
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: 1000.0 🟰 1000.0
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2040
-[INFO] 07-07-2026 10:12:42 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 10:12:43 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2040
-[INFO] 07-07-2026 10:12:43 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 10:12:43 [main] LogUtils - Get attribute value of element By.xpath: //form[@id='contract-form']//textarea[@id='description']: Bin Description
-[INFO] 07-07-2026 10:12:43 [main] LogUtils - Assert equals: Bin Description 🟰 Bin Description
-[INFO] 07-07-2026 10:12:43 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:12:43 [main] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:12:43 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:12:43 [main] LogUtils - Set text: 2000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:12:44 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:12:44 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:12:44 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:12:44 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:12:44 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:12:44 [main] LogUtils - Set text: Bin Description Updated on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract updated successfully.
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: Contract updated successfully. 🟰 Contract updated successfully.
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject Updated
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: Bin Subject Updated 🟰 Bin Subject Updated
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 2000.00
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: 2000.0 🟰 2000.0
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2045
-[INFO] 07-07-2026 10:12:46 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 10:12:47 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2045
-[INFO] 07-07-2026 10:12:47 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 10:12:47 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='description']: Bin Description Updated
-[INFO] 07-07-2026 10:12:47 [main] LogUtils - Assert equals: Bin Description Updated 🟰 Bin Description Updated
-[INFO] 07-07-2026 10:12:47 [main] LogUtils - Click element By.xpath: //button[normalize-space()='More']
-[INFO] 07-07-2026 10:12:47 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
-[INFO] 07-07-2026 10:12:47 [main] LogUtils - Alert accepted.
-[INFO] 07-07-2026 10:12:49 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
-[INFO] 07-07-2026 10:12:49 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
-[INFO] 07-07-2026 10:12:50 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='contracts']
-[INFO] 07-07-2026 10:12:50 [main] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@aria-controls='contracts']
-[INFO] 07-07-2026 10:12:51 [main] LogUtils - Get text of element By.xpath: //td[@class='dataTables_empty']: No matching records found
-[INFO] 07-07-2026 10:12:51 [main] LogUtils - Assert equals: No matching records found 🟰 No matching records found
-[INFO] 07-07-2026 10:12:51 [main] LogUtils - ✅ Test case manageContract is passed.
-[INFO] 07-07-2026 10:12:53 [main] LogUtils - 🛑 Browser closed
-[INFO] 07-07-2026 10:12:53 [main] LogUtils - End test: Tue Jul 07 10:12:53 ICT 2026
-[INFO] 07-07-2026 10:12:53 [main] LogUtils - ⭐ Test Total: 1
-[INFO] 07-07-2026 10:12:53 [main] LogUtils - ⭐ Test Passed Total: 1
-[INFO] 07-07-2026 10:12:53 [main] LogUtils - ⭐ Test Failed Total: 0
-[INFO] 07-07-2026 10:12:53 [main] LogUtils - ⭐ Test Skipped Total: 0
-[INFO] 07-07-2026 10:17:32 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 10:17:30 ICT 2026
-[INFO] 07-07-2026 10:17:38 [main] LogUtils - ✅ Browser launched: chrome
-[INFO] 07-07-2026 10:17:38 [main] LogUtils - ▶️ Start run test case: manageContract
-[INFO] 07-07-2026 10:17:40 [main] LogUtils - Element By.xpath: //span[normalize-space()='Invoices Awaiting Payment'] is displayed: true
-[INFO] 07-07-2026 10:17:40 [main] LogUtils - Assert true: true
-[INFO] 07-07-2026 10:17:40 [main] LogUtils - Get text of element By.xpath: //span[normalize-space()='Invoices Awaiting Payment']: Invoices Awaiting Payment
-[INFO] 07-07-2026 10:17:40 [main] LogUtils - Assert equals: Invoices Awaiting Payment 🟰 Invoices Awaiting Payment
-[INFO] 07-07-2026 10:17:40 [main] LogUtils - Element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span is displayed: true
-[INFO] 07-07-2026 10:17:40 [main] LogUtils - Assert true: true
-[INFO] 07-07-2026 10:17:40 [main] LogUtils - Get text of element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span: 3 / 5
-[INFO] 07-07-2026 10:17:40 [main] LogUtils - Assert equals: 3 / 5 🟰 3 / 5
-[INFO] 07-07-2026 10:17:41 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
-[INFO] 07-07-2026 10:17:41 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Contract']
-[INFO] 07-07-2026 10:17:42 [main] LogUtils - Click element By.xpath: //button[@data-id='clientid']
-[INFO] 07-07-2026 10:17:42 [main] LogUtils - Clear text of element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 10:17:42 [main] LogUtils - Set text: Bin Customer on element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Bin Customer']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Set text: Bin Subject on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Set text: 1000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Click element By.xpath: //button[@data-id='contract_type']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Set text: 1 on element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Click element By.xpath: //span[normalize-space()='1']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:17:44 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:17:45 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:17:45 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:17:45 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:17:45 [main] LogUtils - Set text: Bin Description on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:17:45 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract added successfully.
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: Contract added successfully. 🟰 Contract added successfully.
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: Bin Subject 🟰 Bin Subject
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 1000.00
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: 1000.0 🟰 1000.0
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2040
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2040
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Get attribute value of element By.xpath: //form[@id='contract-form']//textarea[@id='description']: Bin Description
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Assert equals: Bin Description 🟰 Bin Description
-[INFO] 07-07-2026 10:17:46 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: 2000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:17:47 [main] LogUtils - Set text: Bin Description Updated on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:17:48 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 10:17:48 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract updated successfully.
-[INFO] 07-07-2026 10:17:48 [main] LogUtils - Assert equals: Contract updated successfully. 🟰 Contract updated successfully.
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject Updated
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: Bin Subject Updated 🟰 Bin Subject Updated
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 2000.00
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: 2000.0 🟰 2000.0
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2045
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2045
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='description']: Bin Description Updated
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Assert equals: Bin Description Updated 🟰 Bin Description Updated
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Click element By.xpath: //button[normalize-space()='More']
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
-[INFO] 07-07-2026 10:17:49 [main] LogUtils - Alert accepted.
-[INFO] 07-07-2026 10:17:50 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
-[INFO] 07-07-2026 10:17:51 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
-[INFO] 07-07-2026 10:18:21 [main] LogUtils - ❌ Element By.xpath: //input[@aria-controls='contracts'] not found after waiting for 10 seconds.
-[ERROR] 07-07-2026 10:18:21 [main] LogUtils - ❌ Test case manageContract is failed.
-[ERROR] 07-07-2026 10:18:21 [main] LogUtils - java.lang.AssertionError: ❌ Element By.xpath: //input[@aria-controls='contracts'] not found after waiting for 10 seconds.
-[INFO] 07-07-2026 10:18:23 [main] LogUtils - 🛑 Browser closed
-[INFO] 07-07-2026 10:18:23 [main] LogUtils - End test: Tue Jul 07 10:18:23 ICT 2026
-[INFO] 07-07-2026 10:18:23 [main] LogUtils - ⭐ Test Total: 1
-[INFO] 07-07-2026 10:18:23 [main] LogUtils - ⭐ Test Passed Total: 0
-[INFO] 07-07-2026 10:18:23 [main] LogUtils - ⭐ Test Failed Total: 1
-[INFO] 07-07-2026 10:18:23 [main] LogUtils - ⭐ Test Skipped Total: 0
-[INFO] 07-07-2026 10:54:53 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 10:54:52 ICT 2026
-[INFO] 07-07-2026 10:55:02 [main] LogUtils - ✅ Browser launched: chrome
-[INFO] 07-07-2026 10:55:02 [main] LogUtils - ▶️ Start run test case: manageContract
-[INFO] 07-07-2026 10:55:03 [main] LogUtils - Element By.xpath: //span[normalize-space()='Invoices Awaiting Payment'] is displayed: true
-[INFO] 07-07-2026 10:55:03 [main] LogUtils - Assert true: true
-[INFO] 07-07-2026 10:55:03 [main] LogUtils - Get text of element By.xpath: //span[normalize-space()='Invoices Awaiting Payment']: Invoices Awaiting Payment
-[INFO] 07-07-2026 10:55:03 [main] LogUtils - Assert equals: Invoices Awaiting Payment 🟰 Invoices Awaiting Payment
-[INFO] 07-07-2026 10:55:03 [main] LogUtils - Element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span is displayed: true
-[INFO] 07-07-2026 10:55:03 [main] LogUtils - Assert true: true
-[INFO] 07-07-2026 10:55:03 [main] LogUtils - Get text of element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span: 3 / 5
-[INFO] 07-07-2026 10:55:03 [main] LogUtils - Assert equals: 3 / 5 🟰 3 / 5
-[INFO] 07-07-2026 10:55:04 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
-[INFO] 07-07-2026 10:55:05 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Contract']
-[INFO] 07-07-2026 10:55:05 [main] LogUtils - Click element By.xpath: //button[@data-id='clientid']
-[INFO] 07-07-2026 10:55:06 [main] LogUtils - Clear text of element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 10:55:06 [main] LogUtils - Set text: Bin Customer on element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 10:55:07 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Bin Customer']
-[INFO] 07-07-2026 10:55:07 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:55:07 [main] LogUtils - Set text: Bin Subject on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:55:07 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:55:07 [main] LogUtils - Set text: 1000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:55:07 [main] LogUtils - Click element By.xpath: //button[@data-id='contract_type']
-[INFO] 07-07-2026 10:55:07 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 10:55:07 [main] LogUtils - Set text: 1 on element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 10:55:08 [main] LogUtils - Click element By.xpath: //span[normalize-space()='1']
-[INFO] 07-07-2026 10:55:08 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:55:08 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:55:08 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:55:08 [main] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:55:08 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:55:08 [main] LogUtils - Set text: Bin Description on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:55:08 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract added successfully.
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Assert equals: Contract added successfully. 🟰 Contract added successfully.
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Assert equals: Bin Subject 🟰 Bin Subject
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 1000.00
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Assert equals: 1000.0 🟰 1000.0
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 10:55:09 [main] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2040
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2040
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Get attribute value of element By.xpath: //form[@id='contract-form']//textarea[@id='description']: Bin Description
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Assert equals: Bin Description 🟰 Bin Description
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Set text: 2000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 10:55:10 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:55:11 [main] LogUtils - Set text: Bin Description Updated on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 10:55:11 [main] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract updated successfully.
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Assert equals: Contract updated successfully. 🟰 Contract updated successfully.
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject Updated
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Assert equals: Bin Subject Updated 🟰 Bin Subject Updated
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 2000.00
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Assert equals: 2000.0 🟰 2000.0
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2045
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2045
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='description']: Bin Description Updated
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Assert equals: Bin Description Updated 🟰 Bin Description Updated
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Click element By.xpath: //button[normalize-space()='More']
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
-[INFO] 07-07-2026 10:55:12 [main] LogUtils - Alert accepted.
-[INFO] 07-07-2026 10:55:13 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
-[INFO] 07-07-2026 10:55:14 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
-[INFO] 07-07-2026 10:55:44 [main] LogUtils - ❌ Element By.xpath: //input[@aria-controls='contracts'] not found after waiting for 10 seconds.
-[ERROR] 07-07-2026 10:55:44 [main] LogUtils - ❌ Test case manageContract is failed.
-[ERROR] 07-07-2026 10:55:44 [main] LogUtils - java.lang.AssertionError: ❌ Element By.xpath: //input[@aria-controls='contracts'] not found after waiting for 10 seconds.
-[INFO] 07-07-2026 10:55:46 [main] LogUtils - 🛑 Browser closed
-[INFO] 07-07-2026 10:55:46 [main] LogUtils - End test: Tue Jul 07 10:55:46 ICT 2026
-[INFO] 07-07-2026 10:55:46 [main] LogUtils - ⭐ Test Total: 1
-[INFO] 07-07-2026 10:55:46 [main] LogUtils - ⭐ Test Passed Total: 0
-[INFO] 07-07-2026 10:55:46 [main] LogUtils - ⭐ Test Failed Total: 1
-[INFO] 07-07-2026 10:55:46 [main] LogUtils - ⭐ Test Skipped Total: 0
-[INFO] 07-07-2026 11:09:58 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 11:09:57 ICT 2026
-[INFO] 07-07-2026 11:10:05 [TestNG-test=Regression Test with Chrome-1] LogUtils - ✅ Browser launched: chrome
-[INFO] 07-07-2026 11:10:06 [TestNG-test=Regression Test with Chrome-1] LogUtils - ▶️ Start run test case: manageContract
-[INFO] 07-07-2026 11:10:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Element By.xpath: //span[normalize-space()='Invoices Awaiting Payment'] is displayed: true
-[INFO] 07-07-2026 11:10:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert true: true
-[INFO] 07-07-2026 11:10:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //span[normalize-space()='Invoices Awaiting Payment']: Invoices Awaiting Payment
-[INFO] 07-07-2026 11:10:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Invoices Awaiting Payment 🟰 Invoices Awaiting Payment
-[INFO] 07-07-2026 11:10:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span is displayed: true
-[INFO] 07-07-2026 11:10:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert true: true
-[INFO] 07-07-2026 11:10:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span: 3 / 5
-[INFO] 07-07-2026 11:10:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 3 / 5 🟰 3 / 5
-[INFO] 07-07-2026 11:10:09 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
-[INFO] 07-07-2026 11:10:10 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //a[normalize-space()='New Contract']
-[INFO] 07-07-2026 11:10:10 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //button[@data-id='clientid']
-[INFO] 07-07-2026 11:10:10 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 11:10:11 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Customer on element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 11:10:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='Bin Customer']
-[INFO] 07-07-2026 11:10:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 11:10:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Subject on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 11:10:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 11:10:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 1000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 11:10:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //button[@data-id='contract_type']
-[INFO] 07-07-2026 11:10:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 11:10:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 1 on element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 11:10:13 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='1']
-[INFO] 07-07-2026 11:10:13 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 11:10:13 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 11:10:13 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 11:10:13 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 11:10:13 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 11:10:13 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Description on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 11:10:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract added successfully.
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Contract added successfully. 🟰 Contract added successfully.
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Subject 🟰 Bin Subject
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 1000.00
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 1000.0 🟰 1000.0
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2040
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2040
-[INFO] 07-07-2026 11:10:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 11:10:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //form[@id='contract-form']//textarea[@id='description']: Bin Description
-[INFO] 07-07-2026 11:10:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Description 🟰 Bin Description
-[INFO] 07-07-2026 11:10:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 11:10:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 11:10:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 11:10:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 2000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 11:10:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 11:10:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 11:10:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 11:10:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 11:10:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 11:10:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Description Updated on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 11:10:18 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract updated successfully.
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Contract updated successfully. 🟰 Contract updated successfully.
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject Updated
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Subject Updated 🟰 Bin Subject Updated
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 2000.00
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 2000.0 🟰 2000.0
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2045
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2045
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //textarea[@id='description']: Bin Description Updated
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Description Updated 🟰 Bin Description Updated
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //button[normalize-space()='More']
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
-[INFO] 07-07-2026 11:10:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - Alert accepted.
-[INFO] 07-07-2026 11:10:21 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
-[INFO] 07-07-2026 11:10:21 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
-[INFO] 07-07-2026 11:10:40 [TestNG-test=Regression Test with Chrome-1] LogUtils - ❌ Element By.xpath: //input[@aria-controls='contracts'] not found after waiting for 10 seconds.
-[ERROR] 07-07-2026 11:10:40 [TestNG-test=Regression Test with Chrome-1] LogUtils - ❌ Test case manageContract is failed.
-[ERROR] 07-07-2026 11:10:40 [TestNG-test=Regression Test with Chrome-1] LogUtils - java.lang.AssertionError: ❌ Element By.xpath: //input[@aria-controls='contracts'] not found after waiting for 10 seconds.
-[ERROR] 07-07-2026 11:10:40 [TestNG-test=Regression Test with Chrome-1] LogUtils - ❌ Test case manageContract is failed.
-[ERROR] 07-07-2026 11:10:40 [TestNG-test=Regression Test with Chrome-1] LogUtils - org.openqa.selenium.NoSuchSessionException: invalid session id
-Build info: version: '4.34.0', revision: '707dcb4246*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bab48c4edade6af4a4bdc2076fe2ebac, screenshot {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.199, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\BINDAN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56648}, goog:processID: 4932, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56648/devtoo..., se:cdpVersion: 149.0.7827.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: bab48c4edade6af4a4bdc2076fe2ebac
-[INFO] 07-07-2026 11:10:40 [main] LogUtils - End test: Tue Jul 07 11:10:40 ICT 2026
-[INFO] 07-07-2026 11:10:40 [main] LogUtils - ⭐ Test Total: 1
-[INFO] 07-07-2026 11:10:40 [main] LogUtils - ⭐ Test Passed Total: 0
-[INFO] 07-07-2026 11:10:40 [main] LogUtils - ⭐ Test Failed Total: 0
-[INFO] 07-07-2026 11:10:40 [main] LogUtils - ⭐ Test Skipped Total: 0
-[INFO] 07-07-2026 11:11:00 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 11:10:59 ICT 2026
-[INFO] 07-07-2026 11:11:06 [TestNG-test=Regression Test with Chrome-1] LogUtils - ✅ Browser launched: chrome
-[INFO] 07-07-2026 11:11:06 [TestNG-test=Regression Test with Chrome-1] LogUtils - ▶️ Start run test case: manageContract
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Element By.xpath: //span[normalize-space()='Invoices Awaiting Payment'] is displayed: true
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert true: true
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //span[normalize-space()='Invoices Awaiting Payment']: Invoices Awaiting Payment
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Invoices Awaiting Payment 🟰 Invoices Awaiting Payment
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span is displayed: true
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert true: true
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span: 3 / 5
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 3 / 5 🟰 3 / 5
-[INFO] 07-07-2026 11:11:08 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
-[INFO] 07-07-2026 11:11:09 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //a[normalize-space()='New Contract']
-[INFO] 07-07-2026 11:11:09 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //button[@data-id='clientid']
-[INFO] 07-07-2026 11:11:10 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 11:11:10 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Customer on element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 11:11:11 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='Bin Customer']
-[INFO] 07-07-2026 11:11:11 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 11:11:11 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Subject on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 11:11:11 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 11:11:11 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 1000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 11:11:11 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //button[@data-id='contract_type']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 1 on element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='1']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 11:11:12 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Description on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 11:11:13 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract added successfully.
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Contract added successfully. 🟰 Contract added successfully.
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Subject 🟰 Bin Subject
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 1000.00
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 1000.0 🟰 1000.0
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2040
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='dateend']: 18-11-2040
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 18-11-2040 🟰 18-11-2040
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //form[@id='contract-form']//textarea[@id='description']: Bin Description
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Description 🟰 Bin Description
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Subject Updated on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 11:11:14 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 2000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 11:11:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 11:11:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 11:11:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 11:11:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2045 on element By.xpath: //input[@id='dateend']
-[INFO] 07-07-2026 11:11:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 11:11:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Description Updated on element By.xpath: //textarea[@id='description']
-[INFO] 07-07-2026 11:11:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //div[contains(@class,'btn')]//button[@type='submit']
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //span[@class='alert-title']: Contract updated successfully.
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Contract updated successfully. 🟰 Contract updated successfully.
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //div[contains(text(),'Bin Customer')]: Bin Customer
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Customer 🟰 Bin Customer
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='subject']: Bin Subject Updated
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Bin Subject Updated 🟰 Bin Subject Updated
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@name='contract_value']: 2000.00
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 2000.0 🟰 2000.0
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //div[contains(text(),'1')]: 1
-[INFO] 07-07-2026 11:11:17 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 1 🟰 1
-[INFO] 07-07-2026 11:11:18 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get attribute value of element By.xpath: //input[@id='datestart']: 18-11-2045
-[INFO] 07-07-2026 11:11:18 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 18-11-2045 🟰 18-11-2045
-[INFO] 07-07-2026 11:11:18 [TestNG-test=Regression Test with Chrome-1] LogUtils - ❌ Element By.xpath: //input[@id='dateend'] not found after waiting for 10 seconds.
-[ERROR] 07-07-2026 11:11:18 [TestNG-test=Regression Test with Chrome-1] LogUtils - ❌ Test case manageContract is failed.
-[ERROR] 07-07-2026 11:11:18 [TestNG-test=Regression Test with Chrome-1] LogUtils - java.lang.AssertionError: ❌ Element By.xpath: //input[@id='dateend'] not found after waiting for 10 seconds.
-[ERROR] 07-07-2026 11:11:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - ❌ Test case manageContract is failed.
-[ERROR] 07-07-2026 11:11:19 [TestNG-test=Regression Test with Chrome-1] LogUtils - org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=149.0.7827.199)
-Build info: version: '4.34.0', revision: '707dcb4246*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [df1fd7f36ded62f0db12f4bfc70d63b5, screenshot {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.199, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\BINDAN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56375}, goog:processID: 33284, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56375/devtoo..., se:cdpVersion: 149.0.7827.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: df1fd7f36ded62f0db12f4bfc70d63b5
-[INFO] 07-07-2026 11:11:20 [main] LogUtils - End test: Tue Jul 07 11:11:20 ICT 2026
-[INFO] 07-07-2026 11:11:20 [main] LogUtils - ⭐ Test Total: 1
-[INFO] 07-07-2026 11:11:20 [main] LogUtils - ⭐ Test Passed Total: 0
-[INFO] 07-07-2026 11:11:20 [main] LogUtils - ⭐ Test Failed Total: 0
-[INFO] 07-07-2026 11:11:20 [main] LogUtils - ⭐ Test Skipped Total: 0
-[INFO] 07-07-2026 14:58:11 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 14:58:10 ICT 2026
-[INFO] 07-07-2026 14:58:15 [TestNG-test=Regression Test with Chrome-1] LogUtils - ▶️ Start run test case: manageContract
-[WARN] 07-07-2026 14:58:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - ⚠️ Test case manageContract is skipped.
-[ERROR] 07-07-2026 14:58:16 [TestNG-test=Regression Test with Chrome-1] LogUtils - org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of Microsoft Edge WebDriver only supports Microsoft Edge version 137
-Current browser version is 150.0.4078.48 with binary path C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe 
-Host info: host: 'VNNOT01519', ip: '192.168.15.27'
-Build info: version: '4.34.0', revision: '707dcb4246*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: MicrosoftEdge, ms:edgeOptions: {args: [--start-maximized], binary: C:\Program Files (x86)\Micr..., extensions: [], prefs: {download.default_directory: C:\Users\BinDangVan\Seleniu..., download.directory_upgrade: true, download.prompt_for_download: false, safebrowsing.enabled: true}}}]}]
-[INFO] 07-07-2026 14:58:17 [main] LogUtils - End test: Tue Jul 07 14:58:17 ICT 2026
-[INFO] 07-07-2026 14:58:17 [main] LogUtils - ⭐ Test Total: 1
-[INFO] 07-07-2026 14:58:17 [main] LogUtils - ⭐ Test Passed Total: 0
-[INFO] 07-07-2026 14:58:17 [main] LogUtils - ⭐ Test Failed Total: 0
-[INFO] 07-07-2026 14:58:17 [main] LogUtils - ⭐ Test Skipped Total: 1
-[INFO] 07-07-2026 14:58:41 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 14:58:40 ICT 2026
-[INFO] 07-07-2026 14:58:50 [TestNG-test=Regression Test with Chrome-1] LogUtils - ✅ Browser launched: chrome
-[INFO] 07-07-2026 14:58:50 [TestNG-test=Regression Test with Chrome-1] LogUtils - ▶️ Start run test case: manageContract
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Element By.xpath: //span[normalize-space()='Invoices Awaiting Payment'] is displayed: true
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert true: true
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: //span[normalize-space()='Invoices Awaiting Payment']: Invoices Awaiting Payment
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: Invoices Awaiting Payment 🟰 Invoices Awaiting Payment
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span is displayed: true
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert true: true
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Get text of element By.xpath: (//span[normalize-space()='Invoices Awaiting Payment']/parent::div)/following-sibling::span: 3 / 5
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Assert equals: 3 / 5 🟰 3 / 5
-[INFO] 07-07-2026 14:58:52 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='Contracts']
-[INFO] 07-07-2026 14:58:53 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //a[normalize-space()='New Contract']
-[INFO] 07-07-2026 14:58:53 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //button[@data-id='clientid']
-[INFO] 07-07-2026 14:58:55 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 14:58:55 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Customer on element By.xpath: //input[@placeholder='Type to search...']
-[INFO] 07-07-2026 14:58:56 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='Bin Customer']
-[INFO] 07-07-2026 14:58:56 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 14:58:56 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: Bin Subject on element By.xpath: //input[@id='subject']
-[INFO] 07-07-2026 14:58:56 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 14:58:57 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 1000 on element By.xpath: //input[@name='contract_value']
-[INFO] 07-07-2026 14:58:57 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //button[@data-id='contract_type']
-[INFO] 07-07-2026 14:58:59 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 14:58:59 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 1 on element By.xpath: //input[@aria-controls='bs-select-1']
-[INFO] 07-07-2026 14:58:59 [TestNG-test=Regression Test with Chrome-1] LogUtils - Click element By.xpath: //span[normalize-space()='1']
-[INFO] 07-07-2026 14:58:59 [TestNG-test=Regression Test with Chrome-1] LogUtils - Clear text of element By.xpath: //input[@id='datestart']
-[INFO] 07-07-2026 14:58:59 [TestNG-test=Regression Test with Chrome-1] LogUtils - Set text: 18-11-2040 on element By.xpath: //input[@id='datestart']
+[INFO] 07-07-2026 17:33:35 [main] LogUtils - ⚙️ Setup Environment onStart:Tue Jul 07 17:33:34 ICT 2026
+[INFO] 07-07-2026 17:33:42 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:33:42 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:33:44 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:33:45 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:33:45 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:33:45 [main] LogUtils - Set text: Create customer with only required Company on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:33:46 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:33:46 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: Create customer with only required Company
+[INFO] 07-07-2026 17:33:47 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:33:47 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:33:47 [main] LogUtils - Set text: Create customer with only required Company on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:33:50 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='Create customer with only required Company']
+[INFO] 07-07-2026 17:33:50 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:33:50 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:33:52 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:33:52 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:33:52 [main] LogUtils - Set text: Create customer with only required Company on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:33:52 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:33:56 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:33:59 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:33:59 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:34:00 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:34:00 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Set text: All fields on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Clear text of element By.xpath: //input[@id='vat']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Set text: 123456789 on element By.xpath: //input[@id='vat']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Clear text of element By.xpath: //input[@id='phonenumber']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Set text: 0123456789 on element By.xpath: //input[@id='phonenumber']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Clear text of element By.xpath: //input[@id='website']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Set text: https://nashtech.com.vn on element By.xpath: //input[@id='website']
+[INFO] 07-07-2026 17:34:01 [main] LogUtils - Click element By.xpath: //button[@data-id='groups_in[]']
+[INFO] 07-07-2026 17:34:02 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
+[INFO] 07-07-2026 17:34:02 [main] LogUtils - Set text: VIP on element By.xpath: //input[@aria-controls='bs-select-1']
+[INFO] 07-07-2026 17:34:02 [main] LogUtils - Click element By.xpath: //a[normalize-space()='VIP']
+[INFO] 07-07-2026 17:34:02 [main] LogUtils - Click element By.xpath: //button[@data-id='groups_in[]']
+[INFO] 07-07-2026 17:34:02 [main] LogUtils - Click element By.xpath: //button[@aria-owns='bs-select-2']
+[INFO] 07-07-2026 17:34:02 [main] LogUtils - Click element By.xpath: //small[contains(text(),'€')]
+[INFO] 07-07-2026 17:34:02 [main] LogUtils - Click element By.xpath: //button[@aria-owns='bs-select-3']
+[INFO] 07-07-2026 17:34:02 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Vietnamese']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='address']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Set text: 123 Street, Hanoi on element By.xpath: //textarea[@id='address']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Clear text of element By.xpath: //input[@id='city']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Set text: Hanoi on element By.xpath: //input[@id='city']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Clear text of element By.xpath: //input[@id='state']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Set text: Hoan Kiem on element By.xpath: //input[@id='state']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Clear text of element By.xpath: //input[@id='zip']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Set text: 100000 on element By.xpath: //input[@id='zip']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Click element By.xpath: //button[@aria-owns='bs-select-4']
+[INFO] 07-07-2026 17:34:03 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-4']
+[INFO] 07-07-2026 17:34:04 [main] LogUtils - Set text: Vietnam on element By.xpath: //input[@aria-controls='bs-select-4']
+[INFO] 07-07-2026 17:34:04 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Vietnam']
+[INFO] 07-07-2026 17:34:04 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:34:04 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: All fields
+[INFO] 07-07-2026 17:34:04 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='vat']: 123456789
+[INFO] 07-07-2026 17:34:04 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='phonenumber']: 0123456789
+[INFO] 07-07-2026 17:34:05 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='website']: https://nashtech.com.vn
+[INFO] 07-07-2026 17:34:05 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='address']: 123 Street, Hanoi
+[INFO] 07-07-2026 17:34:05 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='city']: Hanoi
+[INFO] 07-07-2026 17:34:05 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='state']: Hoan Kiem
+[INFO] 07-07-2026 17:34:05 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='zip']: 100000
+[INFO] 07-07-2026 17:34:05 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:34:06 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:06 [main] LogUtils - Set text: All fields on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:09 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='All fields']
+[INFO] 07-07-2026 17:34:09 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:34:09 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:34:10 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:34:10 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:10 [main] LogUtils - Set text: All fields on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:10 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:34:12 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:34:17 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:34:17 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:34:17 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:34:18 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:34:18 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:34:18 [main] LogUtils - Set text: 1 - VAT on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:34:18 [main] LogUtils - Clear text of element By.xpath: //input[@id='vat']
+[INFO] 07-07-2026 17:34:18 [main] LogUtils - Set text: 123456789 on element By.xpath: //input[@id='vat']
+[INFO] 07-07-2026 17:34:19 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:34:19 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 1 - VAT
+[INFO] 07-07-2026 17:34:19 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='vat']: 123456789
+[INFO] 07-07-2026 17:34:19 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:34:20 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:20 [main] LogUtils - Set text: 1 - VAT on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:23 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='1 - VAT']
+[INFO] 07-07-2026 17:34:23 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:34:23 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:34:24 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:34:24 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:24 [main] LogUtils - Set text: 1 - VAT on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:24 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:34:26 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:34:30 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:34:30 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:34:31 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:34:31 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:34:31 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:34:32 [main] LogUtils - Set text: 2 - Phone on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:34:32 [main] LogUtils - Clear text of element By.xpath: //input[@id='phonenumber']
+[INFO] 07-07-2026 17:34:32 [main] LogUtils - Set text: 0123456789 on element By.xpath: //input[@id='phonenumber']
+[INFO] 07-07-2026 17:34:32 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:34:33 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 2 - Phone
+[INFO] 07-07-2026 17:34:33 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='phonenumber']: 0123456789
+[INFO] 07-07-2026 17:34:33 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:34:34 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:34 [main] LogUtils - Set text: 2 - Phone on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:37 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='2 - Phone']
+[INFO] 07-07-2026 17:34:37 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:34:37 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:34:39 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:34:39 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:39 [main] LogUtils - Set text: 2 - Phone on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:39 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:34:40 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:34:45 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:34:45 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:34:46 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:34:46 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:34:46 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:34:47 [main] LogUtils - Set text: 3 - Website on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:34:47 [main] LogUtils - Clear text of element By.xpath: //input[@id='website']
+[INFO] 07-07-2026 17:34:47 [main] LogUtils - Set text: https://example.com on element By.xpath: //input[@id='website']
+[INFO] 07-07-2026 17:34:48 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:34:48 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 3 - Website
+[INFO] 07-07-2026 17:34:48 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='website']: https://example.com
+[INFO] 07-07-2026 17:34:49 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:34:49 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:49 [main] LogUtils - Set text: 3 - Website on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:52 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='3 - Website']
+[INFO] 07-07-2026 17:34:52 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:34:53 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:34:54 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:34:54 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:54 [main] LogUtils - Set text: 3 - Website on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:34:54 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:34:57 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:35:01 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:35:01 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:35:01 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:35:02 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:35:02 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:35:02 [main] LogUtils - Set text: 4 - Group on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:35:02 [main] LogUtils - Click element By.xpath: //button[@data-id='groups_in[]']
+[INFO] 07-07-2026 17:35:02 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-1']
+[INFO] 07-07-2026 17:35:03 [main] LogUtils - Set text: VIP on element By.xpath: //input[@aria-controls='bs-select-1']
+[INFO] 07-07-2026 17:35:03 [main] LogUtils - Click element By.xpath: //a[normalize-space()='VIP']
+[INFO] 07-07-2026 17:35:03 [main] LogUtils - Click element By.xpath: //button[@data-id='groups_in[]']
+[INFO] 07-07-2026 17:35:03 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:35:04 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 4 - Group
+[INFO] 07-07-2026 17:35:04 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:35:05 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:05 [main] LogUtils - Set text: 4 - Group on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:08 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='4 - Group']
+[INFO] 07-07-2026 17:35:08 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:35:08 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:35:10 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:35:10 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:10 [main] LogUtils - Set text: 4 - Group on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:10 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:35:11 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:35:16 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:35:16 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:35:16 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:35:17 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:35:17 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:35:17 [main] LogUtils - Set text: 5 - Currency on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:35:18 [main] LogUtils - Click element By.xpath: //button[@aria-owns='bs-select-2']
+[INFO] 07-07-2026 17:35:18 [main] LogUtils - Click element By.xpath: //small[contains(text(),'$')]
+[INFO] 07-07-2026 17:35:18 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:35:18 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 5 - Currency
+[INFO] 07-07-2026 17:35:19 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:35:19 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:19 [main] LogUtils - Set text: 5 - Currency on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:23 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='5 - Currency']
+[INFO] 07-07-2026 17:35:23 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:35:23 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:35:24 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:35:24 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:24 [main] LogUtils - Set text: 5 - Currency on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:24 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:35:25 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:35:30 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:35:30 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:35:31 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:35:31 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:35:31 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:35:31 [main] LogUtils - Set text: 6 - Language on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:35:32 [main] LogUtils - Click element By.xpath: //button[@aria-owns='bs-select-3']
+[INFO] 07-07-2026 17:35:32 [main] LogUtils - Click element By.xpath: //span[normalize-space()='English']
+[INFO] 07-07-2026 17:35:32 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:35:32 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 6 - Language
+[INFO] 07-07-2026 17:35:33 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:35:34 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:34 [main] LogUtils - Set text: 6 - Language on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:37 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='6 - Language']
+[INFO] 07-07-2026 17:35:37 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:35:37 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:35:38 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:35:38 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:39 [main] LogUtils - Set text: 6 - Language on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:39 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:35:40 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:35:44 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:35:44 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:35:45 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:35:46 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:35:46 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:35:46 [main] LogUtils - Set text: 7 - Address on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:35:46 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='address']
+[INFO] 07-07-2026 17:35:46 [main] LogUtils - Set text: 123 Street on element By.xpath: //textarea[@id='address']
+[INFO] 07-07-2026 17:35:46 [main] LogUtils - Clear text of element By.xpath: //input[@id='city']
+[INFO] 07-07-2026 17:35:46 [main] LogUtils - Set text: Hanoi on element By.xpath: //input[@id='city']
+[INFO] 07-07-2026 17:35:47 [main] LogUtils - Clear text of element By.xpath: //input[@id='state']
+[INFO] 07-07-2026 17:35:47 [main] LogUtils - Set text: Hoan Kiem on element By.xpath: //input[@id='state']
+[INFO] 07-07-2026 17:35:47 [main] LogUtils - Clear text of element By.xpath: //input[@id='zip']
+[INFO] 07-07-2026 17:35:47 [main] LogUtils - Set text: 100000 on element By.xpath: //input[@id='zip']
+[INFO] 07-07-2026 17:35:47 [main] LogUtils - Click element By.xpath: //button[@aria-owns='bs-select-4']
+[INFO] 07-07-2026 17:35:47 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-4']
+[INFO] 07-07-2026 17:35:48 [main] LogUtils - Set text: Vietnam on element By.xpath: //input[@aria-controls='bs-select-4']
+[INFO] 07-07-2026 17:35:48 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Vietnam']
+[INFO] 07-07-2026 17:35:48 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:35:48 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 7 - Address
+[INFO] 07-07-2026 17:35:48 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='address']: 123 Street
+[INFO] 07-07-2026 17:35:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='city']: Hanoi
+[INFO] 07-07-2026 17:35:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='state']: Hoan Kiem
+[INFO] 07-07-2026 17:35:49 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='zip']: 100000
+[INFO] 07-07-2026 17:35:49 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:35:50 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:50 [main] LogUtils - Set text: 7 - Address on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:53 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='7 - Address']
+[INFO] 07-07-2026 17:35:53 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:35:53 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:35:55 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:35:55 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:55 [main] LogUtils - Set text: 7 - Address on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:35:55 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:35:58 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:36:02 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:36:02 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:36:03 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:36:03 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:36:03 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:36:04 [main] LogUtils - Set text: 8 - Address + Contact on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:36:04 [main] LogUtils - Clear text of element By.xpath: //input[@id='phonenumber']
+[INFO] 07-07-2026 17:36:04 [main] LogUtils - Set text: 0987654321 on element By.xpath: //input[@id='phonenumber']
+[INFO] 07-07-2026 17:36:04 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='address']
+[INFO] 07-07-2026 17:36:04 [main] LogUtils - Set text: 456 Nguyen Trai on element By.xpath: //textarea[@id='address']
+[INFO] 07-07-2026 17:36:04 [main] LogUtils - Clear text of element By.xpath: //input[@id='city']
+[INFO] 07-07-2026 17:36:04 [main] LogUtils - Set text: Hanoi on element By.xpath: //input[@id='city']
+[INFO] 07-07-2026 17:36:05 [main] LogUtils - Clear text of element By.xpath: //input[@id='state']
+[INFO] 07-07-2026 17:36:05 [main] LogUtils - Set text: Hoan Kiem on element By.xpath: //input[@id='state']
+[INFO] 07-07-2026 17:36:05 [main] LogUtils - Clear text of element By.xpath: //input[@id='zip']
+[INFO] 07-07-2026 17:36:05 [main] LogUtils - Set text: 100000 on element By.xpath: //input[@id='zip']
+[INFO] 07-07-2026 17:36:06 [main] LogUtils - Click element By.xpath: //button[@aria-owns='bs-select-4']
+[INFO] 07-07-2026 17:36:06 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-4']
+[INFO] 07-07-2026 17:36:06 [main] LogUtils - Set text: Vietnam on element By.xpath: //input[@aria-controls='bs-select-4']
+[INFO] 07-07-2026 17:36:06 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Vietnam']
+[INFO] 07-07-2026 17:36:07 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:36:07 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 8 - Address + Contact
+[INFO] 07-07-2026 17:36:07 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='phonenumber']: 0987654321
+[INFO] 07-07-2026 17:36:07 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='address']: 456 Nguyen Trai
+[INFO] 07-07-2026 17:36:07 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='city']: Hanoi
+[INFO] 07-07-2026 17:36:07 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='state']: Hoan Kiem
+[INFO] 07-07-2026 17:36:07 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='zip']: 100000
+[INFO] 07-07-2026 17:36:08 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:36:09 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:09 [main] LogUtils - Set text: 8 - Address + Contact on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:12 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='8 - Address + Contact']
+[INFO] 07-07-2026 17:36:12 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:36:12 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:36:13 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:36:14 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:14 [main] LogUtils - Set text: 8 - Address + Contact on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:14 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:36:18 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:36:22 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:36:22 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:36:23 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:36:23 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:36:24 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:36:24 [main] LogUtils - Set text: 9 - Address on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:36:24 [main] LogUtils - Clear text of element By.xpath: //textarea[@id='address']
+[INFO] 07-07-2026 17:36:24 [main] LogUtils - Set text: 123 Street on element By.xpath: //textarea[@id='address']
+[INFO] 07-07-2026 17:36:24 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:36:25 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 9 - Address
+[INFO] 07-07-2026 17:36:25 [main] LogUtils - Get attribute value of element By.xpath: //textarea[@id='address']: 123 Street
+[INFO] 07-07-2026 17:36:25 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:36:26 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:26 [main] LogUtils - Set text: 9 - Address on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:29 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='9 - Address']
+[INFO] 07-07-2026 17:36:30 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:36:30 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:36:31 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:36:31 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:31 [main] LogUtils - Set text: 9 - Address on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:31 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:36:34 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:36:38 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:36:38 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:36:38 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:36:39 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:36:39 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:36:39 [main] LogUtils - Set text: 10 - City on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:36:39 [main] LogUtils - Clear text of element By.xpath: //input[@id='city']
+[INFO] 07-07-2026 17:36:39 [main] LogUtils - Set text: Hanoi on element By.xpath: //input[@id='city']
+[INFO] 07-07-2026 17:36:40 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:36:40 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 10 - City
+[INFO] 07-07-2026 17:36:40 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='city']: Hanoi
+[INFO] 07-07-2026 17:36:41 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:36:41 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:42 [main] LogUtils - Set text: 10 - City on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:45 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='10 - City']
+[INFO] 07-07-2026 17:36:45 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:36:45 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:36:46 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:36:46 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:46 [main] LogUtils - Set text: 10 - City on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:46 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:36:48 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:36:52 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:36:52 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:36:53 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:36:54 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:36:54 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:36:54 [main] LogUtils - Set text: 11 - State on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:36:54 [main] LogUtils - Clear text of element By.xpath: //input[@id='state']
+[INFO] 07-07-2026 17:36:54 [main] LogUtils - Set text: Hoan Kiem on element By.xpath: //input[@id='state']
+[INFO] 07-07-2026 17:36:55 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:36:55 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 11 - State
+[INFO] 07-07-2026 17:36:55 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='state']: Hoan Kiem
+[INFO] 07-07-2026 17:36:56 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:36:56 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:36:56 [main] LogUtils - Set text: 11 - State on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:00 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='11 - State']
+[INFO] 07-07-2026 17:37:00 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:37:00 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:37:01 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:37:01 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:01 [main] LogUtils - Set text: 11 - State on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:01 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:37:05 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:37:08 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:37:08 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:37:09 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:37:10 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:37:10 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:37:10 [main] LogUtils - Set text: 12 - Zip on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:37:10 [main] LogUtils - Clear text of element By.xpath: //input[@id='zip']
+[INFO] 07-07-2026 17:37:10 [main] LogUtils - Set text: 100000 on element By.xpath: //input[@id='zip']
+[INFO] 07-07-2026 17:37:11 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:37:12 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 12 - Zip
+[INFO] 07-07-2026 17:37:12 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='zip']: 100000
+[INFO] 07-07-2026 17:37:12 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:37:12 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:13 [main] LogUtils - Set text: 12 - Zip on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:16 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='12 - Zip']
+[INFO] 07-07-2026 17:37:16 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:37:16 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:37:17 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:37:17 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:17 [main] LogUtils - Set text: 12 - Zip on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:17 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:37:20 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:37:24 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:37:24 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:37:25 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:37:25 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:37:25 [main] LogUtils - Clear text of element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:37:26 [main] LogUtils - Set text: 13 - Country on element By.xpath: //input[@id='company']
+[INFO] 07-07-2026 17:37:26 [main] LogUtils - Click element By.xpath: //button[@aria-owns='bs-select-4']
+[INFO] 07-07-2026 17:37:26 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='bs-select-4']
+[INFO] 07-07-2026 17:37:26 [main] LogUtils - Set text: Vietnam on element By.xpath: //input[@aria-controls='bs-select-4']
+[INFO] 07-07-2026 17:37:26 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Vietnam']
+[INFO] 07-07-2026 17:37:27 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:37:27 [main] LogUtils - Get attribute value of element By.xpath: //input[@id='company']: 13 - Country
+[INFO] 07-07-2026 17:37:27 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:37:28 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:28 [main] LogUtils - Set text: 13 - Country on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:31 [main] LogUtils - Move to element By.xpath: //a[normalize-space()='13 - Country']
+[INFO] 07-07-2026 17:37:32 [main] LogUtils - Click element By.xpath: //a[normalize-space()='Delete']
+[INFO] 07-07-2026 17:37:32 [main] LogUtils - Alert accepted.
+[INFO] 07-07-2026 17:37:33 [main] LogUtils - Click element By.xpath: //button[@data-dismiss='alert']
+[INFO] 07-07-2026 17:37:33 [main] LogUtils - Clear text of element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:33 [main] LogUtils - Set text: 13 - Country on element By.xpath: //input[@aria-controls='clients']
+[INFO] 07-07-2026 17:37:33 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:37:36 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:37:40 [main] LogUtils - ✅ Browser launched: chrome
+[INFO] 07-07-2026 17:37:40 [main] LogUtils - ▶️ Start run test case: manageCustomer
+[INFO] 07-07-2026 17:37:41 [main] LogUtils - Click element By.xpath: //span[normalize-space()='Customers']
+[INFO] 07-07-2026 17:37:41 [main] LogUtils - Click element By.xpath: //a[normalize-space()='New Customer']
+[INFO] 07-07-2026 17:37:41 [main] LogUtils - Clear text of element By.xpath: //input[@id='phonenumber']
+[INFO] 07-07-2026 17:37:42 [main] LogUtils - Set text: 0123456789 on element By.xpath: //input[@id='phonenumber']
+[INFO] 07-07-2026 17:37:42 [main] LogUtils - Click element By.xpath: //button[contains(@class,'only-save')]
+[INFO] 07-07-2026 17:37:42 [main] LogUtils - Element By.xpath: //p[@id='company-error'] is displayed: true
+[INFO] 07-07-2026 17:37:42 [main] LogUtils - Get text of element By.xpath: //p[@id='company-error']: This field is required.
+[INFO] 07-07-2026 17:37:42 [main] LogUtils - ✅ Test case manageCustomer is passed.
+[INFO] 07-07-2026 17:37:43 [main] LogUtils - 🛑 Browser closed
+[INFO] 07-07-2026 17:37:44 [main] LogUtils - End test: Tue Jul 07 17:37:44 ICT 2026
+[INFO] 07-07-2026 17:37:44 [main] LogUtils - ⭐ Test Total: 16
+[INFO] 07-07-2026 17:37:44 [main] LogUtils - ⭐ Test Passed Total: 16
+[INFO] 07-07-2026 17:37:44 [main] LogUtils - ⭐ Test Failed Total: 0
+[INFO] 07-07-2026 17:37:44 [main] LogUtils - ⭐ Test Skipped Total: 0

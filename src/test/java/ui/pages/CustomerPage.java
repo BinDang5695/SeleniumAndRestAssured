@@ -1,6 +1,7 @@
 package ui.pages;
 
 import constants.CRM.*;
+import org.testng.Assert;
 import settings.drivers.DriverManager;
 import settings.helpers.AssertHelper;
 import settings.keywords.WebUI;
@@ -8,6 +9,7 @@ import org.openqa.selenium.By;
 import models.ui.Customer;
 import settings.utils.LogUtils;
 import ui.common.BasePage;
+import ui.testdata.CustomerDataDriven;
 
 public class CustomerPage extends BasePage {
 
@@ -44,6 +46,7 @@ public class CustomerPage extends BasePage {
         return By.xpath("//a[normalize-space()='" + companyName + "']");
     }
     private By totalCustomer = By.xpath("//span[normalize-space()='Total Customers']/preceding-sibling::span");
+    private By errorMessage = By.xpath("//p[@id='company-error']");
 
     public void clickbuttonAddNewCustomer() {
         WebUI.clickElement(buttonAddNewCustomer);
@@ -70,6 +73,161 @@ public class CustomerPage extends BasePage {
         WebUI.setTextElement(searchCountry, customer.getCountry());
         WebUI.clickElement(getCountry(customer.getCountry()));
         WebUI.clickElement(buttonSave);
+    }
+
+    public void addNewCustomerDataDriven(CustomerDataDriven data) {
+
+        if (data.getCompany() != null) {
+            WebUI.setTextElement(inputCompany, data.getCompany());
+        }
+
+        if (data.getVatNumber() != null) {
+            WebUI.setTextElement(inputVATNumber, data.getVatNumber());
+        }
+
+        if (data.getPhoneNumber() != null) {
+            WebUI.setTextElement(inputPhoneNumber, data.getPhoneNumber());
+        }
+
+        if (data.getWebsite() != null) {
+            WebUI.setTextElement(inputWebsite, data.getWebsite());
+        }
+
+        if (data.getGroup() != null) {
+            WebUI.clickElement(dropDownGroups);
+            WebUI.setTextElement(searchGroups, data.getGroup());
+            WebUI.clickElement(getGroups(data.getGroup()));
+            WebUI.clickElement(dropDownGroups);
+        }
+
+        if (data.getCurrencySymbol() != null) {
+            WebUI.clickElement(currencyDropdown);
+            WebUI.clickElement(getCurrency(data.getCurrencySymbol()));
+        }
+
+        if (data.getLanguage() != null) {
+            WebUI.clickElement(defaultLanguageDropdown);
+            WebUI.clickElement(getDefaultLanguage(data.getLanguage()));
+        }
+
+        if (data.getAddress() != null) {
+            WebUI.setTextElement(inputAddress, data.getAddress());
+        }
+
+        if (data.getCity() != null) {
+            WebUI.setTextElement(inputCity, data.getCity());
+        }
+
+        if (data.getState() != null) {
+            WebUI.setTextElement(inputState, data.getState());
+        }
+
+        if (data.getZipCode() != null) {
+            WebUI.setTextElement(inputZipCode, data.getZipCode());
+        }
+
+        if (data.getCountry() != null) {
+            WebUI.clickElement(countryDropdown);
+            WebUI.setTextElement(searchCountry, data.getCountry());
+            WebUI.clickElement(getCountry(data.getCountry()));
+        }
+
+        WebUI.clickElement(buttonSave);
+    }
+
+    public void verifyCustomerAddedDataDriven(CustomerDataDriven data) {
+
+        if (data.getCompany() != null) {
+            Assert.assertEquals(
+                    WebUI.getAttributeElement(inputCompany, "value"),
+                    data.getCompany()
+            );
+        }
+
+        if (data.getVatNumber() != null) {
+            Assert.assertEquals(
+                    WebUI.getAttributeElement(inputVATNumber, "value"),
+                    data.getVatNumber()
+            );
+        }
+
+        if (data.getPhoneNumber() != null) {
+            Assert.assertEquals(
+                    WebUI.getAttributeElement(inputPhoneNumber, "value"),
+                    data.getPhoneNumber()
+            );
+        }
+
+        if (data.getWebsite() != null) {
+            Assert.assertEquals(
+                    WebUI.getAttributeElement(inputWebsite, "value"),
+                    data.getWebsite()
+            );
+        }
+
+        if (data.getAddress() != null) {
+            Assert.assertEquals(
+                    WebUI.getAttributeElement(inputAddress, "value"),
+                    data.getAddress()
+            );
+        }
+
+        if (data.getCity() != null) {
+            Assert.assertEquals(
+                    WebUI.getAttributeElement(inputCity, "value"),
+                    data.getCity()
+            );
+        }
+
+        if (data.getState() != null) {
+            Assert.assertEquals(
+                    WebUI.getAttributeElement(inputState, "value"),
+                    data.getState()
+            );
+        }
+
+        if (data.getZipCode() != null) {
+            Assert.assertEquals(
+                    WebUI.getAttributeElement(inputZipCode, "value"),
+                    data.getZipCode()
+            );
+        }
+    }
+
+    public void verifyCreateFail(String message) {
+
+        WebUI.scrollToElement(errorMessage);
+        WebUI.waitForElementVisible(errorMessage);
+
+        Assert.assertTrue(
+                WebUI.checkElementDisplayed(errorMessage),
+                "Error message is not displayed"
+        );
+
+        Assert.assertEquals(
+                WebUI.getTextElement(errorMessage),
+                message
+        );
+    }
+
+    public void deleteCustomerIfExist(CustomerDataDriven data) {
+
+        if (data.getCompany() == null) {
+            LogUtils.info("No company name provided, cannot delete");
+            return;
+        }
+
+        WebUI.setTextElement(inputSearchCustomer, data.getCompany());
+
+        WebUI.moveToElement(getDataInTable(data.getCompany()));
+
+        clickButtonDelete();
+
+        WebUI.acceptAlert();
+
+        clickButtonX();
+
+        WebUI.setTextElement(inputSearchCustomer, data.getCompany());
     }
 
     public void verifyCustomerAdded(Customer customer) {

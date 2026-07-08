@@ -1,1 +1,0 @@
-{"uuid":"940e7e03-c029-4e71-a02a-73a96e23e302","name":"Suite Regression Test","children":["238a9e83-7362-404f-80e0-a30bbe73cf94"],"befores":[{"name":"setUpEnvironment","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1783397459388,"stop":1783397459407}],"afters":[],"start":1783397459362,"stop":1783397481334}
