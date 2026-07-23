@@ -26,23 +26,18 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 │   │       │   └── CRM.java                                      # Global CRM constants
 │   │       ├── models/
 │   │       │   ├── api/
-│   │       │   │   ├── BookPOJO_Lombok                           # Book request/response model
-│   │       │   │   ├── BookPOJO_Lombok_Builder                   # Builder for Book model
-│   │       │   │   ├── CategoryPOJO_Lombok_Builder               # Builder for Category model
-│   │       │   │   ├── CategoryPOJO_Request_Lombok               # Category request model
-│   │       │   │   ├── ImagePOJO_Lombok_Builder                  # Builder for Image model
-│   │       │   │   ├── ImagePOJO_Request_Lombok                  # Image request model
-│   │       │   │   ├── ImagePOJO_Response_Lombok                 # Image response model
-│   │       │   │   ├── LoginPOJO                                 # Login request model
-│   │       │   │   ├── LoginPOJO_Builder                         # Builder for Login model
-│   │       │   │   ├── RegisterUserPOJO_Lombok                   # Register user request model
-│   │       │   │   └── UserPOJO_Lombok_Builder                   # Builder for User model
+│   │       │   │   ├── Book                                      # Book test data model
+│   │       │   │   ├── Category                                  # Category test data model
+│   │       │   │   ├── Image                                     # Image test data model
+│   │       │   │   ├── ImageResponse                             # Image response model
+│   │       │   │   ├── Login                                     # Login test data model
+│   │       │   │   └── User                                      # User test data model
 │   │       │   └── ui/
 │   │       │   │   ├── Contact                                   # Contact test data model
 │   │       │   │   ├── Contract                                  # Contract test data model
 │   │       │   │   ├── Customer                                  # Customer test data model
 │   │       │   │   ├── CustomerCase                              # Customer test case JSON model
-│   │       │   │   ├── CustomerDataDriven                        # Customer test data JSON model
+│   │       │   │   ├── CustomerDataDriven                        # Customer test data driven model
 │   │       │   │   ├── Expenses                                  # Expenses test data model
 │   │       │   │   ├── ExportFileType                            # Export file type constants
 │   │       │   │   ├── Item                                      # Item test data model
@@ -91,14 +86,32 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 │           │   ├── VerifyDataCategoryBody.java                   # Verify Category API response body
 │           │   ├── VerifyDataImageBody.java                      # Verify Image API response body
 │           │   └── VerifyDataUserBody.java                       # Verify User API response body
-│           ├── crud/
+│           ├── listeners/
+│           │   └── TestListener.java                             # API TestNG listener
+│           ├── testcases/
 │           │   ├── CRUDBook.java                                 # Book CRUD test scenarios
 │           │   ├── CRUDCategory.java                             # Category CRUD test scenarios
 │           │   ├── CRUDImage.java                                # Image CRUD test scenarios
 │           │   ├── CRUDUser.java                                 # User CRUD test scenarios
 │           │   └── GETAllBooks.java                              # Get all Books API test
-│           ├── listeners/
-│           │   └── TestListener.java                             # API TestNG listener
+│       ├── testdata/
+│           ├── api/
+│           │   ├── Book.java                                     # Book test data
+│           │   ├── Category.java                                 # Category test data
+│           │   ├── Image.java                                    # Image test data
+│           │   ├── Login.java                                    # Login test data
+│           │   └── User.java                                     # User test data
+│           ├── ui/
+│           │   ├── Contact.java                                  # Contact test data
+│           │   ├── Contract.java                                 # Contract test data
+│           │   ├── Customer.java                                 # Customer test data
+│           │   ├── Expenses.java                                 # Expenses test data
+│           │   ├── Item.java                                     # Item test data
+│           │   ├── KnowdledgeBase.java                           # KnowledgeBase test data
+│           │   ├── Lead.java                                     # Lead test data
+│           │   ├── Project.java                                  # Project test data
+│           │   ├── Proposal.java                                 # Proposal test data
+│           │   └── Task.java                                     # Task test data
 │       ├── ui/
 │           ├── auth/
 │           │   ├── AuthManager.java                              # Authentication manager
@@ -142,17 +155,6 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 │           │   ├── ProjectTest.java                              # Project test scenarios
 │           │   ├── ProposalsTest.java                            # Proposals test scenarios
 │           │   └── TaskTest.java                                 # Task test scenarios
-│           ├── testdata/
-│           │   ├── ContactData.java                              # Contact test data
-│           │   ├── ContractData.java                             # Contract test data
-│           │   ├── CustomerData.java                             # Customer test data
-│           │   ├── ExpensesData.java                             # Expenses test data
-│           │   ├── ItemData.java                                 # Item test data
-│           │   ├── KnowledgeBaseData.java                        # Knowledge Base test data
-│           │   ├── LeadData.java                                 # Lead test data
-│           │   ├── ProjectData.java                              # Project test data
-│           │   ├── ProposalData.java                             # Proposal test data
-│           │   └── TaskData.java                                 # Task test data
 │       ├── resources/
 │           ├── configs/
 │           │   ├── api.properties                                # API environment configuration
