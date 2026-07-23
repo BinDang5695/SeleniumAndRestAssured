@@ -338,6 +338,7 @@ Open Allure report
 allure open reports/allure
 ```
 <img width="1912" height="948" alt="image" src="https://github.com/user-attachments/assets/0b618b3f-1a72-45a7-a8db-15bd53d4d39b" />
+<img width="1912" height="948" alt="image" src="https://github.com/user-attachments/assets/10fc5078-8bbb-4384-b4f8-00a41c8dce16" />
 
 ---
 
