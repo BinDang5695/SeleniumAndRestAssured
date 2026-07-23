@@ -256,7 +256,7 @@ mvn clean test "-DsuiteXmlFile=<suite-file>.xml"
 Example
 
 ```bash
-mvn clean test "-DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTest.xml"
+mvn clean test "-DsuiteXmlFile=src/test/resources/suites/UI_LoginTest.xml"
 ```
 
 ---
