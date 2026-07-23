@@ -226,6 +226,7 @@ This command will download all required Maven dependencies defined in the `pom.x
 ```bash
 mvn clean test -DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTest.xml
 ```
+<img width="1135" height="365" alt="image" src="https://github.com/user-attachments/assets/d17d1864-7813-41e7-bbb4-f8d19533e7ab" />
 
 ---
 
@@ -257,7 +258,6 @@ Example
 ```bash
 mvn clean test "-DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTest.xml"
 ```
-<img width="1135" height="365" alt="image" src="https://github.com/user-attachments/assets/d17d1864-7813-41e7-bbb4-f8d19533e7ab" />
 
 ---
 
