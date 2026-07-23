@@ -232,7 +232,7 @@ mvn clean test -DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTest.x
 ## Run parallel for all UI test suites
 
 ```bash
-mvn clean test -DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTestParallel.xml
+mvn clean test "-DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTestParallel.xml"
 ```
 
 ---
@@ -240,22 +240,24 @@ mvn clean test -DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTestPa
 ## Run all API test suites
 
 ```bash
-mvn clean test -DsuiteXmlFile=src/test/resources/suites/API_SuiteRegressionTest.xml
+mvn clean test "-DsuiteXmlFile=src/test/resources/suites/API_SuiteRegressionTest.xml"
 ```
+<img width="913" height="366" alt="image" src="https://github.com/user-attachments/assets/73d8345c-9f59-4f84-a383-2219b6fdc445" />
 
 ---
 
 ## Run a specific TestNG suite
 
 ```bash
-mvn clean test -DsuiteXmlFile=<suite-file>.xml
+mvn clean test "-DsuiteXmlFile=<suite-file>.xml"
 ```
 
 Example
 
 ```bash
-mvn clean test -DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTest.xml
+mvn clean test "-DsuiteXmlFile=src/test/resources/suites/UI_SuiteRegressionTest.xml"
 ```
+<img width="1135" height="365" alt="image" src="https://github.com/user-attachments/assets/d17d1864-7813-41e7-bbb4-f8d19533e7ab" />
 
 ---
 
@@ -266,6 +268,7 @@ Chrome
 ```bash
 mvn clean test -Dbrowser=chrome
 ```
+
 
 Edge
 
@@ -288,6 +291,8 @@ src/test/resources/configs/
     ├── ui.properties
     └── api.properties
 ```
+<img width="478" height="321" alt="image" src="https://github.com/user-attachments/assets/d49eb99f-3549-49e6-9a1c-7b2a0ec8a8ab" />
+<img width="485" height="161" alt="image" src="https://github.com/user-attachments/assets/52af9692-5566-4025-80c3-5b635dccf452" />
 
 ---
 
@@ -332,6 +337,7 @@ Open Allure report
 ```bash
 allure open reports/allure
 ```
+<img width="1912" height="948" alt="image" src="https://github.com/user-attachments/assets/0b618b3f-1a72-45a7-a8db-15bd53d4d39b" />
 
 ---
 
