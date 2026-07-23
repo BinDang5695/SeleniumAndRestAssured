@@ -1,1 +1,0 @@
-Click on element By.xpath: //button[@data-id='contract_type']

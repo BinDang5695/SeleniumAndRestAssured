@@ -1,1 +1,0 @@
-==> TEXT C:\Users\BinDangVan\SeleniumAndRestAssured\src\test\resources\filetest\UK.jpg

@@ -1,0 +1,1 @@
+{"uuid":"c62bad81-9bc8-4094-b702-b182949028da","name":"Test UI Login","children":["8c4742e0-9e72-4202-909f-d6b5eb9dbfd7"],"befores":[{"name":"setUpEnvironment","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1784799482003,"stop":1784799482018}],"afters":[],"start":1784799481980,"stop":1784799506272}

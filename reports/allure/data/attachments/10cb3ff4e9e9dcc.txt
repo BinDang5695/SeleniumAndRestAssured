@@ -1,1 +1,0 @@
-==> ATTRIBUTE Create customer with only required Company

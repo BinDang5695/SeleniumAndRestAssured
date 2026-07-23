@@ -1,1 +1,0 @@
-Click on element By.xpath: //button[normalize-space()='More']

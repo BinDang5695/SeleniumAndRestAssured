@@ -1,0 +1,53 @@
+[INFO] 23-07-2026 16:38:02 [main] LogUtils - ?? Setup Environment onStart:Thu Jul 23 16:38:02 ICT 2026
+[INFO] 23-07-2026 16:38:06 [main] LogUtils - ? Browser launched: chrome
+[INFO] 23-07-2026 16:38:07 [main] LogUtils - ?? Start run test case: loginSuccess
+[INFO] 23-07-2026 16:38:10 [main] LogUtils - Page loaded successfully.
+[INFO] 23-07-2026 16:38:10 [main] LogUtils - ? Open URL: https://crm.anhtester.com/admin/authentication
+[INFO] 23-07-2026 16:38:11 [main] LogUtils - Clear text of element By.xpath: //input[@id='email']
+[INFO] 23-07-2026 16:38:11 [main] LogUtils - Set text: admin@example.com on element By.xpath: //input[@id='email']
+[INFO] 23-07-2026 16:38:12 [main] LogUtils - Clear text of element By.xpath: //input[@id='password']
+[INFO] 23-07-2026 16:38:12 [main] LogUtils - Set text: 123456 on element By.xpath: //input[@id='password']
+[INFO] 23-07-2026 16:38:14 [main] LogUtils - Click element By.xpath: //button[normalize-space()='Login']
+[INFO] 23-07-2026 16:38:14 [main] LogUtils - Current URL: https://crm.anhtester.com/admin/
+[INFO] 23-07-2026 16:38:14 [main] LogUtils - Assert not contains: https://crm.anhtester.com/admin/ ?? authentication
+[INFO] 23-07-2026 16:38:14 [main] LogUtils - ? Test case loginSuccess is passed.
+[INFO] 23-07-2026 16:38:16 [main] LogUtils - ? Browser closed
+[INFO] 23-07-2026 16:38:18 [main] LogUtils - ? Browser launched: chrome
+[INFO] 23-07-2026 16:38:18 [main] LogUtils - ?? Start run test case: loginFailWithInvalidEmail
+[INFO] 23-07-2026 16:38:19 [main] LogUtils - Page loaded successfully.
+[INFO] 23-07-2026 16:38:19 [main] LogUtils - ? Open URL: https://crm.anhtester.com/admin/authentication
+[INFO] 23-07-2026 16:38:19 [main] LogUtils - Clear text of element By.xpath: //input[@id='email']
+[INFO] 23-07-2026 16:38:19 [main] LogUtils - Set text: admin123@example.com on element By.xpath: //input[@id='email']
+[INFO] 23-07-2026 16:38:19 [main] LogUtils - Clear text of element By.xpath: //input[@id='password']
+[INFO] 23-07-2026 16:38:19 [main] LogUtils - Set text: 123456 on element By.xpath: //input[@id='password']
+[INFO] 23-07-2026 16:38:19 [main] LogUtils - Click element By.xpath: //button[normalize-space()='Login']
+[INFO] 23-07-2026 16:38:20 [main] LogUtils - Current URL: https://crm.anhtester.com/admin/authentication
+[INFO] 23-07-2026 16:38:20 [main] LogUtils - Assert contains: https://crm.anhtester.com/admin/authentication ?? authentication
+[INFO] 23-07-2026 16:38:20 [main] LogUtils - Element By.xpath: //div[contains(@class,'alert alert-danger')] is displayed: true
+[INFO] 23-07-2026 16:38:20 [main] LogUtils - Assert true: true
+[INFO] 23-07-2026 16:38:20 [main] LogUtils - Get text of element By.xpath: //div[contains(@class,'alert alert-danger')]: Invalid email or password
+[INFO] 23-07-2026 16:38:20 [main] LogUtils - Assert equals: Invalid email or password ? Invalid email or password
+[INFO] 23-07-2026 16:38:20 [main] LogUtils - ? Test case loginFailWithInvalidEmail is passed.
+[INFO] 23-07-2026 16:38:21 [main] LogUtils - ? Browser closed
+[INFO] 23-07-2026 16:38:23 [main] LogUtils - ? Browser launched: chrome
+[INFO] 23-07-2026 16:38:23 [main] LogUtils - ?? Start run test case: loginFailWithInvalidPassword
+[INFO] 23-07-2026 16:38:23 [main] LogUtils - Page loaded successfully.
+[INFO] 23-07-2026 16:38:23 [main] LogUtils - ? Open URL: https://crm.anhtester.com/admin/authentication
+[INFO] 23-07-2026 16:38:23 [main] LogUtils - Clear text of element By.xpath: //input[@id='email']
+[INFO] 23-07-2026 16:38:23 [main] LogUtils - Set text: admin@example.com on element By.xpath: //input[@id='email']
+[INFO] 23-07-2026 16:38:23 [main] LogUtils - Clear text of element By.xpath: //input[@id='password']
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - Set text: 123456789 on element By.xpath: //input[@id='password']
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - Click element By.xpath: //button[normalize-space()='Login']
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - Current URL: https://crm.anhtester.com/admin/authentication
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - Assert contains: https://crm.anhtester.com/admin/authentication ?? authentication
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - Element By.xpath: //div[contains(@class,'alert alert-danger')] is displayed: true
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - Assert true: true
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - Get text of element By.xpath: //div[contains(@class,'alert alert-danger')]: Invalid email or password
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - Assert equals: Invalid email or password ? Invalid email or password
+[INFO] 23-07-2026 16:38:24 [main] LogUtils - ? Test case loginFailWithInvalidPassword is passed.
+[INFO] 23-07-2026 16:38:25 [main] LogUtils - ? Browser closed
+[INFO] 23-07-2026 16:38:25 [main] LogUtils - End test: Thu Jul 23 16:38:25 ICT 2026
+[INFO] 23-07-2026 16:38:25 [main] LogUtils - ? Test Total: 3
+[INFO] 23-07-2026 16:38:25 [main] LogUtils - ? Test Passed Total: 3
+[INFO] 23-07-2026 16:38:25 [main] LogUtils - ? Test Failed Total: 0
+[INFO] 23-07-2026 16:38:25 [main] LogUtils - ? Test Skipped Total: 0

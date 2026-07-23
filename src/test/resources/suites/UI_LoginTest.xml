@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test UI Login">
+
+    <test name="Regression Test with Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="ui.testcases.LoginTest">
+            </class>
+        </classes>
+    </test>
+
+</suite>
