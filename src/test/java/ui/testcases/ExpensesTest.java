@@ -1,42 +1,76 @@
 package ui.testcases;
 
-import constants.CRM.*;
+import constants.CRM;
+import constants.CRM.Menu;
 import io.qameta.allure.*;
-import models.ui.Expenses;
 import org.testng.annotations.Test;
 import ui.common.BaseTest;
-import ui.testdata.ExpensesData;
-import static settings.keywords.WebUI.*;
+import testdata.ui.Expenses;
 
+@Epic("Regression Test")
+@Feature("Expense")
 public class ExpensesTest extends BaseTest {
 
-    @Epic("Regression Test")
-    @Feature("Add New Expense")
-    @Story("Expense")
-    @Owner("Bin Tester")
+    private final models.ui.Expenses expense = Expenses.getExpense();
+    private final models.ui.Expenses updatedExpense = Expenses.getUpdatedExpense();
+
+    @Owner("Bin Tester dz")
     @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-9")
-    @Issue("CRM-9")
-    @Description("Add new Expense, verify and delete Expense")
-    @Test(priority = 0)
-    public void manageExpense() {
-        Expenses expenses = ExpensesData.getExpense();
-        Expenses updatedExpenses = ExpensesData.getUpdatedExpense();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
-        clickByMenuText(Menu.EXPENSES);
+    @Feature("Create, verify")
+    @Story("Expense")
+    @Description("Create Expense Successfully")
+    @Test(priority = 1)
+    public void EXPENSE_001_CreateExpenseSuccessfully() {
+        basePage().clickByMenuText(Menu.EXPENSES);
         expensesPage().clickButtonRecordExpense();
-        expensesPage().addNewExpense(expenses);
-        expensesPage().verifyCreatedExpense(expenses);
-        expensesPage().clickButtonEditExpense();
-        expensesPage().updateExpense(updatedExpenses);
-        expensesPage().verifyUpdatedExpense(updatedExpenses);
-        expensesPage().clickButtonDeleteExpense();
-        acceptAlert();
+        expensesPage().inputToAddNewExpense(expense);
+        expensesPage().clickButtonSave();
+        expensesPage().verifyCreatedExpense(expense);
+    }
+
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Feature("Update, verify")
+    @Story("Expense")
+    @Description("Update Expense Successfully")
+    @Test(priority = 2)
+    public void EXPENSE_002_UpdateExpenseSuccessfully() {
+        basePage().clickByMenuText(Menu.EXPENSES);
+        expensesPage().searchExpense(expense);
+        expensesPage().hoverToExpense(expense);
+        basePage().clickButtonEdit();
+        expensesPage().inputToUpdateExpense(updatedExpense);
+        expensesPage().clickButtonSave();
+        expensesPage().verifyUpdatedExpense(updatedExpense);
+    }
+
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Feature("Delete, verify")
+    @Story("Expense")
+    @Description("Delete Expense Successfully")
+    @Test(priority = 3)
+    public void EXPENSE_003_DeleteExpenseSuccessfully() {
+        basePage().clickByMenuText(Menu.EXPENSES);
+        expensesPage().searchExpense(updatedExpense);
+        expensesPage().hoverToExpense(expense);
+        basePage().deleteRecordAfterHover();
         expensesPage().verifyAlertDeletedExpense();
-        expensesPage().verifyDeletedExpense(updatedExpenses);
-        clickMenuSales();
-        clickByMenuName(Menu.INVOICES);
+        expensesPage().searchExpense(updatedExpense);
+        basePage().verifyNoItems(CRM.Message.NO_ENTRIES_FOUND);
+    }
+
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.NORMAL)
+    @Feature("Verify")
+    @Story("Expense")
+    @Description("Verify Expense Tooltip When Creating Invoice")
+    @Test(priority = 4)
+    public void EXPENSE_004_VerifyExpenseTooltipInInvoice() {
+        basePage().clickMenuSales();
+        basePage().clickByMenuName(Menu.INVOICES);
         expensesPage().clickButtonCreateNewInvoice();
+        expensesPage().hoverToTooltip();
         expensesPage().verifyExpenseTooltipContent();
     }
 }

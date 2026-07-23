@@ -1,6 +1,6 @@
 package api.common;
 
-import models.api.ImagePOJO_Response_Lombok;
+import models.api.ImageResponse;
 import settings.utils.LogUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public class VerifyDataImageBody {
 
-    public static void verifyDataBodyImage(Response response, ImagePOJO_Response_Lombok imageresponse) {
+    public static void verifyDataBodyImage(Response response, ImageResponse imageresponse) {
         JsonPath jsonPath = response.jsonPath();
 
         int actualId = jsonPath.getInt("response.id");
@@ -53,9 +53,9 @@ public class VerifyDataImageBody {
         Assert.assertEquals(response.getHeader("Server"), "LiteSpeed");
     }
 
-    public static void verifyResponseSuccess(Response response, ImagePOJO_Response_Lombok imageresponse, int statusCode) {
+    public static void verifyResponseSuccess(Response response, ImageResponse imageresponse, int statusCode) {
         ApiAssertion.verifyBaseResponse(response, statusCode, 2000);
-        ApiAssertion.verifySchema(response, "src/test/resources/testdata/GetImageSchema.json");
+        ApiAssertion.verifySchema(response, "src/test/resources/filetest/GetImageSchema.json");
         VerifyDataImageBody.verifyDataBodyImage(response, imageresponse);
         VerifyDataImageBody.verifyAllHeaders(response);
     }

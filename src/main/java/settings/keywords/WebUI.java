@@ -13,14 +13,13 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
+import org.openqa.selenium.support.ui.Select;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 import static settings.drivers.DriverManager.getDriver;
@@ -29,14 +28,8 @@ public class WebUI {
 
     private static int timeout = Integer.parseInt(PropertiesHelper.getValue("EXPLICIT_WAIT"));
 
-    // Basic
-
     public static WebElement getWebElement(By by) {
         return getDriver().findElement(by);
-    }
-
-    public static void logConsole(String message) {
-        LogUtils.info(message);
     }
 
     @Step("Open URL: {0}")
@@ -77,34 +70,6 @@ public class WebUI {
         }
     }
 
-    public static void waitForTableFullyLoaded(By rowLocator) {
-
-        // Đợi table có ít nhất 1 dòng
-        WebUI.waitForElementVisible(rowLocator);
-
-        int oldCount = -1;
-        int stableCount = 0;
-
-        for (int i = 0; i < 20; i++) {
-            int newCount = getWebElements(rowLocator).size();
-
-            // Kiểm tra số dòng ổn định 2 lần liên tiếp
-            if (newCount == oldCount && newCount > 0) {
-                stableCount++;
-
-                if (stableCount >= 2) {
-                    return; // Table thực sự load xong
-                }
-            } else {
-                stableCount = 0;
-            }
-
-            oldCount = newCount;
-            sleep(200);
-        }
-    }
-
-
     public static void waitForPageRefresh(By by) {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(timeout));
@@ -138,7 +103,7 @@ public class WebUI {
     public static void waitForElementVisible(WebElement element) {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10), Duration.ofMillis(500));
-            wait.until(ExpectedConditions.visibilityOf(element)); // ✅ dùng visibilityOf cho WebElement
+            wait.until(ExpectedConditions.visibilityOf(element));
         } catch (Throwable error) {
             LogUtils.info("❌ Element " + element + " not found after waiting for 10 seconds.");
             Assert.fail("❌ Element " + element + " not found after waiting for 10 seconds.");
@@ -193,52 +158,6 @@ public class WebUI {
         Assert.fail("❌ Failed to click element after retries: " + element);
     }
 
-    @Step("Click {0} until element {1} is visible")
-    public static void clickUntilVisible(By clickTarget, By waitTarget) {
-        int attempts = 0;
-        int maxAttempts = 5;
-
-        while (attempts < maxAttempts) {
-            try {
-                WebUI.clickElement(clickTarget);
-                WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(timeout));
-                wait.until(ExpectedConditions.visibilityOfElementLocated(waitTarget));
-
-                LogUtils.info("✅ Target element appeared after click: " + waitTarget);
-                return;
-
-            } catch (TimeoutException e) {
-                attempts++;
-                LogUtils.warn("⚠️ Element not visible yet. Retry click (" + attempts + "/" + maxAttempts + ")");
-            } catch (Exception e) {
-                attempts++;
-                LogUtils.warn("⚠️ Click attempt failed: " + e.getMessage());
-            }
-        }
-
-        Assert.fail("❌ Element " + waitTarget + " not visible after clicking " + clickTarget + " " + maxAttempts + " times.");
-    }
-
-    @Step("Click {0} until success (max {1} attempts)")
-    public static void clickUntilVisible(By clickTarget) {
-        int attempts = 0;
-        int maxAttempts = 5;
-
-        while (attempts < maxAttempts) {
-            try {
-                WebUI.clickElement(clickTarget);
-                LogUtils.info("✅ Clicked successfully on: " + clickTarget);
-                return; // nếu click thành công thì dừng
-            } catch (Exception e) {
-                attempts++;
-                LogUtils.warn("⚠️ Click attempt failed (" + attempts + "/" + maxAttempts + "): " + e.getMessage());
-                WebUI.sleep(1); // thêm delay giữa các lần click
-            }
-        }
-
-        Assert.fail("❌ Could not click " + clickTarget + " after " + maxAttempts + " attempts.");
-    }
-
     @Step("Set text: {1} on element {0}")
     public static void setTextElement(By by, String text) {
         waitForElementVisible(by);
@@ -267,6 +186,58 @@ public class WebUI {
         ExtentTestManager.logMessage(Status.INFO, "==> TEXT " + text);
         AllureManager.saveTextLog("==> TEXT " + text);
         return text;
+    }
+
+    @Step("Get text of element {0}")
+    public static String getTextElementRetry(By by) {
+
+        int retry = 3;
+
+        while (retry > 0) {
+
+            try {
+
+                waitForElementVisible(by);
+
+                String text = getDriver()
+                        .findElement(by)
+                        .getText()
+                        .trim();
+
+                LogUtils.info("Get text of element " + by + ": " + text);
+
+                ExtentTestManager.logMessage(
+                        Status.PASS,
+                        "Get text of element " + by + ": " + text
+                );
+
+                ExtentTestManager.logMessage(
+                        Status.INFO,
+                        "==> TEXT " + text
+                );
+
+                AllureManager.saveTextLog("==> TEXT " + text);
+
+                return text;
+
+            } catch (StaleElementReferenceException e) {
+
+                retry--;
+
+                LogUtils.warn(
+                        "Stale element detected. Retry get text: "
+                                + by
+                                + " | Remaining retry: "
+                                + retry
+                );
+
+                sleep(1);
+            }
+        }
+
+        throw new RuntimeException(
+                "Cannot get text because element is stale: " + by
+        );
     }
 
     @Step("Get text of element {0}")
@@ -299,62 +270,6 @@ public class WebUI {
         return value;
     }
 
-    @Step("Get attribute: {1} on all provided elements")
-    public static List<String> getAttributeElements(List<WebElement> elements, String attributeName) {
-        List<String> attributeValues = new ArrayList<>();
-
-        if (elements == null || elements.isEmpty()) {
-            LogUtils.warn("⚠️ No elements provided to get attribute: " + attributeName);
-            return attributeValues;
-        }
-
-        LogUtils.info("🔍 Found " + elements.size() + " elements to extract attribute: " + attributeName);
-
-        for (int i = 0; i < elements.size(); i++) {
-            WebElement el = elements.get(i);
-
-            try {
-                waitForElementVisible(el);
-                String value = el.getAttribute(attributeName);
-                attributeValues.add(value);
-
-                LogUtils.info("👉 Element [" + i + "] attribute '" + attributeName + "': " + value);
-                AllureManager.saveTextLog("==> ATTRIBUTE [" + i + "]: " + value);
-            } catch (Exception e) {
-                LogUtils.error("❌ Failed to get attribute '" + attributeName + "' for element [" + i + "]: " + e.getMessage());
-                attributeValues.add(null);
-            }
-        }
-
-        return attributeValues;
-    }
-
-    public static void waitForAllElementsVisible(By locator, int timeoutInSeconds) {
-        LogUtils.info("⏳ Waiting for all elements to be visible...");
-
-        WebDriver driver = DriverManager.getDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
-
-        try {
-            wait.until(driver1 -> {
-                List<WebElement> elements = driver1.findElements(locator);
-                if (elements.isEmpty()) return false;
-
-                boolean allVisible = elements.stream().allMatch(WebElement::isDisplayed);
-                if (!allVisible) {
-                    LogUtils.info("🕓 Not all elements visible yet (" + elements.size() + " found)");
-                }
-                return allVisible;
-            });
-
-            LogUtils.info("✅ All elements are now visible (" +
-                    DriverManager.getDriver().findElements(locator).size() + ")");
-        } catch (TimeoutException e) {
-            LogUtils.warn("⚠️ Timeout waiting for all elements visible after " + timeoutInSeconds + "s");
-        }
-    }
-
-
     public static List<WebElement> getWebElements(By by) {
         return getDriver().findElements(by);
     }
@@ -377,42 +292,46 @@ public class WebUI {
     }
 
 
-    public static void uploadFileWithRobotClass(By elementFileForm, String filePath) {
-        LogUtils.info("📁 Start uploading file using Robot class...");
-        LogUtils.info("👉 File to upload: " + filePath);
+    public static void uploadFileWithRobotClass(By element, String filePath) {
 
         try {
-            LogUtils.info("🔘 Clicking on file upload element: " + elementFileForm);
-            WebUI.clickElement(elementFileForm);
-            WebUI.sleep(5);
 
-            LogUtils.info("📋 Copying file path to clipboard...");
-            StringSelection str = new StringSelection(filePath);
-            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+            LogUtils.info("Click upload button");
+            WebUI.clickElement(element);
 
-            LogUtils.info("⌨️  Pasting file path (CTRL + V)...");
-            Robot rb = new Robot();
-            rb.keyPress(KeyEvent.VK_CONTROL);
-            rb.keyPress(KeyEvent.VK_V);
-            rb.keyRelease(KeyEvent.VK_CONTROL);
-            rb.keyRelease(KeyEvent.VK_V);
+            Thread.sleep(3000);
 
-            WebUI.sleep(5);
+            LogUtils.info("Copy path: " + filePath);
 
-            LogUtils.info("⏎ Pressing ENTER to confirm upload...");
-            rb.keyPress(KeyEvent.VK_ENTER);
-            rb.keyRelease(KeyEvent.VK_ENTER);
+            StringSelection selection =
+                    new StringSelection(filePath);
 
-            WebUI.sleep(5);
+            Toolkit.getDefaultToolkit()
+                    .getSystemClipboard()
+                    .setContents(selection, null);
+            
+            Robot robot = new Robot();
 
-            LogUtils.info("✅ File uploaded successfully.");
+            LogUtils.info("Paste path");
 
-        } catch (AWTException e) {
-            LogUtils.error("❌ Robot initialization failed: " + e.getMessage());
-            e.printStackTrace();
-        } catch (Exception e) {
-            LogUtils.error("❌ Upload failed: " + e.getMessage());
-            e.printStackTrace();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+
+            Thread.sleep(2000);
+
+            LogUtils.info("Press ENTER");
+
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+
+            Thread.sleep(3000);
+
+            LogUtils.info("Upload finished");
+
+        } catch(Exception e){
+            throw new RuntimeException(e);
         }
     }
 
@@ -443,15 +362,6 @@ public class WebUI {
 
         } catch (Exception e) {
             LogUtils.error("Error checking field date: " + e.getMessage());
-            return false;
-        }
-    }
-
-    public static boolean isElementSelected(By by) {
-        try {
-            WebElement element = getDriver().findElement(by);
-            return element.isSelected();
-        } catch (Exception e) {
             return false;
         }
     }
@@ -523,20 +433,6 @@ public class WebUI {
     }
 
     // Advanced
-
-    public static void setTextAndKey(By by, String value, Keys key) {
-        waitForPageLoaded();
-        getWebElement(by).sendKeys(value, key);
-        LogUtils.info("Set text: " + value + " on element " + by);
-    }
-
-    public static String getElementCssValue(By by, String cssPropertyName) {
-        waitForElementVisible(by);
-        LogUtils.info("Get CSS value " + cssPropertyName + " of element " + by);
-        String value = getWebElement(by).getCssValue(cssPropertyName);
-        LogUtils.info("==> CSS value: " + value);
-        return value;
-    }
 
     @Step("Scroll to element {0}")
     public static void scrollToElement(By by) {
@@ -706,15 +602,43 @@ public class WebUI {
         }
     }
 
-    public static void waitForElementInVisible(By locator) {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    public static void selectOptionByText(By locator, String text) {
+
+        LogUtils.info("Select option by text: " + text + " on element " + locator);
+
+        try {
+            WebElement element = DriverManager.getDriver()
+                    .findElement(locator);
+
+            Select select = new Select(element);
+            select.selectByVisibleText(text);
+
+            LogUtils.info("Selected option successfully: " + text);
+
+        } catch (Exception e) {
+            LogUtils.error("❌ Cannot select option by text: " + text
+                    + " on element " + locator);
+            throw e;
+        }
     }
 
-    public static void waitForTextToBe(By by, String expectedText) {
-        new WebDriverWait(getDriver(), Duration.ofSeconds(timeout))
-                .until(ExpectedConditions.textToBe(by, expectedText));
+    public static void selectOptionByValue(By locator, String value) {
+
+        LogUtils.info("Select option by value: " + value + " on element " + locator);
+
+        try {
+            WebElement element = DriverManager.getDriver()
+                    .findElement(locator);
+
+            Select select = new Select(element);
+            select.selectByValue(value);
+
+            LogUtils.info("Selected option successfully: " + value);
+
+        } catch (Exception e) {
+            LogUtils.error("❌ Cannot select option by value: " + value
+                    + " on element " + locator);
+            throw e;
+        }
     }
-
-
 }

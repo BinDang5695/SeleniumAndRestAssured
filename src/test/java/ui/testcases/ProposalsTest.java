@@ -3,38 +3,48 @@ package ui.testcases;
 import constants.CRM.*;
 import io.qameta.allure.*;
 import models.ui.ExportFileType;
-import models.ui.Proposal;
 import org.testng.annotations.Test;
 import ui.common.BaseTest;
 import ui.dataproviders.DataProviderFactory;
-import ui.testdata.ProposalData;
-import static settings.keywords.WebUI.*;
+import testdata.ui.Customer;
+import testdata.ui.Proposal;
 
 public class ProposalsTest extends BaseTest {
+
+    private final models.ui.Proposal proposal = Proposal.getProposal();
+    private final models.ui.Customer customer = Customer.getCustomer();
 
     @Epic("Regression Test")
     @Feature("Add New Proposal")
     @Story("Proposal")
-    @Owner("Bin Tester")
+    @Owner("Bin Tester dz")
     @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-12")
-    @Issue("CRM-12")
-    @Description("Add new Proposal, verify and delete Proposal")
-    @Test(priority = 0, dataProvider = "exportTypes", dataProviderClass = DataProviderFactory.class)
-    public void manageProposalsPDFFile(ExportFileType type) {
-        Proposal proposal = ProposalData.getProposal();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
-        clickMenuSales();
-        clickByMenuName(Menu.PROPOSALS);
+    @Description("Add new Proposal, verify, export and delete Proposal with 3 file types")
+    @Test(priority = 1, dataProvider = "exportTypes", dataProviderClass = DataProviderFactory.class)
+    public void verifyCreateProposal(ExportFileType type) {
+        basePage().clickByMenuName(Menu.CUSTOMERS);
+        customerPage().clickButtonAddNewCustomer();
+        customerPage().inputToAddNewCustomer(customer);
+        customerPage().clickButtonSave();
+        basePage().clickMenuSales();
+        basePage().clickByMenuName(Menu.PROPOSALS);
         proposalsPage().clickButtonNewProposal();
-        proposalsPage().addNewProposal(proposal);
+        proposalsPage().inputToAddNewProposal(proposal);
+        proposalsPage().moveToButtonSaveAddNewProposal();
+        proposalsPage().clickButtonSaveAddNewProposal();
+        proposalsPage().moveToIconToggleFullView();
         proposalsPage().verifyContentToggle();
+        proposalsPage().clickButtonToogleTableRight();
         proposalsPage().searchCreatedProposal(proposal);
         proposalsPage().exportAndVerifyContentFile(type, proposal);
         proposalsPage().waitProposal(proposal);
-        clickDropdownMore();
-        clickButtonDelete();
-        acceptAlert();
-        clickButtonX();
+        proposalsPage().clickCreatedProposal(proposal);
+        basePage().deleteRecordAfterSelectDropdown();
+        proposalsPage().searchCreatedProposal(proposal);
+        basePage().verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
+        basePage().clickByMenuName(Menu.CUSTOMERS);
+        customerPage().searchCustomer(customer.getCompany());
+        customerPage().moveToCompanyName(customer.getCompany());
+        basePage().deleteRecordAfterHover();
     }
 }

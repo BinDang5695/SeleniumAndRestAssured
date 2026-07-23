@@ -1,33 +1,43 @@
 package ui.testcases;
 
+import constants.CRM.*;
 import io.qameta.allure.*;
-import models.ui.Lead;
 import org.testng.annotations.Test;
 import ui.common.BaseTest;
-import ui.testdata.LeadData;
-import static settings.keywords.WebUI.*;
+import testdata.ui.Lead;
 
+@Epic("Regression Test")
+@Feature("Lead")
 public class LeadsTest extends BaseTest {
 
-    @Epic("Regression Test")
-    @Feature("Add New Lead")
-    @Story("Lead")
-    @Owner("Bin Tester")
+    private final models.ui.Lead lead = Lead.getLead();
+
+    @Owner("Bin Tester dz")
     @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-10")
-    @Issue("CRM-10")
-    @Description("Add new Lead, verify and delete Lead")
-    @Test(priority = 0)
-    public void manageLead() {
-        Lead lead = LeadData.getLead();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
-        leadsPage().createMultipleLeads(lead, 11);
-        leadsPage().searchAndCheckDataInTable(lead,3, lead.getName(), "Name");
-        leadsPage().searchAndSelectAllLeads();
-        clickButtonBulkActions();
-        clickCheckboxMassDelete();
-        clickButtonConfirm();
-        acceptAlert();
-        leadsPage().verifyDeletedLeads(lead);
+    @Feature("Create, verify")
+    @Story("Leads")
+    @Description("Create Multiple Leads Successfully")
+    @Test(priority = 1)
+    public void LEAD_001_CreateMultipleLeadsSuccessfully() {
+        basePage().clickByMenuName(Menu.LEADS);
+        leadsPage().createMultipleLeads(lead, 3);
+        leadsPage().searchLead(lead);
+        leadsPage().verifyLeadLengthInTable(3, lead.getName(), "Name");
+    }
+
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Feature("Delete, verify")
+    @Story("Leads")
+    @Description("Delete Multiple Leads Successfully")
+    @Test(priority = 2)
+    public void LEAD_002_DeleteMultipleLeadsSuccessfully() {
+        basePage().clickByMenuName(Menu.LEADS);
+        basePage().clickSelectAllAndEnsureChecked();
+        basePage().deleteRecordAfterSelectCheckbox();
+        leadsPage().verifyAlertDeletedLeads();
+        leadsPage().searchLead(lead);
+        leadsPage().verifyNoItems(Message.NO_ENTRIES_FOUND);
+
     }
 }

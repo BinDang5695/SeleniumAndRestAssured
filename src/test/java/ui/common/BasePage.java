@@ -2,6 +2,7 @@ package ui.common;
 
 import models.ui.ExportFileType;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import settings.drivers.DriverManager;
@@ -26,7 +27,6 @@ public class BasePage {
     private ContactsPage contactsPage;
     private ProjectPage projectPage;
     private TaskPage taskPage;
-    private HeaderPage headerPage;
     private ContractsPage contractsPage;
     private ExpensesPage expensesPage;
     private LeadsPage leadsPage;
@@ -41,7 +41,7 @@ public class BasePage {
     private By buttonView = By.xpath("//a[normalize-space()='View']");
     private By buttonDelete = By.xpath("//a[normalize-space()='Delete']");
     private By buttonX = By.xpath("//button[@data-dismiss='alert']");
-    private By buttonClosePopup = By.xpath("//form[@id='contact-form']//span[@aria-hidden='true'][normalize-space()='×']");
+    private By buttonClosePopup = By.xpath("//div[@class='modal-content data']//span[@aria-hidden='true'][normalize-space()='×']");
     private By noDataAfterDelete = By.xpath("//td[@class='dataTables_empty']");
     private By checkboxSelectAllLead = By.xpath("//div[@class='checkbox mass_select_all_wrap']");
     private By allBinLeadcheckbox = By.xpath("//div[@class='checkbox']");
@@ -55,15 +55,18 @@ public class BasePage {
     private By optionExcel = By.xpath("//a[normalize-space()='Excel']");
     private By optionCSV = By.xpath("//a[normalize-space()='CSV']");
     private By optionPrint = By.xpath("//a[normalize-space()='Print']");
-
-    public By getByMenuText(String text) {
+    private By buttonEdit = By.xpath("//div[@class='row-options']//a[contains(text(),'Edit')]");
+    private By getPageNumber (int pageNumber) {
+        return By.xpath("//a[normalize-space()='" + pageNumber + "']");
+    }
+    private By getByMenuText(String text) {
         return By.xpath("//span[@class='menu-text'][normalize-space()='" + text + "']");
     }
-    public By getLinkByText(String text) {
+    private By getLinkByText(String text) {
         return By.xpath("//a[normalize-space()='" + text + "']");
     }
 
-    public By getBySpanText(String text) {
+    private By getBySpanText(String text) {
         return By.xpath("//span[normalize-space()='" + text + "']");
     }
 
@@ -135,13 +138,6 @@ public class BasePage {
         return taskPage;
     }
 
-    public HeaderPage headerPage () {
-        if (headerPage == null) {
-            headerPage = new HeaderPage();
-        }
-        return headerPage;
-    }
-
     public ContractsPage contractsPage () {
         if (contractsPage == null) {
             contractsPage = new ContractsPage();
@@ -205,6 +201,7 @@ public class BasePage {
     }
 
     public void clickDropdownMore() {
+        WebUI.moveToElement(dropdownMore);
         WebUI.clickElement(dropdownMore);
     }
 
@@ -297,6 +294,10 @@ public class BasePage {
 
     public void clickButtonExport() {
         WebUI.clickElement(buttonExport);
+    }
+
+    public void clickButtonEdit() {
+        WebUI.clickElement(buttonEdit);
     }
 
     public void exportFileType(String fileType) {
@@ -392,6 +393,51 @@ public class BasePage {
                 .replaceAll("\\s+", " ")
                 .replaceAll("[\\u00A0]", " ")
                 .trim();
+    }
+
+    public void deleteRecordAfterHover() {
+        clickButtonDelete();
+        WebUI.acceptAlert();
+    }
+
+    public void deleteRecordAfterSelectCheckbox() {
+        clickButtonBulkActions();
+        clickCheckboxMassDelete();
+        clickButtonConfirm();
+        WebUI.acceptAlert();
+    }
+
+    public void deleteRecordAfterSelectDropdown() {
+        clickDropdownMore();
+        clickButtonDelete();
+        WebUI.acceptAlert();
+    }
+
+    public String getCurrentTab() {
+        return DriverManager.getDriver().getWindowHandle();
+    }
+
+    public String switchToNewTab(String currentTab) {
+
+        new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10))
+                .until(driver -> driver.getWindowHandles().size() > 1);
+
+        for (String handle : DriverManager.getDriver().getWindowHandles()) {
+            if (!handle.equals(currentTab)) {
+                DriverManager.getDriver().switchTo().window(handle);
+                return handle;
+            }
+        }
+
+        throw new RuntimeException("New tab was not opened.");
+    }
+
+    public void switchToCurrentTab(String tabHandle) {
+        DriverManager.getDriver().switchTo().window(tabHandle);
+    }
+
+    public void clickToGetPageNumber(int size) {
+        WebUI.clickElement(getPageNumber(size));
     }
 
 }

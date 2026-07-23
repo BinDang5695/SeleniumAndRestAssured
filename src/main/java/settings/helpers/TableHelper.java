@@ -14,20 +14,55 @@ import java.util.List;
 public class TableHelper {
 
     @Step("Check data: {1} in table by column {2}")
+    public static void checkDataInTableByColumn_Contains(
+            int column,
+            String value,
+            String columnName) {
 
-    public static void checkDataInTableByColumn_Contains(int column, String value, String columnName) {
 
-        List<WebElement> row = DriverManager.getDriver().findElements(By.xpath("//table//tbody/tr"));
-        int rowTotal = row.size();
-        LogUtils.info(("Number of lines found: " + rowTotal));
+        By rowLocator = By.xpath("//table//tbody/tr");
+
+
+        // lấy số row hiện tại sau khi table load xong
+        int rowTotal = DriverManager.getDriver()
+                .findElements(rowLocator)
+                .size();
+
+
+        LogUtils.info("Number of lines found: " + rowTotal);
+
 
         for (int i = 1; i <= rowTotal; i++) {
-            WebElement elementCheck = DriverManager.getDriver().findElement(By.xpath("//table//tbody/tr[" + i + "]/td[" + column + "]"));
-            WebUI.scrollToElementTrue(elementCheck);
-            LogUtils.info(elementCheck.getText());
-            Assert.assertTrue(SystemHelper.removeSpecialCharacters(elementCheck.getText()).toUpperCase().contains(SystemHelper.removeSpecialCharacters(value).toUpperCase()), "The number line " + i + " does not contain the search value.");
-        }
 
+
+            By cellLocator = By.xpath(
+                    "//table//tbody/tr["
+                            + i
+                            + "]/td["
+                            + column
+                            + "]"
+            );
+
+
+            WebUI.waitForElementVisible(cellLocator);
+
+
+            String actualText = WebUI.getTextElement(cellLocator);
+
+
+            LogUtils.info("Result: " + actualText);
+
+
+            Assert.assertTrue(
+                    SystemHelper.removeSpecialCharacters(actualText)
+                            .toUpperCase()
+                            .contains(
+                                    SystemHelper.removeSpecialCharacters(value)
+                                            .toUpperCase()
+                            ),
+                    "The row " + i + " does not contain the search value."
+            );
+        }
     }
 
     @Step("Check data: {1} in table by column {2}")

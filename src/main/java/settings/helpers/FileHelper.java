@@ -4,6 +4,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.poi.ss.usermodel.*;
 import org.testng.Assert;
+import settings.keywords.WebUI;
 import settings.utils.LogUtils;
 
 import java.io.File;
@@ -114,10 +115,35 @@ public class FileHelper {
                 "src",
                 "test",
                 "resources",
-                "testdata",
+                "filetest",
                 fileName
         ).toString();
     }
 
+    public static void waitForFileStable(String path, int timeout) {
 
+        File file = new File(path);
+
+        long previousSize = -1;
+
+        long end = System.currentTimeMillis() + timeout * 1000L;
+
+        while (System.currentTimeMillis() < end) {
+
+            if (file.exists()) {
+
+                long currentSize = file.length();
+
+                if (currentSize > 0 && currentSize == previousSize) {
+                    return;
+                }
+
+                previousSize = currentSize;
+            }
+
+            WebUI.sleep(1);
+        }
+
+        throw new RuntimeException("File is still downloading: " + path);
+    }
 }

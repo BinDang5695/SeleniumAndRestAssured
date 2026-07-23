@@ -43,8 +43,11 @@ public class ItemsPage extends BasePage {
         WebUI.clickElement(buttonImport);
     }
 
-    public void searchAndVerifyItems(Item getItem) {
-        WebUI.setTextElement(inputSearchItems, "Bin Long Description");
+    public void searchItem(Item getItem) {
+        WebUI.setTextElement(inputSearchItems, getItem.getLongDescription());
+    }
+
+    public void verifyItems(Item getItem) {
         AssertHelper.assertEquals(WebUI.getTextElement(getTableDescription(getItem.getDescription())), getItem.getDescription(), "The Description does not match.");
         AssertHelper.assertEquals(WebUI.getTextElement(getTableLongDescription(getItem.getLongDescription())), getItem.getLongDescription(), "The Long description does not match.");
         AssertHelper.assertEquals(WebUI.getTextElement(getTableRate(getItem.getRate())), getItem.getRate(), "The Rate does not match.");

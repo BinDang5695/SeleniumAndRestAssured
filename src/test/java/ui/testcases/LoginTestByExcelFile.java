@@ -1,11 +1,20 @@
 package ui.testcases;
 
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import ui.common.BaseTestNotLogin;
 
 public class LoginTestByExcelFile extends BaseTestNotLogin {
-    
-    @Test
+
+    @Epic("Regression Test")
+    @Feature("Login")
+    @Story("Login")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-4")
+    @Issue("CRM-4")
+    @Description("Login with valid credentials from Excel file")
+    @Test(priority = 1)
     public void loginSuccess()
     {
         excelHelper().setExcelFile("src/test/resources/filetest/CRM_LoginTest2.xlsx", "LoginDataProvider");
@@ -14,7 +23,15 @@ public class LoginTestByExcelFile extends BaseTestNotLogin {
         loginPage().verifyLoginSuccess();
     }
 
-    @Test
+    @Epic("Regression Test")
+    @Feature("Login")
+    @Story("Login")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-5")
+    @Issue("CRM-5")
+    @Description("Login with invalid credentials from Excel file")
+    @Test(priority = 2)
     public void loginFailWithInvalidEmail()
     {
         excelHelper().setExcelFile("src/test/resources/filetest/CRM_LoginTest2.xlsx", "LoginDataProvider");
@@ -23,7 +40,15 @@ public class LoginTestByExcelFile extends BaseTestNotLogin {
         loginPage().verifyLoginFail("Invalid email or password");
     }
 
-    @Test
+    @Epic("Regression Test")
+    @Feature("Login")
+    @Story("Login")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-6")
+    @Issue("CRM-6")
+    @Description("Login with invalid credentials from Excel file")
+    @Test(priority = 3)
     public void loginFailWithInvalidPassword()
     {
         excelHelper().setExcelFile("src/test/resources/filetest/CRM_LoginTest2.xlsx", "LoginDataProvider");
@@ -32,7 +57,15 @@ public class LoginTestByExcelFile extends BaseTestNotLogin {
         loginPage().verifyLoginFail("Invalid email or password");
     }
 
-    @Test
+    @Epic("Regression Test")
+    @Feature("Login")
+    @Story("Login")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-7")
+    @Issue("CRM-7")
+    @Description("Login with invalid credentials from Excel file")
+    @Test(priority = 4)
     public void loginFailWithEmptyEmail()
     {
         excelHelper().setExcelFile("src/test/resources/filetest/CRM_LoginTest2.xlsx", "LoginDataProvider");
@@ -41,7 +74,15 @@ public class LoginTestByExcelFile extends BaseTestNotLogin {
         loginPage().verifyLoginFail("The Email Address field is required.");
     }
 
-    @Test
+    @Epic("Regression Test")
+    @Feature("Login")
+    @Story("Login")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-8")
+    @Issue("CRM-8")
+    @Description("Login with invalid credentials from Excel file")
+    @Test(priority = 5)
     public void loginFailWithEmptyPassword() {
         excelHelper().setExcelFile("src/test/resources/filetest/CRM_LoginTest2.xlsx", "LoginDataProvider");
         loginPage().loginCRM(excelHelper().getCellData("Email", 5),

@@ -1,39 +1,72 @@
 package ui.testcases;
 
+import constants.CRM.*;
 import io.qameta.allure.*;
-import models.ui.Contract;
 import org.testng.annotations.Test;
 import ui.common.BaseTest;
-import ui.testdata.ContractData;
-import constants.CRM.Menu;
-import static settings.keywords.WebUI.*;
+import testdata.ui.Contract;
+import testdata.ui.Customer;
 
 public class ContractsTest extends BaseTest {
 
+    private final models.ui.Customer customer = Customer.getCustomer();
+    private final models.ui.Contract contract = Contract.getContract();
+    private final models.ui.Contract updatedContract = Contract.getUpdatedContract();
+
     @Epic("Regression Test")
-    @Feature("Add New Contract")
+    @Feature("Create, verify")
     @Story("Contract")
-    @Owner("Bin Tester")
+    @Owner("Bin Tester dz")
     @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-8")
-    @Issue("CRM-8")
-    @Description("Add new Contract, verify and delete Contract")
-    @Test(priority = 0)
-    public void manageContract() {
-        Contract contract = ContractData.getContract();
-        Contract updatedContract = ContractData.getUpdatedContract();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
-        clickByMenuName(Menu.CONTRACTS);
+    @Description("Create Contract Successfully")
+    @Test(priority = 1)
+    public void CONTRACT_001_CreateContractSuccessfully() {
+        basePage().clickByMenuName(Menu.CUSTOMERS);
+        customerPage().clickButtonAddNewCustomer();
+        customerPage().inputToAddNewCustomer(customer);
+        customerPage().clickButtonSave();
+        basePage().clickByMenuName(Menu.CONTRACTS);
         contractsPage().clickButtonNewContract();
-        contractsPage().addNewContract(contract);
+        contractsPage().inputToAddNewContract(contract);
+        contractsPage().clickButtonSave();
         contractsPage().verifyCreatedContract(contract);
-        contractsPage().updateContract(updatedContract);
+    }
+
+    @Epic("Regression Test")
+    @Feature("Update, verify")
+    @Story("Contract")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Update Contract Successfully")
+    @Test(priority = 2)
+    public void CONTRACT_002_UpdateContractSuccessfully() {
+        basePage().clickByMenuName(Menu.CONTRACTS);
+        contractsPage().searchOnContract(contract.getSubject());
+        contractsPage().hoverToContract(contract.getSubject());
+        basePage().clickButtonEdit();
+        contractsPage().inputToUpdateContract(updatedContract);
+        contractsPage().clickButtonSave();
         contractsPage().verifyUpdatedContract(updatedContract);
-        clickDropdownMore();
-        clickButtonDelete();
-        acceptAlert();
-        clickButtonX();
-        clickByMenuName(Menu.CUSTOMERS);
-        contractsPage().verifyDeletedContract(updatedContract);
+    }
+
+    @Epic("Regression Test")
+    @Feature("Delete, verify")
+    @Story("Contract")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Delete Contract Successfully")
+    @Test(priority = 3)
+    public void CONTRACT_003_DeleteContractSuccessfully() {
+        basePage().clickByMenuName(Menu.CONTRACTS);
+        contractsPage().searchOnContract(updatedContract.getSubject());
+        contractsPage().hoverToContract(updatedContract.getSubject());
+        basePage().deleteRecordAfterHover();
+        contractsPage().searchOnContract(updatedContract.getSubject());
+        contractsPage().verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
+        basePage().clickByMenuName(Menu.CUSTOMERS);
+        customerPage().searchCustomer(customer.getCompany());
+        customerPage().moveToCompanyName(customer.getCompany());
+        basePage().deleteRecordAfterHover();
+
     }
 }

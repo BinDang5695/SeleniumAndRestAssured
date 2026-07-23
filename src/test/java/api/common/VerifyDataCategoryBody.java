@@ -1,6 +1,6 @@
 package api.common;
 
-import models.api.CategoryPOJO_Request_Lombok;
+import models.api.Category;
 import settings.utils.LogUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public class VerifyDataCategoryBody {
 
-    public static void verifyDataBodyCategory(Response response, CategoryPOJO_Request_Lombok category) {
+    public static void verifyDataBodyCategory(Response response, Category category) {
 
         JsonPath jsonPath = response.jsonPath();
 
@@ -54,16 +54,16 @@ public class VerifyDataCategoryBody {
         Assert.assertEquals(response.getHeader("Server"), "LiteSpeed");
     }
 
-    public static void verifyResponseSuccess(Response response, CategoryPOJO_Request_Lombok category, int statusCode) {
+    public static void verifyResponseSuccess(Response response, Category category, int statusCode) {
         ApiAssertion.verifyBaseResponse(response, statusCode, 2000);
-        ApiAssertion.verifySchema(response, "src/test/resources/testdata/GetCategorySchema.json");
+        ApiAssertion.verifySchema(response, "src/test/resources/filetest/GetCategorySchema.json");
         VerifyDataCategoryBody.verifyDataBodyCategory(response, category);
         VerifyDataCategoryBody.verifyAllHeaders(response);
     }
 
-    public static void verifyResponseFail(Response response, CategoryPOJO_Request_Lombok category, int statusCode) {
+    public static void verifyResponseFail(Response response, Category category, int statusCode) {
         ApiAssertion.verifyBaseResponse(response, statusCode, 2000);
-        ApiAssertion.verifySchema(response, "src/test/resources/testdata/GetCategorySchema.json");
+        ApiAssertion.verifySchema(response, "src/test/resources/filetest/GetCategorySchema.json");
         VerifyDataCategoryBody.verifyDataBodyCategory(response, category);
         VerifyDataCategoryBody.verifyAllHeaders(response);
     }

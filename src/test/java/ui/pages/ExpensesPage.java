@@ -66,18 +66,19 @@ public class ExpensesPage extends BasePage {
     private By getAttachedReceipt (String attachedReceipt) {
         return By.xpath("//a[normalize-space()='" + attachedReceipt + "']");
     }
-    private By buttonEditExpense = By.xpath("//i[contains(@class,'pen')]");
     private By getUpdatedExpenseAmount (String updatedExpenseAmount) {
         return By.xpath("//span[contains(normalize-space(),'" + updatedExpenseAmount + "')]");
     }
-    private By buttonDeleteExpense = By.xpath("//a[contains(@class,'delete')]//i[contains(@class,'remove')]");
     private By inputSearchExpenses = By.xpath("//input[@aria-controls='expenses']");
+    private By createdExpense(String subject) {
+        return By.xpath("//a[normalize-space()='" + subject + "']");
+    }
 
     public void clickButtonRecordExpense() {
         WebUI.clickElement(buttonRecordExpense);
     }
 
-    public void addNewExpense(Expenses expenses) {
+    public void inputToAddNewExpense(Expenses expenses) {
         WebUI.uploadFileWithRobotClass(buttonAttachReceipt, expenses.getFileName());
         WebUI.setTextElement(inputName, expenses.getName());
         WebUI.setTextElement(inputNote, expenses.getNote());
@@ -94,6 +95,9 @@ public class ExpensesPage extends BasePage {
         WebUI.clickElement(getRepeatEvery(expenses.getRepeatEvery()));
         WebUI.clickElement(checkboxInfinity);
         WebUI.setTextElement(inputTotalCycles, expenses.getCycles());
+    }
+
+    public void clickButtonSave() {
         WebUI.clickElement(buttonSave);
     }
 
@@ -110,15 +114,10 @@ public class ExpensesPage extends BasePage {
         AssertHelper.assertEquals(WebUI.getTextElement(getAttachedReceipt(expenses.getVerifyReceipt())), expenses.getVerifyReceipt(), "Expense attached Receipt does not match");
     }
 
-    public void clickButtonEditExpense() {
-        WebUI.clickElement(buttonEditExpense);
-    }
-
-    public void updateExpense(Expenses getUpdatedExpense) {
+    public void inputToUpdateExpense(Expenses getUpdatedExpense) {
         WebUI.setTextElement(inputName, getUpdatedExpense.getName());
         WebUI.setTextElement(inputNote, getUpdatedExpense.getNote());
         WebUI.setTextElement(inputAmount, getUpdatedExpense.getAmount());
-        WebUI.clickElement(buttonSave);
     }
 
     public void verifyUpdatedExpense(Expenses getUpdatedExpense) {
@@ -127,27 +126,27 @@ public class ExpensesPage extends BasePage {
         AssertHelper.assertEquals(WebUI.getTextElement(getUpdatedExpenseAmount(getUpdatedExpense.getVerifyAmount())), getUpdatedExpense.getVerifyAmount(), "Expense Amount after updated does not match");
     }
 
-    public void clickButtonDeleteExpense() {
-        WebUI.clickElement(buttonDeleteExpense);
-    }
-
     public void verifyAlertDeletedExpense() {
         AssertHelper.assertEquals(getSuccessMessage(), Message.DELETED_EXPENSE,"Expense delete failed");
-        clickButtonX();
     }
 
-    public void verifyDeletedExpense(Expenses getUpdatedExpense) {
-        WebUI.waitForPageRefresh(inputSearchExpenses);
-        WebUI.setTextElement(inputSearchExpenses, getUpdatedExpense.getCategory());
-        verifyNoItems(Message.NO_ENTRIES_FOUND);
+    public void searchExpense(Expenses getExpense) {
+        WebUI.setTextElement(inputSearchExpenses, getExpense.getCategory());
+    }
+
+    public void hoverToExpense(Expenses getExpense) {
+        WebUI.moveToElement(createdExpense(getExpense.getCategory()));
     }
 
     public void clickButtonCreateNewInvoice() {
         WebUI.clickElement(buttonCreateNewInvoice);
     }
 
-    public void verifyExpenseTooltipContent() {
+    public void hoverToTooltip() {
         WebUI.moveToElement(toggleItem);
+    }
+
+    public void verifyExpenseTooltipContent() {
         verifyTooltipContent("New lines are not supported for item description. Use the item long description instead.");
     }
 }

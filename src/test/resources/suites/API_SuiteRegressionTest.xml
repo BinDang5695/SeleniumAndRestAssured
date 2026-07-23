@@ -3,9 +3,11 @@
 <suite name="Suite Demo Parallel" verbose="1">
     <test name="Test Parallel version 1">
         <classes>
-            <class name="api.crud.CRUDBook"/>
-            <class name="api.crud.CRUDImage"/>
-            <class name="api.crud.CRUDUser" />
+            <class name="api.testcases.CRUDBook"/>
+            <class name="api.testcases.CRUDImage"/>
+            <class name="api.testcases.CRUDUser"/>
+            <class name="api.testcases.CRUDCategory"/>
+            <class name="api.testcases.GETAllBooks"/>
         </classes>
     </test>
 </suite>

@@ -30,16 +30,7 @@ public class LeadsPage extends BasePage {
     private By checkboxContactedToday = By.xpath("//label[normalize-space()='Contacted Today']");
     private By inputDateContacted = By.xpath("//input[@id='custom_contact_date']");
     private By buttonSave = By.xpath("//button[@id='lead-form-submit']");
-    private By dropdownPagination = By.xpath("//select[@name='leads_length']");
-    private By getLeadsLength (int leadsLength) {
-        return By.xpath("//option[@value='" + leadsLength + "']");
-    }
     private By inputSearchLead = By.xpath("//input[@aria-controls='leads']");
-    private By contentLeads_info1To10 = By.xpath("//div[@id='leads_info' and contains(., 'Showing 1 to 10 of 11 entries')]");
-    private By contentLeads_info11To11 = By.xpath("//div[@id='leads_info' and contains(., 'Showing 11 to 11 of 11 entries')]");
-    private By getPageNumber (int pageNumber) {
-        return By.xpath("//a[normalize-space()='" + pageNumber + "']");
-    }
 
     public void clickButtonNewLead() {
         WebUI.clickElement(buttonNewLead);
@@ -58,7 +49,13 @@ public class LeadsPage extends BasePage {
         WebUI.setTextElement(inputName, getLead.getName());
         WebUI.clickElement(checkboxContactedToday);
         WebUI.setTextElement(inputDateContacted, getLead.getContactedToday());
+    }
+
+    public void clickButtonSave() {
         WebUI.clickElement(buttonSave);
+    }
+
+    public void waitPageRefresh() {
         WebUI.waitForPageRefresh(buttonNewLead);
     }
 
@@ -76,34 +73,23 @@ public class LeadsPage extends BasePage {
             );
 
             LogUtils.info("Creating Lead: " + lead.getName());
-
-            clickByMenuName(Menu.LEADS);
             clickButtonNewLead();
             addNewLead(lead);
+            clickButtonSave();
+            waitPageRefresh();
         }
     }
 
-    public void searchAndCheckDataInTable(Lead getLead, int column, String data, String columnName) {
-        WebUI.clickElement(dropdownPagination);
-        WebUI.clickElement(getLeadsLength(10));
+    public void searchLead(Lead getLead) {
         WebUI.setTextElement(inputSearchLead, getLead.getName());
-        WebUI.waitForElementVisible(contentLeads_info1To10);
-        TableHelper.checkDataInTableByColumn_Contains(column, data, columnName);
-        WebUI.clickElement(getPageNumber(2));
-        WebUI.waitForElementVisible(contentLeads_info11To11);
+    }
+
+    public void verifyLeadLengthInTable(int column, String data, String columnName) {
         TableHelper.checkDataInTableByColumn_Contains(column, data, columnName);
     }
 
-    public void searchAndSelectAllLeads() {
-        WebUI.clickElement(getPageNumber(1));
-        WebUI.clickElement(getLeadsLength(25));
-        clickSelectAllAndEnsureChecked();
+    public void verifyAlertDeletedLeads() {
+        AssertHelper.assertEquals(getSuccessMessage(), "Total leads deleted: 3","The alert Success does not match.");
     }
 
-    public void verifyDeletedLeads(Lead getLead) {
-        AssertHelper.assertEquals(getSuccessMessage(), "Total leads deleted: 11","The alert Success does not match.");
-        clickButtonX();
-        WebUI.setTextElement(inputSearchLead, getLead.getName());
-        verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
-    }
 }

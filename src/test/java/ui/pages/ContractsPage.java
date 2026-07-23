@@ -34,12 +34,15 @@ public class ContractsPage extends BasePage {
     }
     private By inputedDescription = By.xpath("//form[@id='contract-form']//textarea[@id='description']");
     private By searchContract = By.xpath("//input[@aria-controls='contracts']");
+    private By createdContract(String subject) {
+        return By.xpath("//a[normalize-space()='" + subject + "']");
+    }
 
     public void clickButtonNewContract() {
         WebUI.clickElement(buttonNewContract);
     }
 
-    public void addNewContract(Contract contract) {
+    public void inputToAddNewContract(Contract contract) {
         WebUI.clickElement(inputCustomer);
         WebUI.setTextElement(searchCustomer, contract.getCustomerName());
         WebUI.clickElement(selectCustomer(contract.getCustomerName()));
@@ -51,6 +54,9 @@ public class ContractsPage extends BasePage {
         WebUI.setTextElement(inputStartDate, contract.getStartDate());
         WebUI.setTextElement(inputEndDate, contract.getEndDate());
         WebUI.setTextElement(inputDescription, contract.getDescription());
+    }
+
+    public void clickButtonSave() {
         WebUI.clickElement(buttonSave);
     }
 
@@ -65,13 +71,12 @@ public class ContractsPage extends BasePage {
         AssertHelper.assertEquals(WebUI.getAttributeElement(inputedDescription, "value"), contract.getDescription(), "Inputed Description after created does not match");
     }
 
-    public void updateContract(Contract updatedContract) {
+    public void inputToUpdateContract(Contract updatedContract) {
         WebUI.setTextElement(inputSubject, updatedContract.getSubject());
         WebUI.setTextElement(inputContractValue, updatedContract.getContractValue());
         WebUI.setTextElement(inputStartDate, updatedContract.getStartDate());
         WebUI.setTextElement(inputEndDate, updatedContract.getEndDate());
         WebUI.setTextElement(inputDescription, updatedContract.getDescription());
-        WebUI.clickElement(buttonSave);
     }
 
     public void verifyUpdatedContract(Contract updatedContract) {
@@ -85,9 +90,11 @@ public class ContractsPage extends BasePage {
         AssertHelper.assertEquals(WebUI.getAttributeElement(inputDescription, "value"), updatedContract.getDescription(), "Description does not match");
     }
 
-    public void verifyDeletedContract(Contract updatedContract) {
-        WebUI.setTextElement(searchContract, updatedContract.getSubject());
-        verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
+    public void hoverToContract(String contract) {
+        WebUI.moveToElement(createdContract(contract));
     }
 
+    public void searchOnContract(String contract) {
+        WebUI.setTextElement(searchContract, contract);
+    }
 }

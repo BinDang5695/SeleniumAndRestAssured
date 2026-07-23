@@ -1,6 +1,6 @@
 package api.common;
 
-import models.api.RegisterUserPOJO_Lombok;
+import models.api.RegisterUser;
 import settings.utils.LogUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public class VerifyDataUserBody {
 
-    public static void verifyDataBodyUser(Response response, RegisterUserPOJO_Lombok user) {
+    public static void verifyDataBodyUser(Response response, RegisterUser user) {
 
         JsonPath jsonPath = response.jsonPath();
 
@@ -64,16 +64,16 @@ public class VerifyDataUserBody {
         Assert.assertEquals(response.getHeader("Server"), "LiteSpeed");
     }
 
-    public static void verifyResponseSuccess(Response response, RegisterUserPOJO_Lombok user, int statusCode) {
+    public static void verifyResponseSuccess(Response response, RegisterUser user, int statusCode) {
         ApiAssertion.verifyBaseResponse(response, statusCode, 2000);
-        ApiAssertion.verifySchema(response, "src/test/resources/testdata/GetUserSchema.json");
+        ApiAssertion.verifySchema(response, "src/test/resources/filetest/GetUserSchema.json");
         VerifyDataUserBody.verifyDataBodyUser(response, user);
         VerifyDataUserBody.verifyAllHeaders(response);
     }
 
-    public static void verifyResponseFail(Response response, RegisterUserPOJO_Lombok user, int statusCode) {
+    public static void verifyResponseFail(Response response, RegisterUser user, int statusCode) {
         ApiAssertion.verifyBaseResponse(response, statusCode, 2000);
-        ApiAssertion.verifySchema(response, "src/test/resources/testdata/GetUserSchemaAfterDelete.json");
+        ApiAssertion.verifySchema(response, "src/test/resources/filetest/GetUserSchemaAfterDelete.json");
         VerifyDataUserBody.verifyDataBodyUser(response, user);
         VerifyDataUserBody.verifyAllHeaders(response);
     }

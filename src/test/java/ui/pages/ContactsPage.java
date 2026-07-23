@@ -24,16 +24,19 @@ public class ContactsPage extends BasePage {
         WebUI.clickElement(buttonNewContact);
     }
 
-    public void addNewContact(Contact contact) {
+    public void inputToAddNewContact(Contact contact) {
         WebUI.setTextElement(buttonChooseFile, contact.getFile());
         WebUI.setTextElement(fieldFirstName, contact.getFirstName());
         WebUI.setTextElement(fieldLastName, contact.getLastName());
         WebUI.setTextElement(fieldEmail, contact.getEmail());
         WebUI.setTextElement(fieldPassword, contact.getPassword());
+    }
+
+    public void clickButtonSave() {
         WebUI.clickElement(buttonSave);
     }
 
-    public void verifyCreatedContact() {
+    public void verifyAlertCreatedContact() {
         AssertHelper.assertEquals(getSuccessMessage(), Message.CREATED_CONTACT,"Contact creation failed");
     }
 

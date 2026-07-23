@@ -69,9 +69,13 @@ public class TaskPage extends BasePage {
         Assert.assertFalse(WebUI.checkFieldIsToday(inputStartDate, "dd-MM-yyyy"), "The inputStartDate format NOT match.");
     }
 
-    public void submitDataForNewTask(Task task)
+    public void inputToSubmitDataForNewTask(Task task)
     {
         WebUI.setTextElement(inputSubject, task.getSubject());
+    }
+
+    public void clickButtonSaveTask()
+    {
         WebUI.clickElement(saveTask);
     }
 
@@ -84,38 +88,49 @@ public class TaskPage extends BasePage {
         AssertHelper.assertEquals(WebUI.getTextElement(taskStatus), "In Progress", "The taskStatus not match.");
     }
 
-    public void markCompletedAndRefreshPage()
+    public void markCompleted()
     {
+        WebUI.moveToElement(markComplete);
         WebUI.clickElement(markComplete);
-        WebUI.clickElement(closePopUp);
         WebUI.waitForPageRefresh(switchToList);
-        WebUI.clickElement(switchToList);
-        WebUI.clickElement(switchToKanBan);
     }
 
-    public void verifyCompleteTasksAfterRefreshed()
+    public void clickButtonSwitchToList()
+    {
+        WebUI.clickElement(switchToList);
+    }
+
+    public void verifyCompleteTask()
     {
         AssertHelper.assertEquals(WebUI.getTextElement(completeTaskTotal), "Complete - 1 Tasks", "The completeTaskTotal title not match.");
     }
 
-    public void editTask(Task task)
+    public void inputToUpdateTask(Task task)
     {
-        WebUI.clickElement(getTaskName(task.getSubject()));
-        WebUI.clickElement(menu);
-        WebUI.clickElement(editOption);
         WebUI.setTextElement(inputSubject, task.getUpdatedSubject());
-        WebUI.clickElement(saveTask);
-        WebUI.clickElement(closePopUp);
     }
 
-    public void searchAndVerifyAfterSearch(Task task)
+    public void selectMenu()
     {
-        WebUI.setTextElement(searchOnKanBan, task.getUpdatedSubject());
+        WebUI.clickElement(menu);
+    }
+
+    public void selectEditOption()
+    {
+        WebUI.clickElement(editOption);
+    }
+
+    public void searchOnKanBan(String task)
+    {
+        WebUI.setTextElement(searchOnKanBan, task);
+    }
+
+    public void verifyAfterUpdated()
+    {
         AssertHelper.assertEquals(WebUI.getTextElement(nodataNotStarted), "No Tasks Found", "The nodataNotStarted title not match.");
         AssertHelper.assertEquals(WebUI.getTextElement(nodataInprogress), "No Tasks Found", "The nodataInprogress title not match.");
         AssertHelper.assertEquals(WebUI.getTextElement(nodataTesting), "No Tasks Found", "The nodataTesting title not match.");
         AssertHelper.assertEquals(WebUI.getTextElement(nodataAwaitingFeedback), "No Tasks Found", "The nodataAwaitingFeedback title not match.");
-        WebUI.scrollHorizontally(from);
     }
 
     public void dragAndDrop()
@@ -126,29 +141,29 @@ public class TaskPage extends BasePage {
     public void verifyTotalTasksAfterDragDrop()
     {
         WebUI.waitForText(completeTaskTotal, "Complete - 0 Tasks");
-        WebUI.waitForText(notStartedTaskTotal, "Not Started - 1 Tasks");
         AssertHelper.assertEquals(WebUI.getTextElement(completeTaskTotal), "Complete - 0 Tasks", "The completeTaskTotal not match.");
+        WebUI.waitForText(notStartedTaskTotal, "Not Started - 1 Tasks");
         AssertHelper.assertEquals(WebUI.getTextElement(notStartedTaskTotal), "Not Started - 1 Tasks", "The notStartedTaskTotal not match.");
     }
 
-    public void searchAndDeleteTask(Task task)
+    public void moveToTask(String task)
     {
-        WebUI.clickElement(switchToList);
-        WebUI.setTextElement(searchOnList, task.getUpdatedSubject());
-        WebUI.scrollToTop();
-        WebUI.moveToElement(getEditedTask(task.getUpdatedSubject()));
-        clickButtonDelete();
-        WebUI.acceptAlert();
+        WebUI.moveToElement(getTaskName(task));
     }
 
-    public void searchAfterDeleted(Task task)
+    public void moveToUpdatedTask(String task)
     {
-        WebUI.setTextElement(searchOnList, task.getUpdatedSubject());
+        WebUI.moveToElement(getEditedTask(task));
     }
 
-    public void verifyNoDataAfterDeleted()
+    public void clickTask(Task task)
     {
-        verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
+        WebUI.clickElement(getTaskName(task.getSubject()));
+    }
+
+    public void searchOnListTask(Task task)
+    {
+        WebUI.setTextElement(searchOnList, task.getUpdatedSubject());
     }
 
 }

@@ -3,8 +3,7 @@ package api.common;
 import settings.globals.EndPointGlobal;
 import settings.globals.TokenGlobal;
 import settings.keywords.ApiKeyword;
-import models.api.LoginPOJO;
-import models.api.LoginPOJO_Builder;
+import models.api.Login;
 import settings.reports.AllureManager;
 import settings.utils.LogUtils;
 import com.google.gson.Gson;
@@ -16,7 +15,7 @@ public class BaseTest {
     @BeforeTest
     public void loginUser() {
 
-        LoginPOJO loginPOJO = LoginPOJO_Builder.getDataLogin();
+        Login loginPOJO = testdata.api.Login.getDataLogin();
         Gson gson = new Gson();
 
         Response response = ApiKeyword.postNotAuth(EndPointGlobal.EP_LOGIN, gson.toJson(loginPOJO));

@@ -2,37 +2,48 @@ package ui.testcases;
 
 import constants.CRM.*;
 import io.qameta.allure.*;
-import models.ui.Item;
 import org.testng.annotations.Test;
 import ui.common.BaseTest;
-import ui.testdata.ItemData;
-import static settings.keywords.WebUI.*;
+import testdata.ui.Item;
 
+@Epic("Regression Test")
+@Feature("Item")
 public class ItemsTest extends BaseTest {
 
-    @Epic("Regression Test")
-    @Feature("Add New Item")
-    @Story("Item")
-    @Owner("Bin Tester")
+    private final models.ui.Item item = Item.getItem();
+
+    @Owner("Bin Tester dz")
     @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-15")
-    @Issue("CRM-15")
-    @Description("Add new Item, verify and delete Item")
-    @Test(priority = 0)
-    public void manageItems() {
-        Item item = ItemData.getItem();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
-        clickMenuSales();
-        clickByMenuName(Menu.ITEMS);
+    @Feature("Import, create, verify")
+    @Story("Item")
+    @Description("Import Item Successfully")
+    @Test(priority = 1)
+    public void ITEM_001_ImportItemSuccessfully() {
+        basePage().clickMenuSales();
+        basePage().clickByMenuName(Menu.ITEMS);
         itemsPage().clickButtonImportItems();
         itemsPage().importCSVFile(item);
         itemsPage().clickToImportCSVFile();
-        clickMenuSales();
-        clickByMenuName(Menu.ITEMS);
-        itemsPage().searchAndVerifyItems(item);
-        itemsPage().moveToTableDescription(item);
-        clickButtonDelete();
-        acceptAlert();
-        clickButtonX();
+        basePage().clickMenuSales();
+        basePage().clickByMenuName(Menu.ITEMS);
+        itemsPage().searchItem(item);
+        itemsPage().verifyItems(item);
     }
+
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Feature("Delete, verify")
+    @Story("Item")
+    @Description("Delete Item Successfully")
+    @Test(priority = 2)
+    public void ITEM_002_DeleteItemSuccessfully() {
+        basePage().clickMenuSales();
+        basePage().clickByMenuName(Menu.ITEMS);
+        itemsPage().searchItem(item);
+        itemsPage().moveToTableDescription(item);
+        basePage().deleteRecordAfterHover();
+        itemsPage().searchItem(item);
+        basePage().verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
+    }
+
 }

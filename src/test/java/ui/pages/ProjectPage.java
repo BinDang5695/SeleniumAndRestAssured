@@ -40,7 +40,7 @@ public class ProjectPage extends BasePage {
         AssertHelper.assertEquals(WebUI.getTextElement(titleProjectPage), "Projects Summary", "The ProjectPage title not match.");
     }
 
-    public void clickButtonAddNewCustomer()
+    public void clickButtonAddNewProject()
     {
         WebUI.clickElement(buttonNewProject);
     }
@@ -67,6 +67,10 @@ public class ProjectPage extends BasePage {
         WebUI.clickElement(getCustomerName(project.getCustomer()));
         WebUI.clickElement(checkBoxCalculate);
         moveSliderToMiddle();
+    }
+
+    public void clickButtonSaveProject()
+    {
         WebUI.clickElement(saveProject);
     }
 
@@ -81,25 +85,14 @@ public class ProjectPage extends BasePage {
         AssertHelper.assertEquals(WebUI.getTextElement(statusProject), "In Progress", "The statusProject title not match.");
     }
 
-    public void searchAndCheckCustomerInTable(Project project)
-    {
-        WebUI.setTextElement(inputSearchProject, project.getName());
-        AssertHelper.assertEquals(WebUI.getTextElement(getProjectName(project.getName())), project.getName(), "The customer name in table not match");
-    }
-
     public void moveToProjectName(Project project)
     {
         WebUI.moveToElement(getProjectName(project.getName()));
     }
 
-    public void searchProjectInTable(Project project)
+    public void searchCustomer(Project project)
     {
-        WebUI.setTextElement(inputSearchProject, project.getCustomer());
-    }
-
-    public void verifyNoDataAfterDeletedProject()
-    {
-        verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
+        WebUI.setTextElement(inputSearchProject, project.getName());
     }
 
 }

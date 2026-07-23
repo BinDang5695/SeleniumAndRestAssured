@@ -67,17 +67,16 @@ public class ProposalsPage extends BasePage {
     public Map<String, String> captureUITableData(Proposal proposal) {
 
         Map<String, String> uiData = new LinkedHashMap<>();
-
-        uiData.put("Proposal#", WebUI.getTextElement(tableProposal));
-        uiData.put("Subject", WebUI.getTextElement(getCaptureSubject(proposal.getSubject())));
-        uiData.put("To", WebUI.getTextElement(getCaptureCustomer(proposal.getCustomer())));
-        uiData.put("Total", WebUI.getTextElement(getCaptureTotal(proposal.getTotal())));
-        uiData.put("Date", WebUI.getTextElement(getCaptureDate(proposal.getDate())));
-        uiData.put("Open Till", WebUI.getTextElement(getCaptureOpenTill(proposal.getOpenTill())));
+        uiData.put("Proposal#", WebUI.getTextElementRetry(tableProposal));
+        uiData.put("Subject", WebUI.getTextElementRetry(getCaptureSubject(proposal.getSubject())));
+        uiData.put("To", WebUI.getTextElementRetry(getCaptureCustomer(proposal.getCustomer())));
+        uiData.put("Total", WebUI.getTextElementRetry(getCaptureTotal(proposal.getTotal())));
+        uiData.put("Date", WebUI.getTextElementRetry(getCaptureDate(proposal.getDate())));
+        uiData.put("Open Till", WebUI.getTextElementRetry(getCaptureOpenTill(proposal.getOpenTill())));
         uiData.put("Project", "");
         uiData.put("Tags", "");
-        uiData.put("Created", WebUI.getTextElement(tableCreated));
-        uiData.put("Status", WebUI.getTextElement(tableStatus));
+        uiData.put("Created", WebUI.getTextElementRetry(tableCreated));
+        uiData.put("Status", WebUI.getTextElementRetry(tableStatus));
         LogUtils.info("📋 UI Data:");
         uiData.forEach((key, value) ->
                 LogUtils.info(key + " : " + value));
@@ -104,7 +103,7 @@ public class ProposalsPage extends BasePage {
         WebUI.clickElement(buttonNewProposals);
     }
 
-    public void addNewProposal(Proposal proposal) {
+    public void inputToAddNewProposal(Proposal proposal) {
         WebUI.setTextElement(inputSubject, proposal.getSubject());
         WebUI.clickElement(dropdownRelated);
         WebUI.clickElement(getRelated(proposal.getRelated()));
@@ -122,24 +121,36 @@ public class ProposalsPage extends BasePage {
         WebUI.clickElement(radioHours);
         WebUI.scrollToBottom();
         WebUI.clickElement(buttonSelect);
-        WebUI.scrollIntoViewIfNeeded(buttonSaveAddNewProposal);
+    }
+    public void moveToButtonSaveAddNewProposal() {
+        WebUI.moveToElement(buttonSaveAddNewProposal);
+    }
+
+    public void clickButtonSaveAddNewProposal() {
         WebUI.clickElement(buttonSaveAddNewProposal);
-        clickButtonX();
+    }
+
+    public void moveToIconToggleFullView() {
+        WebUI.moveToElement(iconToggleFullView);
     }
 
     public void verifyContentToggle() {
-        WebUI.moveToElement(iconToggleFullView);
         AssertHelper.assertEquals(WebUI.getAttributeElement(iconToggleFullView, "data-title"), "Toggle full view", "Tooltip content incorrect");
     }
 
-    public void searchCreatedProposal(Proposal proposal) {
+    public void clickButtonToogleTableRight() {
         WebUI.clickElement(buttonToogleTableRight);
+    }
+
+    public void searchCreatedProposal(Proposal proposal) {
         WebUI.setTextElement(inputSearchProposals, proposal.getSubject());
-        WebUI.waitForElementVisible(contentProposals_info);
     }
 
     public void waitProposal(Proposal proposal) {
         WebUI.waitForPageRefresh(getCreatedProposal(proposal.getSubject()));
     }
 
+    public void clickCreatedProposal(Proposal proposal) {
+        WebUI.clickElement(getCreatedProposal(proposal.getSubject()));
+    }
 }

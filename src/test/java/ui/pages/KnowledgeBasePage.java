@@ -3,11 +3,13 @@ package ui.pages;
 import constants.CRM.*;
 import models.ui.KnowledgeBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import settings.drivers.DriverManager;
 import settings.helpers.AssertHelper;
 import settings.keywords.WebUI;
 import ui.common.BasePage;
 
+import java.time.Duration;
 import java.util.Set;
 
 public class KnowledgeBasePage extends BasePage {
@@ -47,7 +49,7 @@ public class KnowledgeBasePage extends BasePage {
         WebUI.switchToDefaultContent();
     }
 
-    public void addNewArticle(KnowledgeBase getArticle) {
+    public void inputToAddNewArticle(KnowledgeBase getArticle) {
         WebUI.setTextElement(inputSubject, getArticle.getSubject());
         WebUI.clickElement(dropdownGroup);
         WebUI.setTextElement(searchGroup, getArticle.getGroup());
@@ -55,38 +57,27 @@ public class KnowledgeBasePage extends BasePage {
         WebUI.clickElement(checkboxInternalArticle);
         WebUI.clickElement(checkboxDisabled);
         enterDescription(getArticle.getDescription());
+    }
+
+    public void clickButtonSave() {
         WebUI.clickElement(buttonSave);
     }
 
-    public void switchBetweenTabTest(KnowledgeBase getArticle) {
-        String tab1 = DriverManager.getDriver().getWindowHandle();
-        WebUI.moveToElement(getCreatedArticle(getArticle.getSubject()));
-        clickButtonView();
+    public void verifyArticleDetail(KnowledgeBase getArticle) {
+        AssertHelper.assertEquals(WebUI.getTextElement(getNameArticle(getArticle.getSubject())), getArticle.getSubject(), "Article subject does not match.");
+        AssertHelper.assertEquals(WebUI.getTextElement(getDescriptionArticle(getArticle.getDescription())), getArticle.getDescription(), "Article description does not match.");
+    }
 
-        Set<String> allTabs = DriverManager.getDriver().getWindowHandles();
-        String tab2 = null;
+    public void voteArticle() {
+        WebUI.clickElement(buttonYes);
+    }
 
-        for (String handle : allTabs) {
-            if (!handle.equals(tab1)) {
-                tab2 = handle;
-                break;
-            }
-        }
+    public void waitForRealTime() {
+        WebUI.waitForPageRefresh(buttonYes);
+    }
 
-        if (tab2 != null) {
-            DriverManager.getDriver().switchTo().window(tab2);
-
-            AssertHelper.assertEquals(WebUI.getTextElement(getNameArticle(getArticle.getSubject())), getArticle.getSubject(), "The project progress not match.");
-            AssertHelper.assertEquals(WebUI.getTextElement(getDescriptionArticle(getArticle.getDescription())), getArticle.getDescription(), "The description Article does not match.");
-            WebUI.clickElement(buttonYes);
-            AssertHelper.assertEquals(WebUI.getTextElement(messageNotification), Message.THANKS_FOR_YOUR_FEEDBACK, "The 1st message Notification does not match.");
-            WebUI.waitForPageRefresh(buttonYes);
-            WebUI.clickElement(buttonYes);
-            AssertHelper.assertEquals(WebUI.getTextElement(messageNotification), Message.YOU_CAN_VOTE_ONCE_IN_24_HOURS, "The 2nd message Notification does not match.");
-        }
-
-        DriverManager.getDriver().switchTo().window(tab1);
-
+    public void verifyFeedbackMessage(String expectedMessage) {
+        AssertHelper.assertEquals(WebUI.getTextElement(messageNotification), expectedMessage, "Feedback message does not match.");
     }
 
     public void moveToCreatedArticle(KnowledgeBase getArticle) {

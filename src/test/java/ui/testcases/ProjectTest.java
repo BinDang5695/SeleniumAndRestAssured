@@ -1,40 +1,53 @@
 package ui.testcases;
 
 import constants.CRM.*;
-import models.ui.Project;
 import ui.common.BaseTest;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
-import ui.testdata.ProjectData;
-import static settings.keywords.WebUI.*;
+import testdata.ui.Customer;
+import testdata.ui.Project;
 
 public class ProjectTest extends BaseTest {
 
+    private final models.ui.Project project = Project.getProject();
+    private final models.ui.Customer customer = Customer.getCustomer();
+
     @Epic("Regression")
-    @Feature("DMS")
+    @Feature("Create, verify")
     @Story("Project")
-    @Owner("Bin Tester")
+    @Owner("Bin Tester dz")
     @Severity(SeverityLevel.CRITICAL)
-    @Link("https://crm.anhtester.com/admin/projects")
-    @Issue("https://nashtech-global.atlassian.net/")
-    @Test(description = "Verify Project of Customer before and after delete")
-    public void verifyProjectOfCustomer()
-    {
-        Project project = ProjectData.getProject();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
-        clickByMenuName(Menu.PROJECTS);
+    @Description("Verify user can create new project")
+    @Test(priority = 1)
+    public void verifyCreateProject() {
+        basePage().clickByMenuName(Menu.CUSTOMERS);
+        customerPage().clickButtonAddNewCustomer();
+        customerPage().inputToAddNewCustomer(customer);
+        customerPage().clickButtonSave();
+        basePage().clickByMenuName(Menu.PROJECTS);
         projectPage().verifyNavigateToProjectPage();
-        projectPage().clickButtonAddNewCustomer();
+        projectPage().clickButtonAddNewProject();
         projectPage().submitDataForNewCustomer(project);
+        projectPage().clickButtonSaveProject();
         projectPage().verifyProjectCreated(project);
-        clickByMenuName(Menu.PROJECTS);
-        projectPage().searchAndCheckCustomerInTable(project);
+    }
+    @Epic("Regression")
+    @Feature("Delete, verify")
+    @Story("Project")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify user can delete project")
+    @Test(priority = 1)
+    public void verifyDeleteProject() {
+        basePage().clickByMenuName(Menu.PROJECTS);
+        projectPage().searchCustomer(project);
         projectPage().moveToProjectName(project);
-        clickButtonDelete();
-        acceptAlert();
-        clickButtonX();
-        clickByMenuName(Menu.PROJECTS);
-        projectPage().searchProjectInTable(project);
-        projectPage().verifyNoDataAfterDeletedProject();
+        basePage().deleteRecordAfterHover();
+        projectPage().searchCustomer(project);
+        basePage().verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
+        basePage().clickByMenuName(Menu.CUSTOMERS);
+        customerPage().searchCustomer(customer.getCompany());
+        customerPage().moveToCompanyName(customer.getCompany());
+        basePage().deleteRecordAfterHover();
     }
 }

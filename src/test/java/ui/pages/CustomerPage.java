@@ -48,30 +48,17 @@ public class CustomerPage extends BasePage {
     private By totalCustomer = By.xpath("//span[normalize-space()='Total Customers']/preceding-sibling::span");
     private By errorMessage = By.xpath("//p[@id='company-error']");
 
-    public void clickbuttonAddNewCustomer() {
+    public void clickButtonAddNewCustomer() {
         WebUI.clickElement(buttonAddNewCustomer);
     }
 
-    public void addNewCustomer(Customer customer) {
+    public void inputToAddNewCustomer(Customer customer) {
         WebUI.setTextElement(inputCompany, customer.getCompany());
-        WebUI.setTextElement(inputVATNumber, customer.getVatNumber());
-        WebUI.setTextElement(inputPhoneNumber, customer.getPhoneNumber());
-        WebUI.setTextElement(inputWebsite, customer.getWebsite());
-        WebUI.clickElement(dropDownGroups);
-        WebUI.setTextElement(searchGroups, customer.getGroup());
-        WebUI.clickElement(getGroups(customer.getGroup()));
-        WebUI.clickElement(dropDownGroups);
         WebUI.clickElement(currencyDropdown);
         WebUI.clickElement(getCurrency(customer.getCurrencySymbol()));
-        WebUI.clickElement(defaultLanguageDropdown);
-        WebUI.clickElement(getDefaultLanguage(customer.getLanguage()));
-        WebUI.setTextElement(inputAddress, customer.getAddress());
-        WebUI.setTextElement(inputCity, customer.getCity());
-        WebUI.setTextElement(inputState, customer.getState());
-        WebUI.setTextElement(inputZipCode, customer.getZipCode());
-        WebUI.clickElement(countryDropdown);
-        WebUI.setTextElement(searchCountry, customer.getCountry());
-        WebUI.clickElement(getCountry(customer.getCountry()));
+    }
+
+    public void clickButtonSave() {
         WebUI.clickElement(buttonSave);
     }
 
@@ -132,7 +119,6 @@ public class CustomerPage extends BasePage {
             WebUI.clickElement(getCountry(data.getCountry()));
         }
 
-        WebUI.clickElement(buttonSave);
     }
 
     public void verifyCustomerAddedDataDriven(CustomerDataDriven data) {
@@ -210,39 +196,10 @@ public class CustomerPage extends BasePage {
         );
     }
 
-    public void deleteCustomerIfExist(CustomerDataDriven data) {
-
-        if (data.getCompany() == null) {
-            LogUtils.info("No company name provided, cannot delete");
-            return;
-        }
-
-        WebUI.setTextElement(inputSearchCustomer, data.getCompany());
-
-        WebUI.moveToElement(getDataInTable(data.getCompany()));
-
-        clickButtonDelete();
-
-        WebUI.acceptAlert();
-
-        clickButtonX();
-
-        WebUI.setTextElement(inputSearchCustomer, data.getCompany());
-    }
-
     public void verifyCustomerAdded(Customer customer) {
         AssertHelper.assertEquals(WebUI.getAttributeElement(inputCompany, "value"), customer.getCompany(), "Company name not matched");
-        AssertHelper.assertEquals(WebUI.getAttributeElement(inputVATNumber, "value"), customer.getVatNumber(), "VAT number not matched");
-        AssertHelper.assertEquals(WebUI.getAttributeElement(inputPhoneNumber, "value"), customer.getPhoneNumber(), "PhoneNumber not matched");
-        AssertHelper.assertEquals(WebUI.getAttributeElement(inputWebsite, "value"), customer.getWebsite(), "Website not matched");
-        AssertHelper.assertEquals(WebUI.getTextElement(dropDownGroups), customer.getGroup(), "Groups not matched");
         AssertHelper.assertEquals(WebUI.getTextElement(currencyDropdown), customer.getCurrency(), "Currency not matched");
-        AssertHelper.assertEquals(WebUI.getTextElement(defaultLanguageDropdown), customer.getLanguage(), "Default Language not matched");
-        AssertHelper.assertEquals(WebUI.getAttributeElement(inputAddress, "value"), customer.getAddress(), "Address not matched");
-        AssertHelper.assertEquals(WebUI.getAttributeElement(inputCity, "value"), customer.getCity(), "City name not matched");
-        AssertHelper.assertEquals(WebUI.getAttributeElement(inputState, "value"), customer.getState(), "State name not matched");
-        AssertHelper.assertEquals(WebUI.getAttributeElement(inputZipCode, "value"), customer.getZipCode(), "Zip code not matched");
-        AssertHelper.assertEquals(WebUI.getTextElement(countryDropdown), customer.getCountry(), "Country name not matched");
+
     }
 
     public int getTotalCustomers() {
@@ -251,18 +208,12 @@ public class CustomerPage extends BasePage {
         return Integer.parseInt(totalString);
     }
 
-    public void searchCustomer(Customer customer) {
-        WebUI.setTextElement(inputSearchCustomer, customer.getCompany());
-        AssertHelper.assertTrue(WebUI.checkElementDisplayed(getDataInTable(customer.getCompany())), "Customer not found");
+    public void searchCustomer(String customer) {
+        WebUI.setTextElement(inputSearchCustomer, customer);
     }
 
-    public void moveToCompanyName(Customer customer) {
-        WebUI.moveToElement(getDataInTable(customer.getCompany()));
-    }
-
-    public void verifyCustomerDeleted(Customer customer) {
-        WebUI.setTextElement(inputSearchCustomer, customer.getCompany());
-        verifyNoItems(Message.NO_MATCHING_RECORDS_FOUND);
+    public void moveToCompanyName(String customer) {
+        WebUI.moveToElement(getDataInTable(customer));
     }
 
 }

@@ -1,7 +1,7 @@
 package api.common;
 
-import models.api.BookPOJO_Lombok;
-import models.api.ImagePOJO_Response_Lombok;
+import models.api.Book;
+import models.api.ImageResponse;
 import settings.utils.LogUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class VerifyDataBookBody {
 
-    public static void verifyDataBodyBook(Response response, BookPOJO_Lombok book) {
+    public static void verifyDataBodyBook(Response response, Book book) {
         JsonPath jsonPath = response.jsonPath();
 
         int actualId = jsonPath.getInt("response.id");
@@ -35,7 +35,7 @@ public class VerifyDataBookBody {
         }
 
         Assert.assertEquals(actualStatus, book.isStatus(), "Status not match.");
-        List<ImagePOJO_Response_Lombok> responseImages = jsonPath.getList("response.image", ImagePOJO_Response_Lombok.class);
+        List<ImageResponse> responseImages = jsonPath.getList("response.image", ImageResponse.class);
         List<Integer> requestImageIds = book.getImage_ids();
 
         Assert.assertNotNull(responseImages, "Image list should not be null");
@@ -44,7 +44,7 @@ public class VerifyDataBookBody {
 
         for (int i = 0; i < requestImageIds.size(); i++) {
 
-            ImagePOJO_Response_Lombok img = responseImages.get(i);
+            ImageResponse img = responseImages.get(i);
             int requestId = requestImageIds.get(i);
             Assert.assertEquals(img.getId(), requestId, "Image ID at index " + i + " does not match request image_ids");
             Assert.assertNotNull(img.getPath(), "Image path should not be null");
@@ -91,15 +91,15 @@ public class VerifyDataBookBody {
             Assert.assertEquals(response.getHeader("Server"), "LiteSpeed");
         }
 
-        public static void verifyResponseSuccess (Response response, BookPOJO_Lombok book,int statusCode)
+        public static void verifyResponseSuccess (Response response, Book book, int statusCode)
         {
             ApiAssertion.verifyBaseResponse(response, statusCode, 2000);
-            ApiAssertion.verifySchema(response, "src/test/resources/testdata/GetBookSchema.json");
+            ApiAssertion.verifySchema(response, "src/test/resources/filetest/GetBookSchema.json");
             VerifyDataBookBody.verifyDataBodyBook(response, book);
             VerifyDataBookBody.verifyAllHeaders(response);
         }
 
-        public static void verifyDataBodyBookAfterDelete(Response response, BookPOJO_Lombok book) {
+        public static void verifyDataBodyBookAfterDelete(Response response, Book book) {
         JsonPath jsonPath = response.jsonPath();
 
         int actualId = jsonPath.getInt("response.id");
@@ -133,18 +133,18 @@ public class VerifyDataBookBody {
             LogUtils.info("id: " + jsonPath.getInt("response.id"));
     }
 
-    public static void verifyResponseSuccessAfterDelete (Response response, BookPOJO_Lombok book,int statusCode)
+    public static void verifyResponseSuccessAfterDelete (Response response, Book book, int statusCode)
     {
         ApiAssertion.verifyBaseResponse(response, statusCode, 2000);
-        ApiAssertion.verifySchema(response, "src/test/resources/testdata/GetBookSchema.json");
+        ApiAssertion.verifySchema(response, "src/test/resources/filetest/GetBookSchema.json");
         VerifyDataBookBody.verifyDataBodyBookAfterDelete(response, book);
         VerifyDataBookBody.verifyAllHeaders(response);
     }
 
-        public static void verifyResponseFail (Response response, BookPOJO_Lombok book,int statusCode){
+        public static void verifyResponseFail (Response response, Book book, int statusCode){
 
             ApiAssertion.verifyBaseResponse(response, statusCode, 2000);
-            ApiAssertion.verifySchema(response, "src/test/resources/testdata/GetUserSchemaAfterDelete.json");
+            ApiAssertion.verifySchema(response, "src/test/resources/filetest/GetUserSchemaAfterDelete.json");
             VerifyDataBookBody.verifyDataBodyBook(response, book);
             VerifyDataBookBody.verifyAllHeaders(response);
         }

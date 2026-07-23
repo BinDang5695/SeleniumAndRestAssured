@@ -1,53 +1,75 @@
 package ui.testcases;
 
+import constants.CRM;
 import constants.CRM.Menu;
-import models.ui.Contact;
-import models.ui.Customer;
-import ui.common.BaseTest;
 import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ui.testdata.ContactData;
-import ui.testdata.CustomerData;
-
-import static settings.keywords.WebUI.acceptAlert;
+import ui.common.BaseTest;
+import testdata.ui.Contact;
+import testdata.ui.Customer;
 
 public class CustomerTest extends BaseTest {
 
+    private final models.ui.Customer customer = Customer.getCustomer();
+    private final models.ui.Contact contact = Contact.getContact();
+
     @Epic("Regression Test")
-    @Feature("Add New Customer")
+    @Feature("Create, verify")
     @Story("Customer")
-    @Owner("Bin Tester")
+    @Owner("Bin Tester dz")
     @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Jira", url = "https://anhtester.atlassian.net/browse/CRM-4")
-    @Issue("CRM-4")
-    @Description("Add new Customer, verify and delete Customer")
-    @Test(priority = 0)
-    public void manageCustomer() {
-        Customer customer = CustomerData.getCustomer();
-        Contact contact = ContactData.getContact();
-        dashboardPage().verifyDashboardPage("Invoices Awaiting Payment", "3 / 5");
-        clickByMenuName(Menu.CUSTOMERS);
+    @Description("Create Customer Successfully")
+    @Test(priority = 1)
+    public void CUSTOMER_001_CreateCustomerSuccessfully() {
+        basePage().clickByMenuName(Menu.CUSTOMERS);
         int beforeTotal = customerPage().getTotalCustomers();
-        customerPage().clickbuttonAddNewCustomer();
-        customerPage().addNewCustomer(customer);
+        customerPage().clickButtonAddNewCustomer();
+        customerPage().inputToAddNewCustomer(customer);
+        customerPage().clickButtonSave();
         customerPage().verifyCustomerAdded(customer);
-        clickByLinkText(Menu.CONTACTS);
-        contactsPage().clickButtonNewContact();
-        contactsPage().addNewContact(contact);
-        contactsPage().verifyCreatedContact();
-        contactsPage().clickCreatedContact(contact);
-        contactsPage().verifyCreatedContact(contact);
-        contactsPage().clickButtonClosePopup();
-        clickByMenuText(Menu.CUSTOMERS);
-        customerPage().searchCustomer(customer);
+        basePage().clickByMenuName(Menu.CUSTOMERS);
         int afterTotal = customerPage().getTotalCustomers();
-        Assert.assertEquals(afterTotal, beforeTotal + 1, "Total customers should be increased by 1 after adding a new customer.");
-        customerPage().moveToCompanyName(customer);
-        clickButtonDelete();
-        acceptAlert();
-        clickButtonX();
-        customerPage().verifyCustomerDeleted(customer);
+        Assert.assertEquals(afterTotal, beforeTotal + 1, "Total customers should increase by 1.");
     }
 
+    @Epic("Regression Test")
+    @Feature("Create, verify")
+    @Story("Contact")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Create Contact Successfully")
+    @Test(priority = 2)
+    public void CONTACT_001_CreateContactSuccessfully() {
+        basePage().clickByMenuName(Menu.CUSTOMERS);
+        customerPage().searchCustomer(customer.getCompany());
+        customerPage().moveToCompanyName(customer.getCompany());
+        basePage().clickButtonView();
+        basePage().clickByLinkText(Menu.CONTACTS);
+        contactsPage().clickButtonNewContact();
+        contactsPage().inputToAddNewContact(contact);
+        contactsPage().clickButtonSave();
+        contactsPage().verifyAlertCreatedContact();
+        contactsPage().clickCreatedContact(contact);
+        contactsPage().verifyCreatedContact(contact);
+    }
+
+    @Epic("Regression Test")
+    @Feature("Delete, verify")
+    @Story("Customer")
+    @Owner("Bin Tester dz")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Delete Customer Successfully")
+    @Test(priority = 3)
+    public void CUSTOMER_002_DeleteCustomerSuccessfully() {
+        basePage().clickByMenuName(Menu.CUSTOMERS);
+        int beforeTotal = customerPage().getTotalCustomers();
+        customerPage().searchCustomer(customer.getCompany());
+        customerPage().moveToCompanyName(customer.getCompany());
+        basePage().deleteRecordAfterHover();
+        customerPage().searchCustomer(customer.getCompany());
+        basePage().verifyNoItems(CRM.Message.NO_MATCHING_RECORDS_FOUND);
+        int afterTotal = customerPage().getTotalCustomers();
+        Assert.assertEquals(afterTotal, beforeTotal - 1, "Total customers should decrease by 1.");
+    }
 }
