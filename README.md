@@ -292,8 +292,6 @@ src/test/resources/configs/
     ├── ui.properties
     └── api.properties
 ```
-<img width="478" height="321" alt="image" src="https://github.com/user-attachments/assets/d49eb99f-3549-49e6-9a1c-7b2a0ec8a8ab" />
-<img width="485" height="161" alt="image" src="https://github.com/user-attachments/assets/52af9692-5566-4025-80c3-5b635dccf452" />
 
 ---
 
