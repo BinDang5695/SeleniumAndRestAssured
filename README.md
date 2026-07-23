@@ -162,6 +162,7 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 │           ├── filetest/                                         # Test files for upload/download
 │           ├── suites/
 │           │   ├── API_SuiteRegressionTest.xml                   # API regression suite
+│           │   └── UI_LoginTest.xml                              # UI regression login
 │           │   └── UI_SuiteRegressionTest.xml                    # UI regression suite
 │           │   └── UI_SuiteRegressionTestParallel.xml            # UI regression suite parallel
 ├── target/                                                       # Maven build output directory
