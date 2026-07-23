@@ -1,0 +1,1 @@
+Click on element By.xpath: //label[@for='allow_comments']

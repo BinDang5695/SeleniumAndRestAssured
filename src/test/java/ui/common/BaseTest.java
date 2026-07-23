@@ -1,5 +1,6 @@
 package ui.common;
 
+import io.qameta.allure.testng.AllureTestNg;
 import ui.auth.AuthManager;
 import settings.drivers.DriverFactory;
 import settings.drivers.DriverManager;
@@ -12,7 +13,7 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
-@Listeners(TestListener.class)
+@Listeners({TestListener.class, AllureTestNg.class})
 public class BaseTest extends BasePage {
 
         @BeforeSuite

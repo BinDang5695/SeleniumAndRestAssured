@@ -1,0 +1,1297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="11" total="64" passed="52" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-07-23T16:02:15 ICT" name="Test UI" finished-at="2026-07-23T16:13:28 ICT" duration-ms="672688">
+    <groups>
+    </groups>
+    <test started-at="2026-07-23T16:02:15 ICT" name="Regression Test with Chrome" finished-at="2026-07-23T16:13:28 ICT" duration-ms="672688">
+      <class name="ui.testcases.ItemsTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ItemsTest@46731692]" started-at="2026-07-23T16:12:41 ICT" name="createDriver" finished-at="2026-07-23T16:12:45 ICT" duration-ms="3645" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="ITEM_001_ImportItemSuccessfully()[pri:1, instance:ui.testcases.ItemsTest@46731692]" started-at="2026-07-23T16:12:45 ICT" name="ITEM_001_ImportItemSuccessfully" finished-at="2026-07-23T16:12:50 ICT" duration-ms="5245" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ITEM_001_ImportItemSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ItemsTest@46731692]" started-at="2026-07-23T16:12:51 ICT" name="closeDriver" finished-at="2026-07-23T16:12:53 ICT" duration-ms="1826" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ItemsTest@46731692]" started-at="2026-07-23T16:12:53 ICT" name="createDriver" finished-at="2026-07-23T16:12:57 ICT" duration-ms="3599" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="ITEM_002_DeleteItemSuccessfully()[pri:2, instance:ui.testcases.ItemsTest@46731692]" started-at="2026-07-23T16:12:57 ICT" name="ITEM_002_DeleteItemSuccessfully" finished-at="2026-07-23T16:13:04 ICT" duration-ms="7122" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ITEM_002_DeleteItemSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ItemsTest@46731692]" started-at="2026-07-23T16:13:05 ICT" name="closeDriver" finished-at="2026-07-23T16:13:05 ICT" duration-ms="215" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.ItemsTest -->
+      <class name="ui.testcases.ProjectTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ProjectTest@71466383]" started-at="2026-07-23T16:03:33 ICT" name="createDriver" finished-at="2026-07-23T16:03:37 ICT" duration-ms="3579" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyCreateProject()[pri:1, instance:ui.testcases.ProjectTest@71466383]" started-at="2026-07-23T16:03:37 ICT" name="verifyCreateProject" finished-at="2026-07-23T16:03:43 ICT" duration-ms="6508" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateProject -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ProjectTest@71466383]" started-at="2026-07-23T16:03:44 ICT" name="closeDriver" finished-at="2026-07-23T16:03:45 ICT" duration-ms="213" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ProjectTest@71466383]" started-at="2026-07-23T16:03:45 ICT" name="createDriver" finished-at="2026-07-23T16:03:49 ICT" duration-ms="3917" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyDeleteProject()[pri:1, instance:ui.testcases.ProjectTest@71466383]" started-at="2026-07-23T16:03:49 ICT" name="verifyDeleteProject" finished-at="2026-07-23T16:03:59 ICT" duration-ms="10646" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDeleteProject -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ProjectTest@71466383]" started-at="2026-07-23T16:04:00 ICT" name="closeDriver" finished-at="2026-07-23T16:04:02 ICT" duration-ms="1841" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.ProjectTest -->
+      <class name="ui.testcases.LoginTestByExcelFile">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:36 ICT" name="createDriver" finished-at="2026-07-23T16:02:38 ICT" duration-ms="1775" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="loginSuccess()[pri:1, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:38 ICT" name="loginSuccess" finished-at="2026-07-23T16:02:41 ICT" duration-ms="3701" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSuccess -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:42 ICT" name="closeDriver" finished-at="2026-07-23T16:02:43 ICT" duration-ms="186" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:43 ICT" name="createDriver" finished-at="2026-07-23T16:02:45 ICT" duration-ms="1861" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="loginFailWithInvalidEmail()[pri:2, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:45 ICT" name="loginFailWithInvalidEmail" finished-at="2026-07-23T16:02:46 ICT" duration-ms="1219" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFailWithInvalidEmail -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:47 ICT" name="closeDriver" finished-at="2026-07-23T16:02:47 ICT" duration-ms="148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:47 ICT" name="createDriver" finished-at="2026-07-23T16:02:49 ICT" duration-ms="1953" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="loginFailWithInvalidPassword()[pri:3, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:49 ICT" name="loginFailWithInvalidPassword" finished-at="2026-07-23T16:02:50 ICT" duration-ms="1281" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFailWithInvalidPassword -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:51 ICT" name="closeDriver" finished-at="2026-07-23T16:02:51 ICT" duration-ms="151" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:51 ICT" name="createDriver" finished-at="2026-07-23T16:02:53 ICT" duration-ms="1764" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="loginFailWithEmptyEmail()[pri:4, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:53 ICT" name="loginFailWithEmptyEmail" finished-at="2026-07-23T16:02:54 ICT" duration-ms="1106" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFailWithEmptyEmail -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:55 ICT" name="closeDriver" finished-at="2026-07-23T16:02:56 ICT" duration-ms="157" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:56 ICT" name="createDriver" finished-at="2026-07-23T16:02:57 ICT" duration-ms="1518" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="loginFailWithEmptyPassword()[pri:5, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:57 ICT" name="loginFailWithEmptyPassword" finished-at="2026-07-23T16:02:58 ICT" duration-ms="1259" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFailWithEmptyPassword -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LoginTestByExcelFile@3fbcfe81]" started-at="2026-07-23T16:02:59 ICT" name="closeDriver" finished-at="2026-07-23T16:03:00 ICT" duration-ms="189" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.LoginTestByExcelFile -->
+      <class name="ui.testcases.ProposalsTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:07:04 ICT" name="createDriver" finished-at="2026-07-23T16:07:08 ICT" duration-ms="4073" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyCreateProposal(models.ui.ExportFileType)[pri:1, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:07:08 ICT" name="verifyCreateProposal" data-provider="exportTypes" finished-at="2026-07-23T16:07:41 ICT" duration-ms="32585" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[PDF]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateProposal -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:07:42 ICT" name="closeDriver" finished-at="2026-07-23T16:07:42 ICT" duration-ms="278" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:07:42 ICT" name="createDriver" finished-at="2026-07-23T16:07:46 ICT" duration-ms="3767" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyCreateProposal(models.ui.ExportFileType)[pri:1, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:07:46 ICT" name="verifyCreateProposal" data-provider="exportTypes" finished-at="2026-07-23T16:08:19 ICT" duration-ms="32868" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[EXCEL]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateProposal -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:08:20 ICT" name="closeDriver" finished-at="2026-07-23T16:08:20 ICT" duration-ms="346" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:08:20 ICT" name="createDriver" finished-at="2026-07-23T16:08:25 ICT" duration-ms="4584" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyCreateProposal(models.ui.ExportFileType)[pri:1, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:08:25 ICT" name="verifyCreateProposal" data-provider="exportTypes" finished-at="2026-07-23T16:08:57 ICT" duration-ms="31992" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CSV]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateProposal -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ProposalsTest@1dc76fa1]" started-at="2026-07-23T16:08:58 ICT" name="closeDriver" finished-at="2026-07-23T16:08:58 ICT" duration-ms="260" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.ProposalsTest -->
+      <class name="ui.testcases.LeadsTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LeadsTest@10895b16]" started-at="2026-07-23T16:13:05 ICT" name="createDriver" finished-at="2026-07-23T16:13:09 ICT" duration-ms="3514" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="LEAD_001_CreateMultipleLeadsSuccessfully()[pri:1, instance:ui.testcases.LeadsTest@10895b16]" started-at="2026-07-23T16:13:09 ICT" name="LEAD_001_CreateMultipleLeadsSuccessfully" finished-at="2026-07-23T16:13:18 ICT" duration-ms="9198" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LEAD_001_CreateMultipleLeadsSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LeadsTest@10895b16]" started-at="2026-07-23T16:13:19 ICT" name="closeDriver" finished-at="2026-07-23T16:13:19 ICT" duration-ms="174" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LeadsTest@10895b16]" started-at="2026-07-23T16:13:19 ICT" name="createDriver" finished-at="2026-07-23T16:13:24 ICT" duration-ms="4418" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="LEAD_002_DeleteMultipleLeadsSuccessfully()[pri:2, instance:ui.testcases.LeadsTest@10895b16]" started-at="2026-07-23T16:13:24 ICT" name="LEAD_002_DeleteMultipleLeadsSuccessfully" finished-at="2026-07-23T16:13:27 ICT" duration-ms="3167" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LEAD_002_DeleteMultipleLeadsSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LeadsTest@10895b16]" started-at="2026-07-23T16:13:28 ICT" name="closeDriver" finished-at="2026-07-23T16:13:28 ICT" duration-ms="240" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.LeadsTest -->
+      <class name="ui.testcases.LoginTest">
+        <test-method is-config="true" signature="setUpEnvironment()[pri:0, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:15 ICT" name="setUpEnvironment" finished-at="2026-07-23T16:02:15 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpEnvironment -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:17 ICT" name="createDriver" finished-at="2026-07-23T16:02:19 ICT" duration-ms="2821" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="loginSuccess(java.lang.String,java.lang.String)[pri:1, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:20 ICT" name="loginSuccess" data-provider="data_provider_login_success" finished-at="2026-07-23T16:02:25 ICT" duration-ms="4813" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@example.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSuccess -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:26 ICT" name="closeDriver" finished-at="2026-07-23T16:02:26 ICT" duration-ms="444" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:26 ICT" name="createDriver" finished-at="2026-07-23T16:02:29 ICT" duration-ms="2381" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="loginFailWithInvalidEmail(java.lang.String,java.lang.String)[pri:2, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:29 ICT" name="loginFailWithInvalidEmail" data-provider="data_provider_login_fail_invalid_email" finished-at="2026-07-23T16:02:30 ICT" duration-ms="1615" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin123@example.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFailWithInvalidEmail -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:31 ICT" name="closeDriver" finished-at="2026-07-23T16:02:32 ICT" duration-ms="172" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:32 ICT" name="createDriver" finished-at="2026-07-23T16:02:33 ICT" duration-ms="1674" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="loginFailWithInvalidPassword(java.lang.String,java.lang.String)[pri:3, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:33 ICT" name="loginFailWithInvalidPassword" data-provider="data_provider_login_fail_invalid_password" finished-at="2026-07-23T16:02:35 ICT" duration-ms="1330" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@example.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFailWithInvalidPassword -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.LoginTest@3c46dcbe]" started-at="2026-07-23T16:02:36 ICT" name="closeDriver" finished-at="2026-07-23T16:02:36 ICT" duration-ms="174" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.LoginTest -->
+      <class name="ui.testcases.TaskTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:02 ICT" name="createDriver" finished-at="2026-07-23T16:04:06 ICT" duration-ms="3593" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyNavigateToTaskKanban()[pri:1, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:06 ICT" name="verifyNavigateToTaskKanban" finished-at="2026-07-23T16:04:07 ICT" duration-ms="1145" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyNavigateToTaskKanban -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:08 ICT" name="closeDriver" finished-at="2026-07-23T16:04:08 ICT" duration-ms="203" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:08 ICT" name="createDriver" finished-at="2026-07-23T16:04:12 ICT" duration-ms="3880" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyCreateTask()[pri:2, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:12 ICT" name="verifyCreateTask" finished-at="2026-07-23T16:04:15 ICT" duration-ms="3100" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateTask -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:16 ICT" name="closeDriver" finished-at="2026-07-23T16:04:17 ICT" duration-ms="209" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:17 ICT" name="createDriver" finished-at="2026-07-23T16:04:20 ICT" duration-ms="3693" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyCompleteTask()[pri:3, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:20 ICT" name="verifyCompleteTask" finished-at="2026-07-23T16:04:29 ICT" duration-ms="9010" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCompleteTask -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:30 ICT" name="closeDriver" finished-at="2026-07-23T16:04:31 ICT" duration-ms="215" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:31 ICT" name="createDriver" finished-at="2026-07-23T16:04:34 ICT" duration-ms="3828" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyEditTask()[pri:4, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:34 ICT" name="verifyEditTask" finished-at="2026-07-23T16:04:41 ICT" duration-ms="6507" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEditTask -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:42 ICT" name="closeDriver" finished-at="2026-07-23T16:04:42 ICT" duration-ms="231" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:42 ICT" name="createDriver" finished-at="2026-07-23T16:04:46 ICT" duration-ms="3770" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyDragDropTask()[pri:5, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:46 ICT" name="verifyDragDropTask" finished-at="2026-07-23T16:04:52 ICT" duration-ms="5680" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDragDropTask -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:53 ICT" name="closeDriver" finished-at="2026-07-23T16:04:53 ICT" duration-ms="202" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:53 ICT" name="createDriver" finished-at="2026-07-23T16:04:56 ICT" duration-ms="3180" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyDeleteTask()[pri:6, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:04:56 ICT" name="verifyDeleteTask" finished-at="2026-07-23T16:05:03 ICT" duration-ms="6469" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDeleteTask -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.TaskTest@23592946]" started-at="2026-07-23T16:05:04 ICT" name="closeDriver" finished-at="2026-07-23T16:05:04 ICT" duration-ms="201" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.TaskTest -->
+      <class name="ui.testcases.AddCustomerByJsonFile">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:04 ICT" name="createDriver" finished-at="2026-07-23T16:09:08 ICT" duration-ms="3879" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:08 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:09:16 ICT" duration-ms="8113" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with only required Company, data=CustomerDataDriven(company=Create customer with only required Company, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=null, language=null, address=null, city=null, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:17 ICT" name="closeDriver" finished-at="2026-07-23T16:09:17 ICT" duration-ms="220" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:17 ICT" name="createDriver" finished-at="2026-07-23T16:09:20 ICT" duration-ms="3028" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:20 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:09:31 ICT" duration-ms="10920" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with all fields, data=CustomerDataDriven(company=All fields, vatNumber=123456789, phoneNumber=0123456789, website=https://nashtech.com.vn, group=VIP, currencySymbol=€, language=Vietnamese, address=123 Street, Hanoi, city=Hanoi, state=Hoan Kiem, zipCode=100000, country=Vietnam), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:32 ICT" name="closeDriver" finished-at="2026-07-23T16:09:32 ICT" duration-ms="300" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:32 ICT" name="createDriver" finished-at="2026-07-23T16:09:37 ICT" duration-ms="4274" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:37 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:09:45 ICT" duration-ms="8548" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer - with VAT only, data=CustomerDataDriven(company=1 - VAT, vatNumber=123456789, phoneNumber=null, website=null, group=null, currencySymbol=null, language=null, address=null, city=null, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:46 ICT" name="closeDriver" finished-at="2026-07-23T16:09:46 ICT" duration-ms="220" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:46 ICT" name="createDriver" finished-at="2026-07-23T16:09:50 ICT" duration-ms="3599" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:50 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:09:58 ICT" duration-ms="8178" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer - with Phone only, data=CustomerDataDriven(company=2 - Phone, vatNumber=null, phoneNumber=0123456789, website=null, group=null, currencySymbol=null, language=null, address=null, city=null, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:09:59 ICT" name="closeDriver" finished-at="2026-07-23T16:10:00 ICT" duration-ms="231" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:00 ICT" name="createDriver" finished-at="2026-07-23T16:10:03 ICT" duration-ms="3496" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:03 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:10:11 ICT" duration-ms="8180" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Website only, data=CustomerDataDriven(company=3 - Website, vatNumber=null, phoneNumber=null, website=https://example.com, group=null, currencySymbol=null, language=null, address=null, city=null, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:12 ICT" name="closeDriver" finished-at="2026-07-23T16:10:13 ICT" duration-ms="205" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:13 ICT" name="createDriver" finished-at="2026-07-23T16:10:16 ICT" duration-ms="3396" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:16 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:10:25 ICT" duration-ms="8976" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Group only, data=CustomerDataDriven(company=4 - Group, vatNumber=null, phoneNumber=null, website=null, group=VIP, currencySymbol=null, language=null, address=null, city=null, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:26 ICT" name="closeDriver" finished-at="2026-07-23T16:10:26 ICT" duration-ms="220" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:26 ICT" name="createDriver" finished-at="2026-07-23T16:10:30 ICT" duration-ms="3880" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:30 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:10:39 ICT" duration-ms="8389" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Currency only, data=CustomerDataDriven(company=5 - Currency, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=$, language=null, address=null, city=null, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:40 ICT" name="closeDriver" finished-at="2026-07-23T16:10:40 ICT" duration-ms="214" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:40 ICT" name="createDriver" finished-at="2026-07-23T16:10:43 ICT" duration-ms="3664" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:43 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:10:52 ICT" duration-ms="8438" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Language only, data=CustomerDataDriven(company=6 - Language, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=null, language=English, address=null, city=null, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:53 ICT" name="closeDriver" finished-at="2026-07-23T16:10:53 ICT" duration-ms="243" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:53 ICT" name="createDriver" finished-at="2026-07-23T16:10:57 ICT" duration-ms="3850" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:10:57 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:11:08 ICT" duration-ms="10423" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Address info, data=CustomerDataDriven(company=7 - Address, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=null, language=null, address=123 Street, city=Hanoi, state=Hoan Kiem, zipCode=100000, country=Vietnam), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:09 ICT" name="closeDriver" finished-at="2026-07-23T16:11:09 ICT" duration-ms="484" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:09 ICT" name="createDriver" finished-at="2026-07-23T16:11:14 ICT" duration-ms="4953" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:14 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:11:24 ICT" duration-ms="9681" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Address + Contact info, data=CustomerDataDriven(company=8 - Address + Contact, vatNumber=null, phoneNumber=0987654321, website=null, group=null, currencySymbol=null, language=null, address=456 Nguyen Trai, city=Hanoi, state=Hoan Kiem, zipCode=100000, country=Vietnam), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:25 ICT" name="closeDriver" finished-at="2026-07-23T16:11:25 ICT" duration-ms="373" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:25 ICT" name="createDriver" finished-at="2026-07-23T16:11:31 ICT" duration-ms="5230" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:31 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:11:39 ICT" duration-ms="8265" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Address only, data=CustomerDataDriven(company=9 - Address, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=null, language=null, address=123 Street, city=null, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:40 ICT" name="closeDriver" finished-at="2026-07-23T16:11:40 ICT" duration-ms="235" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:40 ICT" name="createDriver" finished-at="2026-07-23T16:11:44 ICT" duration-ms="3468" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:44 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:11:52 ICT" duration-ms="8529" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with City only, data=CustomerDataDriven(company=10 - City, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=null, language=null, address=null, city=Hanoi, state=null, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:53 ICT" name="closeDriver" finished-at="2026-07-23T16:11:53 ICT" duration-ms="198" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:53 ICT" name="createDriver" finished-at="2026-07-23T16:11:57 ICT" duration-ms="4031" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:11:57 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:12:06 ICT" duration-ms="8188" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with State only, data=CustomerDataDriven(company=11 - State, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=null, language=null, address=null, city=null, state=Hoan Kiem, zipCode=null, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:07 ICT" name="closeDriver" finished-at="2026-07-23T16:12:07 ICT" duration-ms="192" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:07 ICT" name="createDriver" finished-at="2026-07-23T16:12:11 ICT" duration-ms="3632" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:11 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:12:19 ICT" duration-ms="8355" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Zip only, data=CustomerDataDriven(company=12 - Zip, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=null, language=null, address=null, city=null, state=null, zipCode=100000, country=null), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:20 ICT" name="closeDriver" finished-at="2026-07-23T16:12:20 ICT" duration-ms="187" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:20 ICT" name="createDriver" finished-at="2026-07-23T16:12:24 ICT" duration-ms="3897" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:24 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:12:33 ICT" duration-ms="8877" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer with Country only, data=CustomerDataDriven(company=13 - Country, vatNumber=null, phoneNumber=null, website=null, group=null, currencySymbol=null, language=null, address=null, city=null, state=null, zipCode=null, country=Vietnam), expectedType=success, expectedMessage=null)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:34 ICT" name="closeDriver" finished-at="2026-07-23T16:12:34 ICT" duration-ms="199" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:34 ICT" name="createDriver" finished-at="2026-07-23T16:12:38 ICT" duration-ms="4235" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="manageCustomer(models.ui.CustomerCase)[pri:1, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:38 ICT" name="manageCustomer" data-provider="customerData" finished-at="2026-07-23T16:12:40 ICT" duration-ms="1606" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CustomerCase(title=Create customer without Company, data=CustomerDataDriven(company=null, vatNumber=null, phoneNumber=0123456789, website=null, group=null, currencySymbol=null, language=null, address=null, city=null, state=null, zipCode=null, country=null), expectedType=error, expectedMessage=This field is required.)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- manageCustomer -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.AddCustomerByJsonFile@33d53216]" started-at="2026-07-23T16:12:41 ICT" name="closeDriver" finished-at="2026-07-23T16:12:41 ICT" duration-ms="189" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.AddCustomerByJsonFile -->
+      <class name="ui.testcases.DashboardTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.DashboardTest@5eed2d86]" started-at="2026-07-23T16:08:58 ICT" name="createDriver" finished-at="2026-07-23T16:09:02 ICT" duration-ms="3899" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="verifyDashboard()[pri:1, instance:ui.testcases.DashboardTest@5eed2d86]" started-at="2026-07-23T16:09:02 ICT" name="verifyDashboard" finished-at="2026-07-23T16:09:02 ICT" duration-ms="393" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDashboard -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.DashboardTest@5eed2d86]" started-at="2026-07-23T16:09:03 ICT" name="closeDriver" finished-at="2026-07-23T16:09:04 ICT" duration-ms="213" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.DashboardTest -->
+      <class name="ui.testcases.ExpensesTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:05:44 ICT" name="createDriver" finished-at="2026-07-23T16:05:48 ICT" duration-ms="3884" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="EXPENSE_001_CreateExpenseSuccessfully()[pri:1, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:05:48 ICT" name="EXPENSE_001_CreateExpenseSuccessfully" finished-at="2026-07-23T16:06:03 ICT" duration-ms="15008" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EXPENSE_001_CreateExpenseSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:04 ICT" name="closeDriver" finished-at="2026-07-23T16:06:05 ICT" duration-ms="283" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:05 ICT" name="createDriver" finished-at="2026-07-23T16:06:09 ICT" duration-ms="4012" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="EXPENSE_002_UpdateExpenseSuccessfully()[pri:2, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:09 ICT" name="EXPENSE_002_UpdateExpenseSuccessfully" finished-at="2026-07-23T16:06:15 ICT" duration-ms="5751" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EXPENSE_002_UpdateExpenseSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:16 ICT" name="closeDriver" finished-at="2026-07-23T16:06:16 ICT" duration-ms="205" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:16 ICT" name="createDriver" finished-at="2026-07-23T16:06:20 ICT" duration-ms="3723" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="EXPENSE_003_DeleteExpenseSuccessfully()[pri:3, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:20 ICT" name="EXPENSE_003_DeleteExpenseSuccessfully" finished-at="2026-07-23T16:06:25 ICT" duration-ms="5476" status="FAIL">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>
+              <![CDATA[stale element reference: stale element not found in the current frame
+  (Session info: chrome=150.0.7871.129)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.14'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e18a59b2852eb994184a43f63ca01a0c, getElementText {id=f.DC56D17BD6D28A4B7DDF2BBED5100C5E.d.1FF74BE59DFBDE71FBC06D16218475CD.e.478}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 150.0.7871.129, chrome: {chromedriverVersion: 150.0.7871.124 (9261fd0a595..., userDataDir: C:\Users\BINDAN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56974}, goog:processID: 11164, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56974/devtoo..., se:cdpVersion: 150.0.7871.129, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e18a59b2852eb994184a43f63ca01a0c)] -> xpath: //td[@class='dataTables_empty']]
+Session ID: e18a59b2852eb994184a43f63ca01a0c]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=150.0.7871.129)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.14'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e18a59b2852eb994184a43f63ca01a0c, getElementText {id=f.DC56D17BD6D28A4B7DDF2BBED5100C5E.d.1FF74BE59DFBDE71FBC06D16218475CD.e.478}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 150.0.7871.129, chrome: {chromedriverVersion: 150.0.7871.124 (9261fd0a595..., userDataDir: C:\Users\BINDAN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56974}, goog:processID: 11164, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56974/devtoo..., se:cdpVersion: 150.0.7871.129, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e18a59b2852eb994184a43f63ca01a0c)] -> xpath: //td[@class='dataTables_empty']]
+Session ID: e18a59b2852eb994184a43f63ca01a0c
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
+at settings.keywords.WebUI.getTextElement(WebUI.java:183)
+at ui.common.BasePage.verifyNoItems(BasePage.java:209)
+at ui.testcases.ExpensesTest.EXPENSE_003_DeleteExpenseSuccessfully(ExpensesTest.java:60)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EXPENSE_003_DeleteExpenseSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:26 ICT" name="closeDriver" finished-at="2026-07-23T16:06:27 ICT" duration-ms="214" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:27 ICT" name="createDriver" finished-at="2026-07-23T16:06:30 ICT" duration-ms="3687" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="EXPENSE_004_VerifyExpenseTooltipInInvoice()[pri:4, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:30 ICT" name="EXPENSE_004_VerifyExpenseTooltipInInvoice" finished-at="2026-07-23T16:06:35 ICT" duration-ms="4840" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EXPENSE_004_VerifyExpenseTooltipInInvoice -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ExpensesTest@5c73f672]" started-at="2026-07-23T16:06:36 ICT" name="closeDriver" finished-at="2026-07-23T16:06:36 ICT" duration-ms="208" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.ExpensesTest -->
+      <class name="ui.testcases.CustomerTest">
+        <test-method is-config="true" signature="setUpEnvironment()[pri:0, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:02:15 ICT" name="setUpEnvironment" finished-at="2026-07-23T16:02:15 ICT" duration-ms="36" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpEnvironment -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:00 ICT" name="createDriver" finished-at="2026-07-23T16:03:04 ICT" duration-ms="4683" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="CUSTOMER_001_CreateCustomerSuccessfully()[pri:1, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:04 ICT" name="CUSTOMER_001_CreateCustomerSuccessfully" finished-at="2026-07-23T16:03:07 ICT" duration-ms="2490" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CUSTOMER_001_CreateCustomerSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:08 ICT" name="closeDriver" finished-at="2026-07-23T16:03:08 ICT" duration-ms="190" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:08 ICT" name="createDriver" finished-at="2026-07-23T16:03:12 ICT" duration-ms="3747" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="CONTACT_001_CreateContactSuccessfully()[pri:2, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:12 ICT" name="CONTACT_001_CreateContactSuccessfully" finished-at="2026-07-23T16:03:20 ICT" duration-ms="8187" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CONTACT_001_CreateContactSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:21 ICT" name="closeDriver" finished-at="2026-07-23T16:03:21 ICT" duration-ms="222" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:21 ICT" name="createDriver" finished-at="2026-07-23T16:03:25 ICT" duration-ms="3983" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="CUSTOMER_002_DeleteCustomerSuccessfully()[pri:3, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:25 ICT" name="CUSTOMER_002_DeleteCustomerSuccessfully" finished-at="2026-07-23T16:03:32 ICT" duration-ms="6533" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CUSTOMER_002_DeleteCustomerSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.CustomerTest@4096aa05]" started-at="2026-07-23T16:03:33 ICT" name="closeDriver" finished-at="2026-07-23T16:03:33 ICT" duration-ms="220" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.CustomerTest -->
+      <class name="ui.testcases.KnowledgeBaseTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:06:36 ICT" name="createDriver" finished-at="2026-07-23T16:06:40 ICT" duration-ms="3252" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="KNOWLEDGE_BASE_001_CreateArticleSuccessfully()[pri:1, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:06:40 ICT" name="KNOWLEDGE_BASE_001_CreateArticleSuccessfully" finished-at="2026-07-23T16:06:42 ICT" duration-ms="2675" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- KNOWLEDGE_BASE_001_CreateArticleSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:06:43 ICT" name="closeDriver" finished-at="2026-07-23T16:06:44 ICT" duration-ms="204" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:06:44 ICT" name="createDriver" finished-at="2026-07-23T16:06:48 ICT" duration-ms="4006" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="KNOWLEDGE_BASE_002_ViewArticleSuccessfully()[pri:2, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:06:48 ICT" name="KNOWLEDGE_BASE_002_ViewArticleSuccessfully" finished-at="2026-07-23T16:06:53 ICT" duration-ms="5565" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- KNOWLEDGE_BASE_002_ViewArticleSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:06:54 ICT" name="closeDriver" finished-at="2026-07-23T16:06:54 ICT" duration-ms="218" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:06:54 ICT" name="createDriver" finished-at="2026-07-23T16:06:58 ICT" duration-ms="3327" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="KNOWLEDGE_BASE_004_DeleteArticleSuccessfully()[pri:3, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:06:58 ICT" name="KNOWLEDGE_BASE_004_DeleteArticleSuccessfully" finished-at="2026-07-23T16:07:03 ICT" duration-ms="4838" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- KNOWLEDGE_BASE_004_DeleteArticleSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.KnowledgeBaseTest@2f508f3c]" started-at="2026-07-23T16:07:04 ICT" name="closeDriver" finished-at="2026-07-23T16:07:04 ICT" duration-ms="189" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.KnowledgeBaseTest -->
+      <class name="ui.testcases.ContractsTest">
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:04 ICT" name="createDriver" finished-at="2026-07-23T16:05:07 ICT" duration-ms="3263" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="CONTRACT_001_CreateContractSuccessfully()[pri:1, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:07 ICT" name="CONTRACT_001_CreateContractSuccessfully" finished-at="2026-07-23T16:05:14 ICT" duration-ms="7191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CONTRACT_001_CreateContractSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:16 ICT" name="closeDriver" finished-at="2026-07-23T16:05:16 ICT" duration-ms="204" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:16 ICT" name="createDriver" finished-at="2026-07-23T16:05:20 ICT" duration-ms="4327" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="CONTRACT_002_UpdateContractSuccessfully()[pri:2, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:20 ICT" name="CONTRACT_002_UpdateContractSuccessfully" finished-at="2026-07-23T16:05:27 ICT" duration-ms="6840" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CONTRACT_002_UpdateContractSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:28 ICT" name="closeDriver" finished-at="2026-07-23T16:05:28 ICT" duration-ms="224" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method is-config="true" signature="createDriver(java.lang.String)[pri:0, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:28 ICT" name="createDriver" finished-at="2026-07-23T16:05:32 ICT" duration-ms="4005" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createDriver -->
+        <test-method signature="CONTRACT_003_DeleteContractSuccessfully()[pri:3, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:32 ICT" name="CONTRACT_003_DeleteContractSuccessfully" finished-at="2026-07-23T16:05:43 ICT" duration-ms="10839" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CONTRACT_003_DeleteContractSuccessfully -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:ui.testcases.ContractsTest@5833f5cd]" started-at="2026-07-23T16:05:44 ICT" name="closeDriver" finished-at="2026-07-23T16:05:44 ICT" duration-ms="313" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ui.testcases.ContractsTest -->
+    </test> <!-- Regression Test with Chrome -->
+  </suite> <!-- Test UI -->
+</testng-results>

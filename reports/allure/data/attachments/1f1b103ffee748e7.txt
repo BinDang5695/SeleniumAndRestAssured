@@ -1,0 +1,1 @@
+Click on element By.xpath: //li[contains(@class,'menu')]//div[normalize-space()='Selenium']

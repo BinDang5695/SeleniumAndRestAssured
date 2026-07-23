@@ -1,0 +1,1 @@
+Click on element By.xpath: //div[@class='row-options']//a[contains(text(),'Edit')]

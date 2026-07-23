@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite Regression Test">
+<suite name="Test UI">
 
     <test name="Regression Test with Chrome">
         <parameter name="browser" value="chrome"/>

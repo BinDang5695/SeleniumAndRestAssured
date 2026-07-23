@@ -1,0 +1,1 @@
+Click on element By.xpath: //div[@class='panel-footer text-right']//button[@type='submit'][normalize-space()='Save']

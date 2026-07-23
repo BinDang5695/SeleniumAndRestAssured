@@ -1,5 +1,6 @@
 package ui.common;
 
+import io.qameta.allure.testng.AllureTestNg;
 import settings.drivers.DriverFactory;
 import settings.drivers.DriverManager;
 import settings.helpers.PropertiesHelper;
@@ -10,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import java.time.Duration;
 
-@Listeners(TestListener.class)
+@Listeners({TestListener.class, AllureTestNg.class})
 public class BaseTestNotLogin extends BasePage {
 
     @BeforeSuite
