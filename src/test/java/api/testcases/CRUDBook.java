@@ -25,10 +25,9 @@ public class CRUDBook extends BaseTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Regression Test")
-    @Feature("Book Test")
-    @Story("Test Add New Book")
-    @Description("Add new Book")
-    @Link("https://jira.com/anhtester/apitest/user/10")
+    @Feature("Create, verify")
+    @Story("Book")
+    @Description("Add new Book and verify response of created Book")
     @Test(priority = 1)
     public void testAddNewBook() {
 
@@ -44,6 +43,11 @@ public class CRUDBook extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Book")
+    @Description("Read Book and verify response of created Book")
     @Test(priority = 2)
     public void getBook(){
         LogUtils.info("ID: " + book.getId());
@@ -54,6 +58,11 @@ public class CRUDBook extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Update, verify")
+    @Story("Book")
+    @Description("Update Book and verify response of updated Book")
     @Test(priority = 3)
     public void putBook() throws Exception {
 
@@ -69,6 +78,11 @@ public class CRUDBook extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Book")
+    @Description("Read Book and verify response of updated Book")
     @Test(priority = 4)
     public void getBookAfterPut(){
         LogUtils.info("ID: " + book.getId());
@@ -79,6 +93,11 @@ public class CRUDBook extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Delete, verify")
+    @Story("Book")
+    @Description("Delete Book and verify response of updated Book")
     @Test(priority = 5)
     public void deleteBook(){
 
@@ -88,6 +107,11 @@ public class CRUDBook extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Book")
+    @Description("Read Book and verify response of deleted Book")
     @Test(priority = 6)
     public void getAfterDeleteBook() {
 

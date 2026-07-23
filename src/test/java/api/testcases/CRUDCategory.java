@@ -25,10 +25,9 @@ public class CRUDCategory extends BaseTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Regression Test")
-    @Feature("Category Test")
-    @Story("Test Add New Category")
-    @Description("Add new Category")
-    @Link("https://jira.com/anhtester/apitest/user/10")
+    @Feature("Category, verify")
+    @Story("Category")
+    @Description("Add new Category and verify response of created Category")
     @Test(priority = 1)
     public void testAddNewCategory() {
 
@@ -42,6 +41,11 @@ public class CRUDCategory extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Category")
+    @Description("Read Category and verify response of created Category")
     @Test(priority = 2)
     public void getCategory(){
         LogUtils.info("USER_NAME: " + category.getName());
@@ -52,6 +56,11 @@ public class CRUDCategory extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Update, verify")
+    @Story("Category")
+    @Description("Update Category and verify response of updated Category")
     @Test(priority = 3)
     public void putCategory() throws Exception {
 
@@ -67,6 +76,11 @@ public class CRUDCategory extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Category")
+    @Description("Read Category and verify response of updated Category")
     @Test(priority = 4)
     public void getCategoryAfterPut(){
         LogUtils.info("USER_NAME: " + category.getName());
@@ -77,6 +91,11 @@ public class CRUDCategory extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Delete, verify")
+    @Story("Category")
+    @Description("Delete Category and verify response of updated Category")
     @Test(priority = 5)
     public void deleteCategory(){
 
@@ -86,6 +105,11 @@ public class CRUDCategory extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Category")
+    @Description("Read Category and verify response of deleted Category")
     @Test(priority = 6)
     public void getAfterDeleteCategory() {
 

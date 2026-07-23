@@ -1,6 +1,5 @@
 package testdata.api;
 
-import models.api.RegisterUser;
 import net.datafaker.Faker;
 
 import java.util.Locale;
@@ -9,9 +8,9 @@ public class User {
 
     private static final Faker faker = new Faker(new Locale("en"));
 
-    public static RegisterUser getDataToCreateUser() {
+    public static models.api.User getDataToCreateUser() {
         int suffix = faker.number().numberBetween(1000, 10000);
-        return RegisterUser.builder()
+        return models.api.User.builder()
                 .username("bin_tester_" + suffix)
                 .firstName("Bin")
                 .lastName("Tester " + suffix)
@@ -22,9 +21,9 @@ public class User {
                 .build();
     }
 
-    public static RegisterUser createUpdatedUser(RegisterUser oldUser) {
+    public static models.api.User createUpdatedUser(models.api.User oldUser) {
         int suffix = faker.number().numberBetween(1000, 10000);
-        return RegisterUser.builder()
+        return models.api.User.builder()
                 .id(oldUser.getId())
                 .username("bin_tester_updated_" + suffix)
                 .firstName("Bin Updated")

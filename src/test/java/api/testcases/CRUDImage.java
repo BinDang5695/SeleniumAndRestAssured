@@ -24,10 +24,9 @@ public class CRUDImage extends BaseTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Regression Test")
-    @Feature("Image Test")
-    @Story("Test Add New Image")
-    @Description("Add new Image")
-    @Link("https://jira.com/anhtester/apitest/user/10")
+    @Feature("Create, verify")
+    @Story("Image")
+    @Description("Add new Image and verify response of created Image")
     @Test(priority = 1)
     public void testAddNewImage() {
 
@@ -41,6 +40,11 @@ public class CRUDImage extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Image")
+    @Description("Read Image and verify response of created Image")
     @Test(priority = 2)
     public void getImage(){
         LogUtils.info("Id: " + imageresponse.getId());
@@ -51,6 +55,11 @@ public class CRUDImage extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Update, verify")
+    @Story("Image")
+    @Description("Update Image and verify response of updated Image")
     @Test(priority = 3)
     public void putImage() {
 
@@ -64,6 +73,11 @@ public class CRUDImage extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Image")
+    @Description("Read Image and verify response of updated Image")
     @Test(priority = 4)
     public void getImageAfterPut(){
 
@@ -75,6 +89,11 @@ public class CRUDImage extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Delete, verify")
+    @Story("Image")
+    @Description("Delete Image and verify response of updated Image")
     @Test(priority = 5)
     public void deleteImage(){
 
@@ -84,6 +103,11 @@ public class CRUDImage extends BaseTest {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Test")
+    @Feature("Read, verify")
+    @Story("Image")
+    @Description("Read Image and verify response of deleted Image")
     @Test(priority = 6)
     public void getAfterDeleteImage() {
 

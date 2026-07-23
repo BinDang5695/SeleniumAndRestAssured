@@ -13,10 +13,9 @@ public class GETAllBooks extends BaseTest {
     @Test
     @Severity(SeverityLevel.MINOR)
     @Epic("Regression Test")
-    @Feature("Book Test")
-    @Story("Test Get Gook")
-    @Description("Get All Books")
-    @Link("https://jira.com/anhtester/apitest/books/12")
+    @Feature("Read, verify")
+    @Story("Book")
+    @Description("Read all Books")
     public void testGetBooks(){
         Response response = ApiKeyword.get(EndPointGlobal.EP_BOOKS);
         ApiKeyword.verifyStatusCode(response, 200);
