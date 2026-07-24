@@ -11,6 +11,7 @@ The framework follows Page Object Model (POM) design pattern and supports UI aut
 ```text
 ├── .auth/                                                        # Saved authentication states (cookies & local storage)
 ├── .idea/                                                        # IntelliJ IDEA project configuration
+├── allure-results/                                               # Allure raw test results
 ├── downloads/                                                    # Files downloaded during test execution
 ├── exports/                                                      # Generated execution artifacts
 │   ├── logs/                                                     # Execution log files
